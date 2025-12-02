@@ -27,5 +27,8 @@ urlpatterns = [
     path('webdev', views.webdev, name='webdev'),
     path('uiux', views.uiux, name='uiux'),
     path('aidev', views.aidev, name='aidev'),
-    path('css',views.css,name='css')
+    path('css',views.css,name='css'),
+
+    # path('tech', views.tech, name='tech'),
+    path('tech', views.tech , name='tech')
 ]

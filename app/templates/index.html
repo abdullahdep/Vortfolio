@@ -1,35 +1,10 @@
 {% extends 'components/layout.html' %}
 {% load static %}
+</script>
 
 {% block content %}
-    <style>
         
-           .carousel-indicators [data-bs-target] {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            margin: 0 6px;
-            background-color: #fff;
-            border: none;
-            opacity: 0.5;
-            transition: opacity 0.3s ease;
-        }
-
-        .carousel-indicators .active {
-            opacity: 1;
-            background-color: #fff;
-        }
-        .accordion-item {
-            border: none !important;
-        }
-
-        .carousel-caption {
-            padding-top: 1.8rem;
-        }
-        .breadcrumb-container-wrapper{
-            display: none;
-        }
-
+<style>
         /* Accordion Styles */
         .accordion-item {
             border: none !important;
@@ -812,10 +787,10 @@
 
 
 
-<div style="margin-inline: 0vh;">
+<div style="">
     <div>
         <!-- Modern Skills Section with Accordion -->
-        <section class=" py-0.2">
+        <section class=" ">
             <div class="container-fluid">
                 <div class="section-header text-center mb-1">
                     <h2 class="display-4 fw-bold">Services We Offer</h2>
@@ -933,7 +908,7 @@
     </div>
     
     <!-- Replace the existing projects section with this updated version -->
-    <section class="projects-section bg-light py-5">
+    <section class="projects-section bg-light ">
         <div class="container-fluid">
             <div class="row g-4">
                 <!-- Navigation Sidebar -->
@@ -1180,9 +1155,12 @@ click it
                 event.preventDefault();
             }
             lastTouchEnd = now;
+            });
+            });
+        </script>
 
-<!-- Add this script before the closing body tag -->
-<script>
+        <!-- Add this script before the closing body tag -->
+        <script>
     document.addEventListener('DOMContentLoaded', function () {
         // Reveal animations on scroll
         const revealElements = document.querySelectorAll('.reveal');

@@ -528,3 +528,8 @@ def css(request):
 
     }
     return render(request, "css.html" ,context)
+
+
+
+def tech(request):
+    return render (request, "Pages/techonologies details/technologies.html")
