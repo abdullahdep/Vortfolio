@@ -1,6 +1,8 @@
 Django>=4.1,<4.2
 azure-functions
 pymysql
+uvicorn
+uvicorn[standard]
 django-environ
 whitenoise
 gunicorn
@@ -8,6 +10,3 @@ django-template-partials
 django-livereload
 django-allauth
 requests
-uvicorn
-uvicorn[standard]
-
