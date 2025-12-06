@@ -37,12 +37,6 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Collect static files
-        run: |
-          source venv/bin/activate
-          python manage.py collectstatic --noinput
-        env:
-          SECRET_KEY: "dummy-key-for-collectstatic"
       # Optional: Add step to run tests here
 
       - name: Zip artifact for deployment
@@ -77,9 +71,9 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_61EE99DFDA044CF6A3D9C0710F3C9EB1 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_FFEF8C9E222446C9A29ECE49CCF8DAC8 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_8D04056A2A8B4DDFA3C17EAD79C8D979 }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_3F7E570E07A54748AECC259E46FAD86F }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_F5A5A974744D4177B8160B6757DF2C0E }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_C8A54B73CA2243E481F18C490B7E749A }}
 
       - name: 'Deploy to Azure Functions'
         uses: Azure/functions-action@v1
