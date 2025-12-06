@@ -8,3 +8,4 @@ django-template-partials
 django-livereload
 django-allauth
 requests
+uvicorn
