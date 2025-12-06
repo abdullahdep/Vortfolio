@@ -12,7 +12,7 @@ on:
 
 env:
   AZURE_FUNCTIONAPP_PACKAGE_PATH: '.' # set this to the path to your web app project, defaults to the repository root
-  PYTHON_VERSION: '3.14' # set this to the python version to use (supports 3.6, 3.7, 3.8)
+  PYTHON_VERSION: '3.11' # set this to the python version to use
 
 jobs:
   build:
@@ -37,10 +37,16 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      - name: Collect static files
+        run: |
+          source venv/bin/activate
+          python manage.py collectstatic --noinput
+        env:
+          SECRET_KEY: "dummy-key-for-collectstatic"
       # Optional: Add step to run tests here
 
       - name: Zip artifact for deployment
-        run: zip release.zip ./* -r
+        run: zip -r release.zip . -x ".git/*" ".github/*" "venv/*"
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
@@ -63,17 +69,12 @@ jobs:
         with:
           name: python-app
 
-      - name: Unzip artifact for deployment
-        run: |
-          unzip release.zip
-          rm release.zip
-        
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_3F7E570E07A54748AECC259E46FAD86F }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_F5A5A974744D4177B8160B6757DF2C0E }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_C8A54B73CA2243E481F18C490B7E749A }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_61EE99DFDA044CF6A3D9C0710F3C9EB1 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_FFEF8C9E222446C9A29ECE49CCF8DAC8 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_8D04056A2A8B4DDFA3C17EAD79C8D979 }}
 
       - name: 'Deploy to Azure Functions'
         uses: Azure/functions-action@v1
@@ -81,5 +82,5 @@ jobs:
         with:
           app-name: 'Vortfolio-app'
           slot-name: 'Production'
-          package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
+          package: release.zip
           
