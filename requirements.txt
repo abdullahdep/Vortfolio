@@ -9,3 +9,5 @@ django-livereload
 django-allauth
 requests
 uvicorn
+uvicorn[standard]
+
