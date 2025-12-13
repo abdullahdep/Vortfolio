@@ -41,3 +41,40 @@ def logout_view(request):
     return redirect('login')
 
 # logorusr = 'login/sign'
+
+
+
+
+
+
+
+
+
+
+
+
+# views.py
+import json
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+from .models import GeoLog
+
+@csrf_exempt
+def save_location(request):
+    if request.method == "POST":
+        data = json.loads(request.body.decode("utf-8"))
+
+        GeoLog.objects.create(
+            method=data.get("method"),
+            ip=data.get("ip"),
+            city=data.get("city"),
+            region=data.get("region"),
+            country=data.get("country"),
+            lat=data.get("lat"),
+            lng=data.get("lng"),
+            accuracy=data.get("accuracy")
+        )
+
+        return JsonResponse({"status": "saved"}, status=200)
+
+    return JsonResponse({"error": "invalid"}, status=400)

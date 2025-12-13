@@ -1,9 +1,5 @@
 {% load static %}
-<script>
-import { injectSpeedInsights } from '@vercel/speed-insights';
 
-injectSpeedInsights();
-</script>
 
 
 <meta charset="UTF-8">
@@ -18,7 +14,15 @@ injectSpeedInsights();
 <link rel="stylesheet" href="{% static 'style.css' %}">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
 
+<!-- font for index -->
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
 
 
 {% block meta %}
@@ -56,34 +60,89 @@ injectSpeedInsights();
 
 
 
-<!-- font for index -->
-
-
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
-
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4959773968938981"
-     crossorigin="anonymous"></script>
-
-
-
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-4959773968938981"
-     data-ad-slot="2497665238"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-
-
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
 
 
 
 
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+
+
+
+
+
+
+
+
+<!-- share button -->
+    <script>
+        function sharePage() {
+  if (navigator.share) {
+    navigator.share({
+      title: document.title,
+      text: "Check this out!",
+      url: window.location.href
+    }).catch(err => console.error("Share failed:", err));
+  } else {
+    alert("Sharing not supported on this browser.");
+  }
+}
+
+    </script>
+
+<style>
+    /* Desktop: normal button */
+.floating-share-btn {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    z-index: 1000;
+    padding: 0.5rem 1.2rem;
+    display: flex;
+    align-items: center;
+    border-radius: 0.25rem;
+}
+
+/* Mobile: circular button */
+@media (max-width: 768px) {
+    .floating-share-btn {
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+        padding: 0;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .floating-share-btn i {
+        font-size: 20px;
+    }
+
+    /* Hide text on mobile */
+    .floating-share-btn .btn-text {
+        display: none;
+    }
+}
+.floating-share-btn {
+    transition: all 0.3s ease;
+}
+
+</style>
+
+<button  id="floatingShareBtn" class="btn btn-primary floating-share-btn" onclick="sharePage()">  <i class="fas fa-share-alt"></i>
+    <span class="btn-text ms-2">Share</span></button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

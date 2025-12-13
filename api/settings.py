@@ -33,9 +33,24 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-=cldztbc4jg&xl0!x673!*v2_=p$$eu)=7*f#d0#zs$44xx-h^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_SSL_REDIRECT = True
+# X-Forwarded-Proto: https
+
+# CSRF Configuration for development
+CSRF_TRUSTED_ORIGINS = [
+    'http://localhost:8000',
+    'http://127.0.0.1:8000',
+    'http://0.0.0.0:8000',
+    'https://vortfolio.icu',
+]
+
+CSRF_COOKIE_SECURE = False  # Allow over HTTP in development
+SESSION_COOKIE_SECURE = False  # Allow over HTTP in development
 
 
 # Application definition
@@ -61,6 +76,7 @@ INSTALLED_APPS = [
     
 
 ]
+SITE_ID = 1
 
 # Provider specific settings
 SOCIALACCOUNT_PROVIDERS = {
@@ -72,6 +88,9 @@ SOCIALACCOUNT_PROVIDERS = {
             'client_id': env('OAUTH_GOOGLE_CLIENT_ID'),
             'secret': env('OAUTH_GOOGLE_SECRET'),
         }
+        ,
+        "SCOPE": ["profile", "email"],
+        "AUTH_PARAMS": {"access_type": "online"},
     }
 }
 
@@ -177,7 +196,7 @@ USE_TZ = True
 STATIC_URL = '/static/'  # URL to access static files
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Directory where static files are collected
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),  # Additional static files directory
+    os.path.join(BASE_DIR, 'app', 'static'),  # Additional static files directory
 ]
 
 # Enable whitenoise storage backend
@@ -203,3 +222,6 @@ ACCOUNT_UNIQUE_EMAIL = True
 SOCIALACCOUNT_EMAIL_AUTHENTICATION = True
 SOCIALACCOUNT_EMAIL_AUTHENTICATION_AUTO_CONNECT = True
 SOCIALACCOUNT_EMAIL_VERIFICATION = "none"
+
+# CSRF Settings
+CSRF_USE_SESSIONS = True

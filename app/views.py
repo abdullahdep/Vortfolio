@@ -408,22 +408,22 @@ def html(request):
 
 def appdev(request):
     context = {
-        'title': 'HTML – Vortfolio | Learn HTML Basics and Beyond',
-        'description':'Master HTML with Vortfolio’s beginner-friendly guides, tutorials, and projects. Start coding your web pages today!',
-        'keywords':'Vortfolio, HTML, Web Development, Coding, Tutorials',
+        'title': 'App Development Experts: Building High-Performance Mobile & Web Apps',
+        'description':'We specialize in app development for mobile and web platforms, delivering high-performance, scalable, and user-friendly applications. Our services include native, cross-platform, and progressive web apps with a focus on usability, functionality, and seamless user experience',
+        'keywords':'Vortfolio, HTML, Web Development, Coding, Tutorials, app development, mobile app development, web app development, native apps, cross-platform apps, iOS app development, Android app development, progressive web apps, PWA, Flutter development, React Native development, backend development, frontend development, app UI design, app UX design, user interface, user experience, mobile app design, responsive design, scalable apps, custom apps, enterprise app development, startup app development, app testing, app prototyping, app deployment, app maintenance, API integration, cloud apps, SaaS apps, app performance optimization, interactive apps, app features, mobile development, software development, app security, app analytics, mobile UX, mobile UI, app monetization, app store optimization, app marketing, agile development, app lifecycle, app design, UI/UX for apps, app frameworks, app development tools, app updates, real-time apps, app scalability, app design patterns, hybrid apps, native mobile apps, cross-platform mobile apps, React Native apps, Flutter apps, Swift apps, Kotlin apps, Java apps, app development services, mobile solutions, app prototyping tools, app development trends, app development best practices',
 
-        'og_title':'HTML – Vortfolio | Learn HTML Basics and Beyond',
-        'og_description':'Master HTML with Vortfolio’s beginner-friendly guides, tutorials, and projects. Start coding your web pages today!',
-        'og_image':'https://lh3.googleusercontent.com/pw/AP1GczPbTAZex5suqg2OTqAEB4mUhR2QzwDNSxgzWFuDi5H6GuDk8aI4zSo6JVddIAYzhB7pAwUVtDEF2kGGT_flUpQsB8-Tp2YXRcgYYJhdBg7bPNHdlaI5SgtmrFtPmQnQgPKjN3ZhRszmzyP9VR_6kN0=w575-h429-s-no-gm?authuser=0',
-        'og_image_alt':'HTML Guide',
+        'og_title':'App Development Experts: Building High-Performance Mobile & Web Apps',
+        'og_description':'We specialize in app development for mobile and web platforms, delivering high-performance, scalable, and user-friendly applications. Our services include native, cross-platform, and progressive web apps with a focus on usability, functionality, and seamless user experience',
+        'og_image':'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTH2q74ynQYljmXDJqQZ4P4gcqupLpwQXWIWg&s',
+        'og_image_alt':'App dev Guide',
         'og_type': 'website',
         'og_url': request.build_absolute_uri(),
         #twitter card
         'twitter_card': 'summary_large_image',
-        'twitter_title': 'HTML – Vortfolio | Learn HTML Basics and Beyond',
-        'twitter_description':'Master HTML with Vortfolio’s beginner-friendly guides, tutorials, and projects. Start coding your web pages today!',
-        'twitter_image':'https://lh3.googleusercontent.com/pw/AP1GczPbTAZex5suqg2OTqAEB4mUhR2QzwDNSxgzWFuDi5H6GuDk8aI4zSo6JVddIAYzhB7pAwUVtDEF2kGGT_flUpQsB8-Tp2YXRcgYYJhdBg7bPNHdlaI5SgtmrFtPmQnQgPKjN3ZhRszmzyP9VR_6kN0=w575-h429-s-no-gm?authuser=0',
-        'twitter_image_alt':'HTML Guide',
+        'twitter_title': 'App Development Experts: Building High-Performance Mobile & Web Apps',
+        'twitter_description':'We specialize in app development for mobile and web platforms, delivering high-performance, scalable, and user-friendly applications. Our services include native, cross-platform, and progressive web apps with a focus on usability, functionality, and seamless user experience',
+        'twitter_image':'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTH2q74ynQYljmXDJqQZ4P4gcqupLpwQXWIWg&s',
+        'twitter_image_alt':'App dev Guide',
         'twitter_url': request.build_absolute_uri(),
 
     }
@@ -433,22 +433,22 @@ def appdev(request):
 
 def uiux(request):
     context = {
-        'title': 'HTML – Vortfolio | Learn HTML Basics and Beyond',
-        'description':'Master HTML with Vortfolio’s beginner-friendly guides, tutorials, and projects. Start coding your web pages today!',
-        'keywords':'Vortfolio, HTML, Web Development, Coding, Tutorials',
+        'title': 'Crafting Seamless UI/UX Solutions',
+        'description':'Expert UI/UX design services focused on crafting visually stunning and highly intuitive digital interfaces for seamless user experiences . Delivering innovative UI/UX solutions that prioritize user needs, enhance interaction, and improve overall satisfaction across web and mobile platforms.',
+        'keywords':'Vortfolio, UI/UX Design, Web Development, Coding, Tutorials , UI design, UX design, user interface, user experience, interaction design, interface design, usability, wireframes, prototypes, mobile app design, web design, responsive design, app design, digital design, creative design, UX research, user testing, visual design, human-centered design, experience design, information architecture, interaction flow, design system, usability testing, interface prototyping, UX strategy, product design, user journey, accessibility design, visual hierarchy, UI components, design thinking, design patterns, interface optimization, responsive UI, website UX, user-centered design, app interface, design interface, experience optimization, UI/UX development, interface usability, user engagement, UI prototyping, mobile UX, web UX, interactive design, UX analysis, UX optimization, product interface, intuitive design, interaction flow design, aesthetic design, digital experience, task flows, interface usability testing, design improvement, user interface patterns, app usability, UX best practices, UI best practices, UI trends, UX trends, interface layout, visual storytelling, interaction patterns, user satisfaction, UX evaluation, user flow, UX journey, interface design principles, accessibility standards, cross-platform design, UX prototyping, human-computer interaction, UI guidelines, UX design process, UI development, UX tools, digital product design, usability improvement, interface responsiveness, user-centric design, UX case study, UI inspiration, UX inspiration, interface aesthetics, design consistency, interaction consistency, UX research methods, UI accessibility, UX accessibility, interactive UI, engaging UX, mobile interface design, desktop UI, web application UX, software interface design, user behavior analysis',
 
-        'og_title':'HTML – Vortfolio | Learn HTML Basics and Beyond',
-        'og_description':'Master HTML with Vortfolio’s beginner-friendly guides, tutorials, and projects. Start coding your web pages today!',
-        'og_image':'https://lh3.googleusercontent.com/pw/AP1GczPbTAZex5suqg2OTqAEB4mUhR2QzwDNSxgzWFuDi5H6GuDk8aI4zSo6JVddIAYzhB7pAwUVtDEF2kGGT_flUpQsB8-Tp2YXRcgYYJhdBg7bPNHdlaI5SgtmrFtPmQnQgPKjN3ZhRszmzyP9VR_6kN0=w575-h429-s-no-gm?authuser=0',
-        'og_image_alt':'HTML Guide',
+        'og_title':'Crafting Seamless UI/UX Solutions',
+        'og_description':'Expert UI/UX design services focused on crafting visually stunning and highly intuitive digital interfaces for seamless user experiences . Delivering innovative UI/UX solutions that prioritize user needs, enhance interaction, and improve overall satisfaction across web and mobile platforms.',
+        'og_image':'https://img.freepik.com/free-vector/gradient-ui-ux-background_23-2149052117.jpg',
+        'og_image_alt':'UI / UX Guide',
         'og_type': 'website',
         'og_url': request.build_absolute_uri(),
         #twitter card
         'twitter_card': 'summary_large_image',
         'twitter_title': 'HTML – Vortfolio | Learn HTML Basics and Beyond',
-        'twitter_description':'Master HTML with Vortfolio’s beginner-friendly guides, tutorials, and projects. Start coding your web pages today!',
-        'twitter_image':'https://lh3.googleusercontent.com/pw/AP1GczPbTAZex5suqg2OTqAEB4mUhR2QzwDNSxgzWFuDi5H6GuDk8aI4zSo6JVddIAYzhB7pAwUVtDEF2kGGT_flUpQsB8-Tp2YXRcgYYJhdBg7bPNHdlaI5SgtmrFtPmQnQgPKjN3ZhRszmzyP9VR_6kN0=w575-h429-s-no-gm?authuser=0',
-        'twitter_image_alt':'HTML Guide',
+        'twitter_description':'Expert UI/UX design services focused on crafting visually stunning and highly intuitive digital interfaces for seamless user experiences . Delivering innovative UI/UX solutions that prioritize user needs, enhance interaction, and improve overall satisfaction across web and mobile platforms.',
+        'twitter_image':'https://img.freepik.com/free-vector/gradient-ui-ux-background_23-2149052117.jpg',
+        'twitter_image_alt':'UI / UX Guide',
         'twitter_url': request.build_absolute_uri(),
 
     }
@@ -457,43 +457,43 @@ def uiux(request):
 
 def webdev(request):
     context = {
-        'title': 'HTML – Vortfolio | Learn HTML Basics and Beyond',
-        'description':'Master HTML with Vortfolio’s beginner-friendly guides, tutorials, and projects. Start coding your web pages today!',
-        'keywords':'Vortfolio, HTML, Web Development, Coding, Tutorials',
+        'title': 'Modern Web Solutions for the Modern World – Vortfolio',
+        'description':'High-performance web development with AI for growing or established brands. We create scalable, secure, and future-ready websites using modern technologies',
+        'keywords':'Vortfolio, HTML, Web Development, Coding, Tutorials ,web development, website development, web design, ui ux design, front end development, backend development, full stack development, responsive web design, mobile friendly websites, ecommerce website development, wordpress development, custom website design, modern web design, business website, landing page design, website redesign, web application development, custom web applications, software development, html, css, javascript, react development, next js development, node js development, python development, django development, flask development, php development, laravel development, vue js development, angular development, bootstrap websites, tailwind css websites, seo friendly website, website maintenance, website optimization, speed optimization, website performance, api development, database integration, cloud hosting, web hosting, website deployment, digital agency, creative agency, website builder service, professional web design, branding and design, ui design, ux design, interface design, logo design, creative web solutions, web design company, website development company, professional web developers, custom coding, custom themes, custom plugins, dashboard development, admin panel development, cms development, wordpress customization, shopify development, ecommerce store design, online business website, portfolio website, business landing page, startup websites, corporate website design, business branding, online presence, digital marketing integration, seo optimization, on page seo, meta tags optimization, sitemaps creation, google analytics integration, website security, ssl installation, secure website, bug fixing, website migration, domain setup, cloudflare setup, github deployment, vercel deployment, render deployment, azure deployment, aws deployment, modern ui design, creative interface design, custom animations, hero section design, website content writing, ux research, wireframing, prototyping, web consultancy, mobile app ui design, interface optimization, dark mode design, light mode design, modern typography, website color palette, minimal web design, clean web design, professional websites, creative websites, fast loading websites, high converting landing pages, call to action optimization, user engagement design, web accessibility, website testing, quality assurance, performance testing, cross browser compatibility, mobile optimization, website upgrade, digital transformation, tech solutions, scalable web apps, enterprise web solutions, custom dashboards, analytics dashboards, data visualization websites, ai integrated websites, chatbot integration, automation websites, crm integration.',
 
-        'og_title':'HTML – Vortfolio | Learn HTML Basics and Beyond',
-        'og_description':'Master HTML with Vortfolio’s beginner-friendly guides, tutorials, and projects. Start coding your web pages today!',
-        'og_image':'https://lh3.googleusercontent.com/pw/AP1GczPbTAZex5suqg2OTqAEB4mUhR2QzwDNSxgzWFuDi5H6GuDk8aI4zSo6JVddIAYzhB7pAwUVtDEF2kGGT_flUpQsB8-Tp2YXRcgYYJhdBg7bPNHdlaI5SgtmrFtPmQnQgPKjN3ZhRszmzyP9VR_6kN0=w575-h429-s-no-gm?authuser=0',
-        'og_image_alt':'HTML Guide',
+        'og_title':'Modern Web Solutions for the Modern World – Vortfolio',
+        'og_description':'High-performance web development for growing brands. We create scalable, secure, and future-ready websites using modern technologies!',
+        'og_image':'https://wearedevelopers.imgix.net/magazine/articles/581/images/hero/ciMw4oPCTP0xxfAT0FK0-1745839625.jpeg?w=720&auto=compress,format',
+        'og_image_alt':'Web Development Services',
         'og_type': 'website',
-        'og_url': request.build_absolute_uri(),
+        'og_url': 'https://www.vortfolio.icu/webdev',
         #twitter card
         'twitter_card': 'summary_large_image',
-        'twitter_title': 'HTML – Vortfolio | Learn HTML Basics and Beyond',
-        'twitter_description':'Master HTML with Vortfolio’s beginner-friendly guides, tutorials, and projects. Start coding your web pages today!',
-        'twitter_image':'https://lh3.googleusercontent.com/pw/AP1GczPbTAZex5suqg2OTqAEB4mUhR2QzwDNSxgzWFuDi5H6GuDk8aI4zSo6JVddIAYzhB7pAwUVtDEF2kGGT_flUpQsB8-Tp2YXRcgYYJhdBg7bPNHdlaI5SgtmrFtPmQnQgPKjN3ZhRszmzyP9VR_6kN0=w575-h429-s-no-gm?authuser=0',
-        'twitter_image_alt':'HTML Guide',
-        'twitter_url': request.build_absolute_uri(),
+        'twitter_title': 'Modern Web Solutions for the Modern World – Vortfolio',
+        'twitter_description':'High-performance web development with AI for growing or established brands. We create scalable, secure, and future-ready websites using modern technologies',
+        'twitter_image':'https://wearedevelopers.imgix.net/magazine/articles/581/images/hero/ciMw4oPCTP0xxfAT0FK0-1745839625.jpeg?w=720&auto=compress,format',
+        'twitter_image_alt':'Web Development Services',
+        'twitter_url': 'https://www.vortfolio.icu/webdev',
 
     }
     return render(request, "web-development.html", context)
 
 def aidev(request):
     context = {
-        'title': 'HTML – Vortfolio | Learn HTML Basics and Beyond',
-        'description':'Master HTML with Vortfolio’s beginner-friendly guides, tutorials, and projects. Start coding your web pages today!',
-        'keywords':'Vortfolio, HTML, Web Development, Coding, Tutorials',
+        'title': 'AI Development Experts: Building Intelligent & Scalable AI Solutions',
+        'description':'We provide advanced AI development services, creating intelligent, scalable, and efficient solutions for businesses. From machine learning models and natural language processing to computer vision and AI-powered automation, we deliver cutting-edge AI applications that drive innovation and optimize processes.',
+        'keywords':'Vortfolio, HTML, Web Development, Coding, Tutorials , AI development, artificial intelligence, machine learning, deep learning, natural language processing, NLP, computer vision, AI solutions, AI applications, predictive analytics, AI models, neural networks, AI automation, intelligent systems, AI consulting, AI software development, AI integration, AI tools, AI frameworks, TensorFlow, PyTorch, Keras, scikit-learn, AI algorithms, AI research, AI for business, AI consulting services, AI innovation, AI project development, AI optimization, AI deployment, AI strategy, AI cloud solutions, AI SaaS, AI chatbot, AI virtual assistant, AI predictive modeling, AI image recognition, AI data analysis, AI workflow automation, AI development trends, AI use cases, AI for startups, AI for enterprises, AI programming, AI APIs, AI pipelines, AI solutions architecture, AI-powered applications, intelligent automation, AI research and development, AI services, AI-driven business solutions, AI design, AI model training, AI model evaluation, AI deployment strategy, AI lifecycle, AI tools for developers, AI for mobile apps, AI for web apps, AI consulting solutions, AI optimization techniques, AI project management, AI solutions design, AI development process, AI model integration, AI platform development',
 
-        'og_title':'HTML – Vortfolio | Learn HTML Basics and Beyond',
-        'og_description':'Master HTML with Vortfolio’s beginner-friendly guides, tutorials, and projects. Start coding your web pages today!',
+        'og_title':'AI Development Experts: Building Intelligent & Scalable AI Solutions',
+        'og_description':'We provide advanced AI development services, creating intelligent, scalable, and efficient solutions for businesses. From machine learning models and natural language processing to computer vision and AI-powered automation, we deliver cutting-edge AI applications that drive innovation and optimize processes.',
         'og_image':'https://lh3.googleusercontent.com/pw/AP1GczPbTAZex5suqg2OTqAEB4mUhR2QzwDNSxgzWFuDi5H6GuDk8aI4zSo6JVddIAYzhB7pAwUVtDEF2kGGT_flUpQsB8-Tp2YXRcgYYJhdBg7bPNHdlaI5SgtmrFtPmQnQgPKjN3ZhRszmzyP9VR_6kN0=w575-h429-s-no-gm?authuser=0',
         'og_image_alt':'HTML Guide',
         'og_type': 'website',
         'og_url': request.build_absolute_uri(),
         #twitter card
         'twitter_card': 'summary_large_image',
-        'twitter_title': 'HTML – Vortfolio | Learn HTML Basics and Beyond',
-        'twitter_description':'Master HTML with Vortfolio’s beginner-friendly guides, tutorials, and projects. Start coding your web pages today!',
+        'twitter_title': 'AI Development Experts: Building Intelligent & Scalable AI Solutions',
+        'twitter_description':'We provide advanced AI development services, creating intelligent, scalable, and efficient solutions for businesses. From machine learning models and natural language processing to computer vision and AI-powered automation, we deliver cutting-edge AI applications that drive innovation and optimize processes.',
         'twitter_image':'https://lh3.googleusercontent.com/pw/AP1GczPbTAZex5suqg2OTqAEB4mUhR2QzwDNSxgzWFuDi5H6GuDk8aI4zSo6JVddIAYzhB7pAwUVtDEF2kGGT_flUpQsB8-Tp2YXRcgYYJhdBg7bPNHdlaI5SgtmrFtPmQnQgPKjN3ZhRszmzyP9VR_6kN0=w575-h429-s-no-gm?authuser=0',
         'twitter_image_alt':'HTML Guide',
         'twitter_url': request.build_absolute_uri(),

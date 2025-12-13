@@ -5,23 +5,10 @@
 <!-- Add these meta tags at the top of the template -->
 
 
-<div class="roadmap-hero bg-gradient text-white py-5 mb-5">
-    <div class="container">
-        <div class="row justify-content-center text-center">
-            <div class="col-lg-8">
-                <h1 class="display-4 fw-bold mb-4">Full Stack Development Roadmap</h1>
-                <p class="lead mb-4">Your comprehensive guide from beginner to professional developer</p>
-                <div class="d-flex justify-content-center gap-3">
-                    <button class="btn btn-light btn-lg px-4">Get Started</button>
-                    <button id="shareButton" class="btn btn-outline-light btn-lg px-4">
-                        <i class="fas fa-share-alt me-2"></i>
-                        Share
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<button id="shareButton" class="btn btn-outline-light btn-lg px-4 mt-3 mb-4" style="position: fixed; bottom: 1rem; right: 1rem; z-index: 1000;">
+    <i class="fas fa-share-alt me-2"></i>
+    Share
+</button>
 
 <div class="container py-4">
     <div class="row">
@@ -42,80 +29,113 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="col-lg-9">
             <h1 class="mb-4"> Full Stack Development Roadmap: Beginner to Pro</h1>
-            <p class="lead mb-5">This comprehensive roadmap guides you through all the essential skills needed to become a professional Full Stack Developer. Each step builds upon the previous one, creating a solid foundation for your web development career.</p>
+            <p class="lead mb-5">This comprehensive roadmap guides you through all the essential skills needed to become
+                a professional Full Stack Developer. Each step builds upon the previous one, creating a solid foundation
+                for your web development career.</p>
 
             <section class="mb-5">
-                <h2 class="section-title">Step 1: HTML & CSS Foundations</h2>
+                <h2 class="section-title" id="html-css">Step 1: HTML & CSS Foundations</h2>
                 <h3>HTML - The Structure</h3>
                 <p>HTML (HyperText Markup Language) forms the skeleton of every website.</p>
                 <p><strong>Key Skills:</strong></p>
                 <ul>
-                    <li><strong>Semantic HTML5 Elements</strong>: <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;footer&gt;</code><p>Requird for seo purpose</p></li>
-                    <li><strong>Forms</strong>: Create user input interfaces with various input types, validation, and submission. <strong>Important!</strong></li>
-                    <li><strong>Tables</strong>: Structure and present data in organized formats. <strong>Important!</strong></li>
+                    <li><strong>Semantic HTML5 Elements</strong>: <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>,
+                        <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>,
+                        <code>&lt;footer&gt;</code>
+                        <p>Requird for seo purpose</p>
+                    </li>
+                    <li><strong>Forms</strong>: Create user input interfaces with various input types, validation, and
+                        submission. <strong>Important!</strong></li>
+                    <li><strong>Tables</strong>: Structure and present data in organized formats.
+                        <strong>Important!</strong></li>
 
-                    <li><strong>SEO/Ranking on Web</strong>:Only these Meta Tags with name and properties> To rank on Search engine: (title description keywords), For Mobile Sharing View:(og_title og_description og_image og_image_alt og_type og_url), For Twitter Sharing View(twitter_card twitter_title twitter_description twitter_image twitter_image_alt twitter_url)</li>
-                    </ul>
-                <p><strong>Practice Project:</strong> Create a personal portfolio page with proper semantic structure, contact form, and responsive design.</p>
+                    <li><strong>SEO/Ranking on Web</strong>:Only these Meta Tags with name and properties> To rank on
+                        Search engine: (title description keywords), For Mobile Sharing View:(og_title og_description
+                        og_image og_image_alt og_type og_url), For Twitter Sharing View(twitter_card twitter_title
+                        twitter_description twitter_image twitter_image_alt twitter_url)</li>
+                </ul>
+                <p><strong>Practice Project:</strong> Create a personal portfolio page with proper semantic structure,
+                    contact form, and responsive design.</p>
                 <h3>CSS - The Style</h3>
                 <p>CSS (Cascading Style Sheets) transforms plain HTML into visually appealing websites.</p>
                 <p><strong>Key Skills:</strong></p>
                 <ul>
                     <li><strong>Selectors & Specificity</strong>: Target the right elements without code conflicts</li>
-                    <li><strong>Box Model</strong>: Understand margins, padding, borders, and content areas <strong>Important!</strong></li>
-                    <li><strong>Flexbox</strong>: Create one-dimensional layouts for components like navigation bars and card rows <strong>Important!</strong></li>
-                    <li><strong>Grid</strong>: Design two-dimensional layouts for entire page structures <strong>Important!</strong></li>
-                    <li><strong>Media Queries</strong>: Make your designs responsive across all device sizes <strong>Important!</strong></li>
-                    <li><strong>Animations & Transitions</strong>: Add movement and visual feedback to improve UX. <strong>Recommended:</strong>gsap(a javascript library) for Animation & Transitions</li>
+                    <li><strong>Box Model</strong>: Understand margins, padding, borders, and content areas
+                        <strong>Important!</strong></li>
+                    <li><strong>Flexbox</strong>: Create one-dimensional layouts for components like navigation bars and
+                        card rows <strong>Important!</strong></li>
+                    <li><strong>Grid</strong>: Design two-dimensional layouts for entire page structures
+                        <strong>Important!</strong></li>
+                    <li><strong>Media Queries</strong>: Make your designs responsive across all device sizes
+                        <strong>Important!</strong></li>
+                    <li><strong>Animations & Transitions</strong>: Add movement and visual feedback to improve UX.
+                        <strong>Recommended:</strong>gsap(a javascript library) for Animation & Transitions</li>
 
-                    <li><strong>For Faster Work in professional environment</strong>: Use Preprocessors (SASS or LESS) Or Frameworks like Bootstrap or Tailwind CSS <strong>Recommended :</strong> Frameworks specialy Tailwind <strong>Important!</strong></li>
+                    <li><strong>For Faster Work in professional environment</strong>: Use Preprocessors (SASS or LESS)
+                        Or Frameworks like Bootstrap or Tailwind CSS <strong>Recommended :</strong> Frameworks specialy
+                        Tailwind <strong>Important!</strong></li>
 
                 </ul>
-                <p><strong>Practice Project:</strong> Style your portfolio with a responsive design that works on mobile, tablet, and desktop.</p>
+                <p><strong>Practice Project:</strong> Style your portfolio with a responsive design that works on
+                    mobile, tablet, and desktop.</p>
             </section>
 
             <section class="mb-5">
-                <h2 class="section-title">Step 2: JavaScript Fundamentals</h2>
+                <h2 class="section-title" id="javascript">Step 2: JavaScript Fundamentals</h2>
                 <p>JavaScript brings websites to life by adding interactivity and dynamic functionality.</p>
                 <p><strong>Key Skills:</strong></p>
                 <ul>
                     <li><strong>Syntax Basics</strong>: Variables, data types, operators, and control flow</li>
                     <li><strong>Functions</strong>: Declarations, expressions, arrow functions, and scope</li>
                     <li><strong>DOM Manipulation</strong>: Select, modify, and create HTML elements</li>
-                    <li><strong>Windows Object</strong>: The window object in JavaScript represents the browser’s global object and provides access to the browser window, DOM, timers, and global variables.</li>
-                    <li><strong>Events</strong>: Respond to user actions like clicks, form submissions, and keyboard input</li>
-                    <li><strong>ES6+ Features</strong>: Modern JS with <code>let</code>, <code>const</code>, template literals, destructuring, and more</li>
-                    <li><strong>Asynchronous JS</strong>: Callbacks, Promises, and async/await for handling operations like API calls</li>
+                    <li><strong>Windows Object</strong>: The window object in JavaScript represents the browser’s global
+                        object and provides access to the browser window, DOM, timers, and global variables.</li>
+                    <li><strong>Events</strong>: Respond to user actions like clicks, form submissions, and keyboard
+                        input</li>
+                    <li><strong>ES6+ Features</strong>: Modern JS with <code>let</code>, <code>const</code>, template
+                        literals, destructuring, and more</li>
+                    <li><strong>Asynchronous JS</strong>: Callbacks, Promises, and async/await for handling operations
+                        like API calls</li>
                 </ul>
-                <p><strong>Practice Project:</strong> Add interactive elements to your portfolio—a theme switcher, form validation, and an interactive gallery.</p>
+                <p><strong>Practice Project:</strong> Add interactive elements to your portfolio—a theme switcher, form
+                    validation, and an interactive gallery.</p>
             </section>
 
             <section class="mb-5">
-                <h2 class="section-title">Step 3: UI/UX Development</h2>
-                <p>Learn to design and implement user interfaces that are both visually appealing and functional, while focusing on the user experience.</p>
+                <h2 class="section-title" id="ui-ux">Step 3: UI/UX Development</h2>
+                <p>Learn to design and implement user interfaces that are both visually appealing and functional, while
+                    focusing on the user experience.</p>
                 <p><strong>Key Skills:</strong></p>
                 <ul>
-                    <li><strong>Figma / Adobe XD / Sketch /Invision</strong>: Industry-standard design tool for creating wireframes, prototypes, and design systems <strong>Important!</strong><ul>
-                        <li>Create wireframes and mockups</li>
-                        <li>Build interactive prototypes</li>
-                        <li>Design system management</li>
-                        <li>Collaborative design workflow</li>
-                        <li>Developer handoff with CSS export</li>
-                    </ul>
+                    <li><strong>Figma / Adobe XD / Sketch /Invision</strong>: Industry-standard design tool for creating
+                        wireframes, prototypes, and design systems <strong>Important!</strong>
+                        <ul>
+                            <li>Create wireframes and mockups</li>
+                            <li>Build interactive prototypes</li>
+                            <li>Design system management</li>
+                            <li>Collaborative design workflow</li>
+                            <li>Developer handoff with CSS export</li>
+                        </ul>
                     </li>
-                    <li><strong>Design Principles</strong>: Color theory, typography, visual hierarchy, and accessibility</li>
-                    <li><strong>User Experience</strong>: User research, information architecture, and usability testing</li>
+                    <li><strong>Design Principles</strong>: Color theory, typography, visual hierarchy, and
+                        accessibility</li>
+                    <li><strong>User Experience</strong>: User research, information architecture, and usability testing
+                    </li>
                     <li><strong>Responsive Design Implementation</strong>: Convert designs to responsive code</li>
-                    <li><strong>Component Design</strong>: Create reusable UI components with consistent styling. <strong>Important!</strong></li>
+                    <li><strong>Component Design</strong>: Create reusable UI components with consistent styling.
+                        <strong>Important!</strong></li>
                     <li><strong>Design Systems</strong>: Implement consistent UI patterns across applications</li>
-                    <li><strong>Animation & Microinteractions</strong>: Enhance user experience with subtle animations <strong>Important!</strong></li>
-     
+                    <li><strong>Animation & Microinteractions</strong>: Enhance user experience with subtle animations
+                        <strong>Important!</strong></li>
+
 
                     <li><strong>Recommended</strong>:Figma Or Adobe XD</li>
-                    <li><strong>Design-to-Code Workflow</strong>: Efficiently transform Figma designs into HTML/CSS/JS</li>
+                    <li><strong>Design-to-Code Workflow</strong>: Efficiently transform Figma designs into HTML/CSS/JS
+                    </li>
                 </ul>
                 <p><strong>Practice Projects:</strong></p>
                 <ol>
@@ -124,19 +144,21 @@
                     <li>Build a Chrome extension with a well-designed user interface</li>
                 </ol>
             </section>
-            
+
             <h3><strong>Chrome Extensions</strong>: Develop browser extensions using JavaScript and manifest files</h3>
             <section class="mb-5">
-                <h2 class="section-title">Step 4: Git & Version Control</h2>
+                <h2 class="section-title" id="git">Step 4: Git & Version Control</h2>
                 <p>Git is essential for tracking changes and collaborating with other developers.</p>
                 <p><strong>Key Skills:</strong></p>
                 <ul>
-                    <li><strong>Basic Commands</strong>: <code>init</code>, <code>add</code>, <code>commit</code>, <code>push</code>, <code>pull</code>, <code>clone</code></li>
+                    <li><strong>Basic Commands</strong>: <code>init</code>, <code>add</code>, <code>commit</code>,
+                        <code>push</code>, <code>pull</code>, <code>clone</code></li>
                     <li><strong>Branching Strategy</strong>: Create feature branches, bug fix branches</li>
                     <li><strong>Merging & Pull Requests</strong>: Combine code changes and review them</li>
                     <li><strong>Resolving Conflicts</strong>: Handle competing changes to the same files</li>
                     <li><strong>GitHub/GitLab</strong>: Use these platforms for hosting code and collaboration</li>
-                    <li><strong>Git Actions</strong>: A continuous integration and continuous delivery (CI/CD) platform integrated directly into GitHub.</li>
+                    <li><strong>Git Actions</strong>: A continuous integration and continuous delivery (CI/CD) platform
+                        integrated directly into GitHub.</li>
 
                 </ul>
                 <p><strong>Best Practices:</strong></p>
@@ -146,16 +168,19 @@
                     <li>Use branches for features and experiments</li>
                     <li>Review code before merging to main branches</li>
                 </ul>
-                <p><strong>Practice Project:</strong> Set up a GitHub repository for your portfolio with proper README and contributing guidelines.</p>
+                <p><strong>Practice Project:</strong> Set up a GitHub repository for your portfolio with proper README
+                    and contributing guidelines.</p>
             </section>
 
             <section class="mb-5">
-                <h2 class="section-title">Tech Stack Everyone Need to Learn</h2>
-                <p>At this point, you'll want to specialize in a framework or library that enhances your development workflow.</p>
+                <h2 class="section-title" id="tech-stack">Tech Stack Everyone Need to Learn</h2>
+                <p>At this point, you'll want to specialize in a framework or library that enhances your development
+                    workflow.</p>
                 <h3>React Stack (JavaScript)</h3>
                 <ul>
                     <li><strong>React</strong>: Component-based UI library with virtual DOM</li>
-                    <li><strong>Next.js</strong>: React framework with server-side rendering, routing, and more <strong>(Recommended)</strong></li>
+                    <li><strong>Next.js</strong>: React framework with server-side rendering, routing, and more
+                        <strong>(Recommended)</strong></li>
                     <li><strong>Redux/Context API</strong>: State management solutions</li>
                     <li><strong>Nest.js</strong>: Backend framework using TypeScript and Node.js</li>
                 </ul>
@@ -168,38 +193,43 @@
                 </ul>
                 <p><strong>Decision Factors:</strong></p>
                 <ul>
-                    <li>JavaScript path: Better for frontend-heavy applications, SPAs, and JavaScript-focused careers</li>
-                    <li>Python/Django path: Better for rapid development, backend-heavy apps, and Python-focused careers</li>
+                    <li>JavaScript path: Better for frontend-heavy applications, SPAs, and JavaScript-focused careers
+                    </li>
+                    <li>Python/Django path: Better for rapid development, backend-heavy apps, and Python-focused careers
+                    </li>
                 </ul>
-                <p><strong>Practice Project:</strong> Convert your portfolio to your chosen framework, implementing routing and component-based architecture.</p>
+                <p><strong>Practice Project:</strong> Convert your portfolio to your chosen framework, implementing
+                    routing and component-based architecture.</p>
             </section>
 
             <section class="mb-5">
-                <h2 class="section-title">Step 6: Databases & ORM</h2>
+                <h2 class="section-title" id="databases">Step 6: Databases & ORM</h2>
                 <p>Data persistence is crucial for any serious web application.</p>
                 <p><strong>Key Skills:</strong></p>
                 <ul>
                     <li><strong>Database Types</strong>:<ul>
-                        <li><strong>SQL</strong>: PostgreSQL, MySQL - Relational databases with structured data</li>
-                        <li><strong>NoSQL</strong>: MongoDB - Document-based storage for flexible schemas</li>
-                    </ul>
+                            <li><strong>SQL</strong>: PostgreSQL, MySQL - Relational databases with structured data</li>
+                            <li><strong>NoSQL</strong>: MongoDB - Document-based storage for flexible schemas</li>
+                        </ul>
                     </li>
                     <li><strong>ORM (Object-Relational Mapping)</strong>:<ul>
-                        <li><strong>Django ORM</strong> (Python)</li>
-                        <li><strong>Sequelize</strong> (JavaScript)</li>
-                        <li><strong>TypeORM</strong> (Nest.js)</li>
-                    </ul>
+                            <li><strong>Django ORM</strong> (Python)</li>
+                            <li><strong>Sequelize</strong> (JavaScript)</li>
+                            <li><strong>TypeORM</strong> (Nest.js)</li>
+                        </ul>
                     </li>
-                    <li><strong>CRUD Operations</strong>: Create, Read, Update, Delete - the foundation of data manipulation</li>
+                    <li><strong>CRUD Operations</strong>: Create, Read, Update, Delete - the foundation of data
+                        manipulation</li>
                     <li><strong>Data Modeling</strong>: Design efficient database schemas</li>
                     <li><strong>Migrations</strong>: Manage database schema changes over time</li>
-                    <li><strong>Redis Cache</strong>: In-memory data structure store for caching, session management, and real-time applications<ul>
-                        <li>Basic Redis operations</li>
-                        <li>Implementing caching strategies</li>
-                        <li>Rate limiting</li>
-                        <li>Session storage</li>
-                        <li>Pub/Sub messaging</li>
-                    </ul>
+                    <li><strong>Redis Cache</strong>: In-memory data structure store for caching, session management,
+                        and real-time applications<ul>
+                            <li>Basic Redis operations</li>
+                            <li>Implementing caching strategies</li>
+                            <li>Rate limiting</li>
+                            <li>Session storage</li>
+                            <li>Pub/Sub messaging</li>
+                        </ul>
                     </li>
                 </ul>
                 <p><strong>Practice Projects:</strong></p>
@@ -210,80 +240,89 @@
             </section>
 
             <section class="mb-5">
-                <h2 class="section-title">Step 7: Real-World Security Requirements</h2>
-                <p>Security is paramount in modern web applications. Learn to protect your applications and user data.</p>
+                <h2 class="section-title" id="security">Step 7: Real-World Security Requirements</h2>
+                <p>Security is paramount in modern web applications. Learn to protect your applications and user data.
+                </p>
                 <p><strong>Key Security Components:</strong></p>
                 <ul>
                     <li><strong>Authentication</strong>: Secure user identification methods<ul>
-                        <li>Password hashing and salting (bcrypt, Argon2)</li>
-                        <li>JWT (JSON Web Tokens)</li>
-                        <li>OAuth 2.0 and OpenID Connect</li>
-                        <li>Multi-factor authentication</li>
-                    </ul>
+                            <li>Password hashing and salting (bcrypt, Argon2)</li>
+                            <li>JWT (JSON Web Tokens)</li>
+                            <li>OAuth 2.0 and OpenID Connect</li>
+                            <li>Multi-factor authentication</li>
+                        </ul>
                     </li>
                     <li><strong>Authorization</strong>: Role-based access control (RBAC)<ul>
-                        <li>Permission systems</li>
-                        <li>Content-based access control</li>
-                        <li>API access restrictions</li>
-                    </ul>
+                            <li>Permission systems</li>
+                            <li>Content-based access control</li>
+                            <li>API access restrictions</li>
+                        </ul>
                     </li>
                     <li><strong>Data Protection</strong>:<ul>
-                        <li>Input validation and sanitization</li>
-                        <li>Protection against SQL injection</li>
-                        <li>XSS (Cross-Site Scripting) prevention</li>
-                        <li>CSRF (Cross-Site Request Forgery) protection</li>
-                        <li>Secure cookies and localStorage usage</li>
-                    </ul>
+                            <li>Input validation and sanitization</li>
+                            <li>Protection against SQL injection</li>
+                            <li>XSS (Cross-Site Scripting) prevention</li>
+                            <li>CSRF (Cross-Site Request Forgery) protection</li>
+                            <li>Secure cookies and localStorage usage</li>
+                        </ul>
                     </li>
                     <li><strong>API Security</strong>:<ul>
-                        <li>Rate limiting</li>
-                        <li>API keys and secrets management</li>
-                        <li>CORS (Cross-Origin Resource Sharing) configuration</li>
-                    </ul>
+                            <li>Rate limiting</li>
+                            <li>API keys and secrets management</li>
+                            <li>CORS (Cross-Origin Resource Sharing) configuration</li>
+                        </ul>
                     </li>
                     <li><strong>Secure Coding Practices</strong>:<ul>
-                        <li>OWASP Top 10 vulnerabilities awareness</li>
-                        <li>Code reviews focused on security</li>
-                        <li>Security testing (SAST, DAST)</li>
-                    </ul>
+                            <li>OWASP Top 10 vulnerabilities awareness</li>
+                            <li>Code reviews focused on security</li>
+                            <li>Security testing (SAST, DAST)</li>
+                        </ul>
                     </li>
                     <li><strong>Compliance Considerations</strong>:<ul>
-                        <li>GDPR principles</li>
-                        <li>HIPAA (for healthcare applications)</li>
-                        <li>PCI DSS (for payment processing)</li>
-                    </ul>
+                            <li>GDPR principles</li>
+                            <li>HIPAA (for healthcare applications)</li>
+                            <li>PCI DSS (for payment processing)</li>
+                        </ul>
                     </li>
                 </ul>
-                <p><strong>Practice Project:</strong> Perform a security audit on your existing project and implement necessary security measures.</p>
+                <p><strong>Practice Project:</strong> Perform a security audit on your existing project and implement
+                    necessary security measures.</p>
             </section>
 
             <section class="mb-5">
-                <h2 class="section-title">Step 8: Linux & Command Line</h2>
-                <p>Most web servers run on Linux, making these skills invaluable for deployment and server management.</p>
+                <h2 class="section-title" id="linux">Step 8: Linux & Command Line</h2>
+                <p>Most web servers run on Linux, making these skills invaluable for deployment and server management.
+                </p>
                 <p><strong>Key Skills:</strong></p>
                 <ul>
-                    <li><strong>Basic Commands</strong>: <code>ls</code>, <code>cd</code>, <code>mkdir</code>, <code>rm</code>, <code>cp</code>, <code>mv</code>, <code>cat</code>, <code>grep</code></li>
-                    <li><strong>File Permissions</strong>: Use <code>chmod</code> and understand user/group permissions</li>
-                    <li><strong>Package Management</strong>: Install and update software with <code>apt</code> or <code>yum</code></li>
+                    <li><strong>Basic Commands</strong>: <code>ls</code>, <code>cd</code>, <code>mkdir</code>,
+                        <code>rm</code>, <code>cp</code>, <code>mv</code>, <code>cat</code>, <code>grep</code></li>
+                    <li><strong>File Permissions</strong>: Use <code>chmod</code> and understand user/group permissions
+                    </li>
+                    <li><strong>Package Management</strong>: Install and update software with <code>apt</code> or
+                        <code>yum</code></li>
                     <li><strong>SSH</strong>: Connect to remote servers securely</li>
                     <li><strong>Environment Variables</strong>: Configure application settings</li>
                     <li><strong>Process Management</strong>: Monitor and control running processes</li>
                     <li><strong>Shell Scripting</strong>: Automate repetitive tasks</li>
                 </ul>
-                <p><strong>Practice Project:</strong> Set up a local development environment using Linux (or WSL on Windows) and write shell scripts to automate common development tasks.</p>
+                <p><strong>Practice Project:</strong> Set up a local development environment using Linux (or WSL on
+                    Windows) and write shell scripts to automate common development tasks.</p>
             </section>
 
             <section class="mb-5">
-                <h2 class="section-title">Step 9: Deployment & Professional Skills</h2>
-                <p>The final step covers getting your applications to production and professional development practices.</p>
+                <h2 class="section-title" id="deployment">Step 9: Deployment & Professional Skills</h2>
+                <p>The final step covers getting your applications to production and professional development practices.
+                </p>
                 <p><strong>Key Skills:</strong></p>
                 <ul>
                     <li><strong>Deployment Platforms</strong>:<ul>
-                        <li>Frontend: Netlify, Vercel</li>
-                        <li>Backend: Render, Railway, DigitalOcean, AWS</li>
-                    </ul>
+                            <li>Frontend: Netlify, Vercel</li>
+                            <li>Backend: Render, Railway, DigitalOcean, AWS</li>
+                        </ul>
                     </li>
-                    <li><strong>CI/CD</strong>: Continuous Integration and Deployment with GitHub Actions or similar tools</li>
+                    <li><strong>CI/CD</strong>: Continuous Integration and Deployment with GitHub Actions or similar
+                        tools</li>
                     <li><strong>Domain Configuration</strong>: Set up DNS and domains for your applications</li>
                     <li><strong>SSL Certificates</strong>: Secure your sites with HTTPS</li>
                     <li><strong>Monitoring & Logging</strong>: Track application performance and errors</li>
@@ -299,7 +338,8 @@
                     <li>Keep learning new tools and techniques</li>
                     <li>Practice technical interview skills</li>
                 </ul>
-                <p><strong>Practice Project:</strong> Deploy your full-stack application with CI/CD pipeline, proper logging, and monitoring.</p>
+                <p><strong>Practice Project:</strong> Deploy your full-stack application with CI/CD pipeline, proper
+                    logging, and monitoring.</p>
             </section>
 
             <section class="mb-5">
@@ -412,33 +452,33 @@
         --bg-white: #ffffff;
         --text-dark: #2c3e50;
         --text-light: #6c757d;
-        
+
         /* Gradients */
         --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
         --gradient-hover: linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%);
-        
+
         /* Shadows */
         --shadow-sm: 0 2px 8px rgba(0, 102, 255, 0.08);
         --shadow-md: 0 4px 16px rgba(0, 102, 255, 0.12);
         --shadow-lg: 0 8px 24px rgba(0, 102, 255, 0.16);
-        
+
         /* Spacing */
         --spacing-xs: 0.5rem;
         --spacing-sm: 1rem;
         --spacing-md: 1.5rem;
         --spacing-lg: 2rem;
         --spacing-xl: 3rem;
-        
+
         /* Borders */
         --border-radius-sm: 0.5rem;
         --border-radius: 1rem;
         --border-radius-lg: 1.5rem;
-        
+
         /* Transitions */
         --transition-fast: all 0.2s ease;
         --transition: all 0.3s ease;
         --transition-slow: all 0.4s ease;
-        
+
         /* Typography */
         --font-size-sm: 0.875rem;
         --font-size-base: 1rem;
@@ -446,7 +486,7 @@
         --font-size-xl: 1.5rem;
         --font-size-2xl: 1.75rem;
         --font-size-3xl: 2rem;
-        
+
         /* Z-index */
         --z-sticky: 1020;
         --z-fixed: 1030;
@@ -470,7 +510,9 @@
     }
 
     /* Modern headings */
-    h1, h2, h3 {
+    h1,
+    h2,
+    h3 {
         color: var(--huawei-secondary);
         font-weight: 600;
         letter-spacing: -0.5px;
@@ -613,11 +655,13 @@
     }
 
     /* Lists styling */
-    ul, ol {
+    ul,
+    ol {
         padding-left: 1.5rem;
     }
 
-    ul li, ol li {
+    ul li,
+    ol li {
         margin-bottom: 0.75rem;
         line-height: 1.6;
     }
@@ -845,8 +889,13 @@
     }
 
     @keyframes rotate {
-        from { transform: rotate(0deg); }
-        to { transform: rotate(360deg); }
+        from {
+            transform: rotate(0deg);
+        }
+
+        to {
+            transform: rotate(360deg);
+        }
     }
 
     /* Toast notification styling */
@@ -880,6 +929,7 @@
             opacity: 0;
             transform: translateY(20px);
         }
+
         to {
             opacity: 1;
             transform: translateY(0);
@@ -891,6 +941,7 @@
             opacity: 0;
             transform: scale(0.9);
         }
+
         to {
             opacity: 1;
             transform: scale(1);
@@ -908,17 +959,45 @@
     }
 
     /* Stagger animations */
-    .roadmap-section:nth-child(1) { animation-delay: 0.1s; }
-    .roadmap-section:nth-child(2) { animation-delay: 0.2s; }
-    .roadmap-section:nth-child(3) { animation-delay: 0.3s; }
-    .roadmap-section:nth-child(4) { animation-delay: 0.4s; }
-    .roadmap-section:nth-child(5) { animation-delay: 0.5s; }
-    .roadmap-section:nth-child(6) { animation-delay: 0.6s; }
+    .roadmap-section:nth-child(1) {
+        animation-delay: 0.1s;
+    }
 
-    .roadmap-card:nth-child(1) { animation-delay: 0.2s; }
-    .roadmap-card:nth-child(2) { animation-delay: 0.3s; }
-    .roadmap-card:nth-child(3) { animation-delay: 0.4s; }
-    .roadmap-card:nth-child(4) { animation-delay: 0.5s; }
+    .roadmap-section:nth-child(2) {
+        animation-delay: 0.2s;
+    }
+
+    .roadmap-section:nth-child(3) {
+        animation-delay: 0.3s;
+    }
+
+    .roadmap-section:nth-child(4) {
+        animation-delay: 0.4s;
+    }
+
+    .roadmap-section:nth-child(5) {
+        animation-delay: 0.5s;
+    }
+
+    .roadmap-section:nth-child(6) {
+        animation-delay: 0.6s;
+    }
+
+    .roadmap-card:nth-child(1) {
+        animation-delay: 0.2s;
+    }
+
+    .roadmap-card:nth-child(2) {
+        animation-delay: 0.3s;
+    }
+
+    .roadmap-card:nth-child(3) {
+        animation-delay: 0.4s;
+    }
+
+    .roadmap-card:nth-child(4) {
+        animation-delay: 0.5s;
+    }
 
     @media (max-width: 768px) {
         .share-container {
@@ -957,7 +1036,7 @@
             this.toastMessage = document.getElementById('toastMessage');
             this.originalButtonContent = this.shareButton.innerHTML;
             this.navLinks = document.querySelectorAll('.nav-link');
-            
+
             this.init();
         }
 
@@ -974,7 +1053,7 @@
                     e.preventDefault();
                     const targetId = link.getAttribute('href');
                     const targetSection = document.querySelector(targetId);
-                    
+
                     if (targetSection) {
                         targetSection.scrollIntoView({
                             behavior: 'smooth',
@@ -987,7 +1066,7 @@
 
         initScrollSpy() {
             const sections = document.querySelectorAll('section');
-            
+
             const observerOptions = {
                 root: null,
                 rootMargin: '0px',
@@ -1021,11 +1100,11 @@
         handleScroll() {
             const sections = document.querySelectorAll('section');
             const cards = document.querySelectorAll('.roadmap-card');
-            
+
             sections.forEach(section => {
                 const rect = section.getBoundingClientRect();
                 const isVisible = rect.top < window.innerHeight && rect.bottom >= 0;
-                
+
                 if (isVisible) {
                     section.style.opacity = '1';
                     section.style.transform = 'translateY(0)';
@@ -1035,7 +1114,7 @@
             cards.forEach(card => {
                 const rect = card.getBoundingClientRect();
                 const isVisible = rect.top < window.innerHeight && rect.bottom >= 0;
-                
+
                 if (isVisible) {
                     card.style.opacity = '1';
                     card.style.transform = 'scale(1)';
@@ -1045,8 +1124,8 @@
 
         async handleShare() {
             const shareData = {
-                title: 'Web Development Roadmap',
-                text: 'Check out this comprehensive web development roadmap for becoming a professional developer!',
+                title: '{{title}}',
+                text: '{{description}}',
                 url: window.location.href
             };
 
@@ -1080,7 +1159,7 @@
                     document.body.appendChild(textArea);
                     textArea.focus();
                     textArea.select();
-                    
+
                     document.execCommand('copy');
                     textArea.remove();
                 }
@@ -1107,15 +1186,15 @@
         }
 
         showToast(type, message) {
-            const icon = type === 'success' 
-                ? '✅' 
-                : type === 'error' 
-                    ? '❌' 
+            const icon = type === 'success'
+                ? '✅'
+                : type === 'error'
+                    ? '❌'
                     : '📢';
-            
+
             this.toastMessage.textContent = `${icon} ${message}`;
             this.toast.className = `toast-notification show ${type}`;
-            
+
             setTimeout(() => {
                 this.toast.classList.remove('show');
             }, 3000);

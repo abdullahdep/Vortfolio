@@ -1,912 +1,844 @@
-
-
 {% extends 'components/layout.html' %}
 {% load static %}
 
 {% block content %}
-    <title>Vortfolio - Web Development Services</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        /* Reset and base styles */
-      
-        
-        
-       
-        
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-        
-      
-        
-        /* Hero section */
-        .hero {
-            position: relative;
-            width: 100%;
-            height: 500px;
-            overflow: hidden;
-        }
-        
-        .hero-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .hero-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3));
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 1.5rem;
-        }
-        
-        .hero-badge {
-            display: inline-block;
-            background-color: #2563eb;
-            color: white;
-            padding: 0.25rem 1rem;
-            border-radius: 9999px;
-            font-size: 0.875rem;
-            margin-bottom: 1rem;
-        }
-        
+<title>Vortfolio - Web Development Services</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+    /* Reset and base styles */
+
+
+
+
+
+    .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+    }
+
+
+
+    /* Hero section */
+    .hero {
+        position: relative;
+        width: 100%;
+        height: 500px;
+        overflow: hidden;
+    }
+
+    .hero-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .hero-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3));
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 1.5rem;
+    }
+
+    .hero-badge {
+        display: inline-block;
+        background-color: #2563eb;
+        color: white;
+        padding: 0.25rem 1rem;
+        border-radius: 9999px;
+        font-size: 0.875rem;
+        margin-bottom: 1rem;
+    }
+
+    .hero-title {
+        font-size: 2.25rem;
+        font-weight: bold;
+        color: white;
+        margin-bottom: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
         .hero-title {
-            font-size: 2.25rem;
-            font-weight: bold;
-            color: white;
-            margin-bottom: 1.5rem;
-        }
-        
-        @media (min-width: 768px) {
-            .hero-title {
-                font-size: 3rem;
-            }
-        }
-        
-        .hero-title span {
-            color: #3b82f6;
-        }
-        
-        .hero-description {
-            color: rgba(255, 255, 255, 0.9);
-            max-width: 36rem;
-            margin-bottom: 2rem;
-        }
-        
-        .button-group {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            justify-content: center;
-        }
-        
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0.5rem 1rem;
-            border-radius: 0.375rem;
-            font-weight: 500;
-            transition: all 0.2s;
-            cursor: pointer;
-        }
-        
-        .btn-primary {
-            background-color: #2563eb;
-            color: white;
-            border: none;
-        }
-        
-        .btn-primary:hover {
-            background-color: #1d4ed8;
-        }
-        
-        .btn-outline {
-            background-color: transparent;
-            color: white;
-            border: 1px solid white;
-        }
-        
-        .btn-outline:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-        
-        .btn-ghost {
-            background-color: transparent;
-            color: #2563eb;
-            border: none;
-            padding: 0;
-        }
-        
-        .btn-ghost:hover {
-            color: #1d4ed8;
-        }
-        
-        .btn-sm {
-            padding: 0.25rem 0.75rem;
-            font-size: 0.875rem;
-        }
-        
-        /* Section styles */
-        .section {
-            padding: 4rem 1rem;
-        }
-        
-        .section-gray {
-            background-color: #f9fafb;
-        }
-        
-        .section-title-container {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        
-        .section-title {
-            font-size: 1.875rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-        }
-        
-        .section-divider {
-            width: 6rem;
-            height: 0.25rem;
-            background-color: #2563eb;
-            margin: 0 auto;
-        }
-        
-        /* Card grid */
-        .card-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-        }
-        
-        @media (min-width: 768px) {
-            .card-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
-        @media (min-width: 1024px) {
-            .card-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-        
-        /* Card styles */
-        .card {
-            border-radius: 0.5rem;
-            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-            background-color: white;
-            overflow: hidden;
-        }
-        
-        .card-header {
-            padding: 1.5rem 1.5rem 0.5rem;
-        }
-        
-        .card-icon {
-            color: #2563eb;
-            margin-bottom: 0.5rem;
             font-size: 3rem;
         }
-        
-        .card-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
+    }
+
+    .hero-title span {
+        color: #3b82f6;
+    }
+
+    .hero-description {
+        color: rgba(255, 255, 255, 0.9);
+        max-width: 36rem;
+        margin-bottom: 2rem;
+    }
+
+    .button-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: center;
+    }
+
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.5rem 1rem;
+        border-radius: 0.375rem;
+        font-weight: 500;
+        transition: all 0.2s;
+        cursor: pointer;
+    }
+
+    .btn-primary {
+        background-color: #2563eb;
+        color: white;
+        border: none;
+    }
+
+    .btn-primary:hover {
+        background-color: #1d4ed8;
+    }
+
+    .btn-outline {
+        background-color: transparent;
+        color: white;
+        border: 1px solid white;
+    }
+
+    .btn-outline:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .btn-ghost {
+        background-color: transparent;
+        color: #2563eb;
+        border: none;
+        padding: 0;
+    }
+
+    .btn-ghost:hover {
+        color: #1d4ed8;
+    }
+
+    .btn-sm {
+        padding: 0.25rem 0.75rem;
+        font-size: 0.875rem;
+    }
+
+    /* Section styles */
+    .section {
+        padding: 4rem 1rem;
+    }
+
+    .section-gray {
+        background-color: #f9fafb;
+    }
+
+    .section-title-container {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    .section-title {
+        font-size: 1.875rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+    }
+
+    .section-divider {
+        width: 6rem;
+        height: 0.25rem;
+        background-color: #2563eb;
+        margin: 0 auto;
+    }
+
+    /* Card grid */
+    .card-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    @media (min-width: 768px) {
+        .card-grid {
+            grid-template-columns: repeat(2, 1fr);
         }
-        
-        .card-description {
-            color: #6b7280;
-            margin-bottom: 1rem;
+    }
+
+    @media (min-width: 1024px) {
+        .card-grid {
+            grid-template-columns: repeat(3, 1fr);
         }
-        
-        .card-content {
-            padding: 0 1.5rem 1rem;
-        }
-        
-        .card-footer {
-            padding: 1rem 1.5rem 1.5rem;
-        }
-        
-        .feature-list {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-        
-        .feature-item {
-            display: flex;
-            align-items: flex-start;
-        }
-        
-        .feature-bullet {
-            margin-right: 0.5rem;
-            margin-top: 0.25rem;
-            width: 0.375rem;
-            height: 0.375rem;
-            border-radius: 9999px;
-            background-color: #2563eb;
-        }
-        
-        /* Portfolio grid */
+    }
+
+    /* Card styles */
+    .card {
+        border-radius: 0.5rem;
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+        background-color: white;
+        overflow: hidden;
+    }
+
+    .card-header {
+        padding: 1.5rem 1.5rem 0.5rem;
+    }
+
+    .card-icon {
+        color: #2563eb;
+        margin-bottom: 0.5rem;
+        font-size: 3rem;
+    }
+
+    .card-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+    }
+
+    .card-description {
+        color: #6b7280;
+        margin-bottom: 1rem;
+    }
+
+    .card-content {
+        padding: 0 1.5rem 1rem;
+    }
+
+    .card-footer {
+        padding: 1rem 1.5rem 1.5rem;
+    }
+
+    .feature-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .feature-item {
+        display: flex;
+        align-items: flex-start;
+    }
+
+    .feature-bullet {
+        margin-right: 0.5rem;
+        margin-top: 0.25rem;
+        width: 0.375rem;
+        height: 0.375rem;
+        border-radius: 9999px;
+        background-color: #2563eb;
+    }
+
+    /* Portfolio grid */
+    .portfolio-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
         .portfolio-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
+            grid-template-columns: repeat(2, 1fr);
         }
-        
-        @media (min-width: 768px) {
-            .portfolio-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+    }
+
+    @media (min-width: 1024px) {
+        .portfolio-grid {
+            grid-template-columns: repeat(3, 1fr);
         }
-        
-        @media (min-width: 1024px) {
-            .portfolio-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-        
-        .portfolio-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 0.5rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-        }
-        
-        .portfolio-image {
-            width: 100%;
-            height: 16rem;
-            object-fit: cover;
-            transition: transform 0.3s;
-        }
-        
-        .portfolio-item:hover .portfolio-image {
-            transform: scale(1.05);
-        }
-        
-        .portfolio-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4), transparent);
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 1.5rem;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-        
-        .portfolio-item:hover .portfolio-overlay {
-            opacity: 1;
-        }
-        
-        .portfolio-title {
-            color: white;
-            font-size: 1.25rem;
-            font-weight: bold;
-        }
-        
-        .portfolio-category {
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 1rem;
-        }
-        
-        .text-center {
-            text-align: center;
-        }
-        
-        .mt-12 {
-            margin-top: 3rem;
-        }
-        
-        /* Skills section */
-        .skills-container {
-            max-width: 48rem;
-            margin: 0 auto;
-        }
-        
-        .skills-card {
-            border: 1px solid #e5e7eb;
-            border-radius: 0.5rem;
-            overflow: hidden;
-        }
-        
-        .skills-header {
-            background-color: #2563eb;
-            color: white;
-            padding: 1rem;
-            display: flex;
-            align-items: center;
-        }
-        
-        .skills-header-icon {
-            margin-right: 0.5rem;
-        }
-        
-        .skills-header-title {
-            font-weight: 500;
-        }
-        
-        .skills-content {
-            padding: 1.5rem;
-        }
-        
-        .skills-title {
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-        }
-        
-        .skills-description {
-            margin-bottom: 1rem;
-        }
-        
-        /* CTA section */
-        .cta-section {
-            background-color: #2563eb;
-            color: white;
-            padding: 4rem 1rem;
-            text-align: center;
-        }
-        
-        .cta-title {
-            font-size: 1.875rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-        }
-        
-        .cta-description {
-            max-width: 36rem;
-            margin: 0 auto 2rem;
-        }
-        
-        .btn-white {
-            background-color: white;
-            color: #2563eb;
-            border: none;
-        }
-        
-        .btn-white:hover {
-            background-color: #f3f4f6;
-        }
-        
-        /* Footer */
-        footer {
-            background-color: #111827;
-            color: white;
-            padding: 3rem 1rem;
-        }
-        
+    }
+
+    .portfolio-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+
+    .portfolio-image {
+        width: 100%;
+        height: 16rem;
+        object-fit: cover;
+        transition: transform 0.3s;
+    }
+
+    .portfolio-item:hover .portfolio-image {
+        transform: scale(1.05);
+    }
+
+    .portfolio-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4), transparent);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 1.5rem;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    .portfolio-item:hover .portfolio-overlay {
+        opacity: 1;
+    }
+
+    .portfolio-title {
+        color: white;
+        font-size: 1.25rem;
+        font-weight: bold;
+    }
+
+    .portfolio-category {
+        color: rgba(255, 255, 255, 0.8);
+        margin-bottom: 1rem;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .mt-12 {
+        margin-top: 3rem;
+    }
+
+    /* Skills section */
+    .skills-container {
+        max-width: 48rem;
+        margin: 0 auto;
+    }
+
+    .skills-card {
+        border: 1px solid #e5e7eb;
+        border-radius: 0.5rem;
+        overflow: hidden;
+    }
+
+    .skills-header {
+        background-color: #2563eb;
+        color: white;
+        padding: 1rem;
+        display: flex;
+        align-items: center;
+    }
+
+    .skills-header-icon {
+        margin-right: 0.5rem;
+    }
+
+    .skills-header-title {
+        font-weight: 500;
+    }
+
+    .skills-content {
+        padding: 1.5rem;
+    }
+
+    .skills-title {
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+    }
+
+    .skills-description {
+        margin-bottom: 1rem;
+    }
+
+    /* CTA section */
+    .cta-section {
+        background-color: #2563eb;
+        color: white;
+        padding: 4rem 1rem;
+        text-align: center;
+    }
+
+    .cta-title {
+        font-size: 1.875rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+    }
+
+    .cta-description {
+        max-width: 36rem;
+        margin: 0 auto 2rem;
+    }
+
+    .btn-white {
+        background-color: white;
+        color: #2563eb;
+        border: none;
+    }
+
+    .btn-white:hover {
+        background-color: #f3f4f6;
+    }
+
+    /* Footer */
+    footer {
+        background-color: #111827;
+        color: white;
+        padding: 3rem 1rem;
+    }
+
+    .footer-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    @media (min-width: 768px) {
         .footer-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
+            grid-template-columns: repeat(4, 1fr);
         }
-        
-        @media (min-width: 768px) {
-            .footer-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-        }
-        
-        .footer-title {
-            font-size: 1.25rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-        }
-        
-        .footer-description {
-            color: #9ca3af;
-        }
-        
-        .footer-heading {
-            font-weight: bold;
-            margin-bottom: 1rem;
-        }
-        
-        .footer-links {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-        
-        .footer-link {
-            color: #9ca3af;
-            transition: color 0.2s;
-        }
-        
-        .footer-link:hover {
-            color: white;
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 1rem;
-        }
-        
-        .social-link {
-            color: #9ca3af;
-            transition: color 0.2s;
-        }
-        
-        .social-link:hover {
-            color: white;
-        }
-        
-        .footer-bottom {
-            border-top: 1px solid #1f2937;
-            margin-top: 2rem;
-            padding-top: 2rem;
-            text-align: center;
-            color: #9ca3af;
-        }
+    }
 
-        /* Service types section */
+    .footer-title {
+        font-size: 1.25rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+    }
+
+    .footer-description {
+        color: #9ca3af;
+    }
+
+    .footer-heading {
+        font-weight: bold;
+        margin-bottom: 1rem;
+    }
+
+    .footer-links {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .footer-link {
+        color: #9ca3af;
+        transition: color 0.2s;
+    }
+
+    .footer-link:hover {
+        color: white;
+    }
+
+    .social-links {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .social-link {
+        color: #9ca3af;
+        transition: color 0.2s;
+    }
+
+    .social-link:hover {
+        color: white;
+    }
+
+    .footer-bottom {
+        border-top: 1px solid #1f2937;
+        margin-top: 2rem;
+        padding-top: 2rem;
+        text-align: center;
+        color: #9ca3af;
+    }
+
+    /* Service types section */
+    .service-types {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+
+    @media (min-width: 768px) {
         .service-types {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-            margin-top: 2rem;
+            grid-template-columns: repeat(2, 1fr);
         }
+    }
 
-        @media (min-width: 768px) {
-            .service-types {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
+    .service-type {
+        background-color: white;
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        overflow: hidden;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
 
-        .service-type {
-            background-color: white;
-            border-radius: 0.5rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
+    .service-type:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
 
-        .service-type:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-        }
+    .service-type-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
 
-        .service-type-image {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
+    .service-type-content {
+        padding: 1.5rem;
+    }
 
-        .service-type-content {
-            padding: 1.5rem;
-        }
+    .service-type-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 0.75rem;
+        color: #1e3a8a;
+    }
 
-        .service-type-title {
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-bottom: 0.75rem;
-            color: #1e3a8a;
-        }
+    .service-type-description {
+        color: #4b5563;
+        margin-bottom: 1.5rem;
+    }
 
-        .service-type-description {
-            color: #4b5563;
-            margin-bottom: 1.5rem;
-        }
+    .tech-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 1.5rem;
+    }
 
-        .tech-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .tech-tag {
-            background-color: #e0e7ff;
-            color: #4338ca;
-            padding: 0.25rem 0.75rem;
-            border-radius: 9999px;
-            font-size: 0.75rem;
-            font-weight: 500;
-        }
-    </style>
+    .tech-tag {
+        background-color: #e0e7ff;
+        color: #4338ca;
+        padding: 0.25rem 0.75rem;
+        border-radius: 9999px;
+        font-size: 0.75rem;
+        font-weight: 500;
+    }
+</style>
 </head>
 
-        <!-- Hero Section -->
-        <section class="hero">
-            <img src="https://placehold.co/1920x1080/2563eb/FFFFFF/png" alt="Web Development Hero" class="hero-image">
-            <div class="hero-overlay">
-                <div class="hero-badge">Web Development</div>
-                <h1 class="hero-title">Building <span>Powerful</span> Web Solutions</h1>
-                <p class="hero-description">We create custom websites and web applications that drive business growth and deliver exceptional user experiences</p>
-                <div class="button-group">
-                    <a href="/contact" class="btn btn-primary">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 0.5rem;">
-                            <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
-                            <circle cx="12" cy="12" r="3"></circle>
-                        </svg>
-                        Get Your Website Now
-                    </a>
-                    <a href="/contact" class="btn btn-outline">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 0.5rem;">
-                            <path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4c0-1.1.9-2 2-2h8a2 2 0 0 1 2 2v5Z"></path>
-                            <path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"></path>
-                        </svg>
-                        Get a Quote
-                    </a>
-                </div>
-            </div>
-        </section>
+<!-- Hero Section -->
+<section class="hero">
+    <img src="https://picsum.photos/1080/1090?grayscale" alt="Web Development Hero" class="hero-image">
+    <div class="hero-overlay">
+        <div class="hero-badge">Web Development</div>
+        <h1 class="hero-title">Building <span>Powerful</span> Web Solutions</h1>
+        <p class="hero-description">We create custom websites and web applications that drive business growth and
+            deliver exceptional user experiences</p>
+        <div class="button-group">
+            <a href="/contact" class="btn btn-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    style="margin-right: 0.5rem;">
+                    <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+                Get Your Website Now
+            </a>
+            <a href="/contact" class="btn btn-outline">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    style="margin-right: 0.5rem;">
+                    <path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4c0-1.1.9-2 2-2h8a2 2 0 0 1 2 2v5Z"></path>
+                    <path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"></path>
+                </svg>
+                Get a Quote
+            </a>
+        </div>
+    </div>
+</section>
 
-        <!-- Web Development Types Section -->
-        <section class="section">
-            <div class="container">
-                <div class="section-title-container">
-                    <h2 class="section-title">Our Web Development Services</h2>
-                    <div class="section-divider"></div>
-                    <p style="max-width: 600px; margin: 1.5rem auto 0; color: #4b5563;">
-                        We offer two primary approaches to web development, tailored to your specific needs, timeline, and budget
+<!-- Web Development Types Section -->
+<section class="section">
+    <div class="container">
+        <div class="section-title-container">
+            <h2 class="section-title">Our Web Development Services</h2>
+            <div class="section-divider"></div>
+            <p style="max-width: 600px; margin: 1.5rem auto 0; color: #4b5563;">
+                We offer two primary approaches to web development, tailored to your specific needs, timeline, and
+                budget
+            </p>
+        </div>
+
+        <div class="service-types">
+
+
+            <!-- CMS Built Websites -->
+            <div class="service-type">
+                <img src="https://picsum.photos/800/400?random=1" alt="CMS Built Websites" class="service-type-image">
+                <div class="service-type-content">
+                    <h3 class="service-type-title">CMS Built Websites</h3>
+                    <p class="service-type-description">
+                        Websites built on established content management systems that offer flexibility, ease of use,
+                        and faster development time. Ideal for content-driven websites that need regular updates.
+                        Enhanced with <b>AI</b> capabilities for smarter content management and user engagement. With
+                        <b>AI</b>
                     </p>
-                </div>
-
-                <div class="service-types">
-                  
-
-                    <!-- CMS Built Websites -->
-                    <div class="service-type">
-                        <img src="https://placehold.co/800x400/2563eb/FFFFFF/png" alt="CMS Built Websites" class="service-type-image">
-                        <div class="service-type-content">
-                            <h3 class="service-type-title">CMS Built Websites</h3>
-                            <p class="service-type-description">
-                                Websites built on established content management systems that offer flexibility, ease of use, and faster development time. Ideal for content-driven websites that need regular updates. Enhanced with <b>AI</b> capabilities for smarter content management and user engagement. With <b>AI</b>
-                            </p>
-                            <div class="tech-list">
-                                <span class="tech-tag">WordPress</span>
-                                <span class="tech-tag">Shopify</span>
-                                <span class="tech-tag">Webflow</span>
-                                <span class="tech-tag">Wix</span>
-                                <span class="tech-tag">Squarespace</span>
-                                <span class="tech-tag">Drupal</span>
-                                <span class="tech-tag">Odoo</span>
-                                <span class="tech-tag">And More</span>
+                    <div class="tech-list">
+                        <span class="tech-tag">WordPress</span>
+                        <span class="tech-tag">Shopify</span>
+                        <span class="tech-tag">Webflow</span>
+                        <span class="tech-tag">Wix</span>
+                        <span class="tech-tag">Squarespace</span>
+                        <span class="tech-tag">Drupal</span>
+                        <span class="tech-tag">Odoo</span>
+                        <span class="tech-tag">And More</span>
 
 
-                            </div>
-                            <h4 style="font-weight: 600; margin-bottom: 0.75rem;">Benefits:</h4>
-                            <ul class="feature-list">
-                                <li class="feature-item">
-                                    <div class="feature-bullet"></div>
-                                    <span>Faster development and deployment</span>
-                                </li>
-                                <li class="feature-item">
-                                    <div class="feature-bullet"></div>
-                                    <span>User-friendly content management</span>
-                                </li>
-                                <li class="feature-item">
-                                    <div class="feature-bullet"></div>
-                                    <span>Lower development costs</span>
-                                </li>
-                                <li class="feature-item">
-                                    <div class="feature-bullet"></div>
-                                    <span>Extensive plugin ecosystems for added functionality</span>
-                                </li>
-                            </ul>
-                            <div style="margin-top: 1.5rem;">
-                                <a href="/contact" class="btn btn-primary">Request a CMS Website</a>
-                            </div>
-                        </div>
                     </div>
-                      <!-- Custom Built Websites -->
-                    <div class="service-type">
-                        <img src="https://placehold.co/800x400/2563eb/FFFFFF/png" alt="Custom Built Websites" class="service-type-image">
-                        <div class="service-type-content">
-                            <h3 class="service-type-title">Custom Built Websites</h3>
-                            <p class="service-type-description">
-                                Fully customized websites built from scratch to meet your exact specifications and business requirements. Perfect for unique projects that need specialized functionality. With <b>AI</b>
-                            </p>
-                            <div class="tech-list">
-                                <span class="tech-tag">React</span>
-                                <span class="tech-tag">Next.js</span>
-                                <span class="tech-tag">Node.js</span>
-                                <span class="tech-tag">Express</span>
-                                <span class="tech-tag">MongoDB</span>
-                                <span class="tech-tag">PostgreSQL</span>
-                                <span class="tech-tag">Laravel</span>
-                                <span class="tech-tag">Django</span>
-                                <span class="tech-tag">Flask</span>
-                                <span class="tech-tag">MySQL</span>
-                                <span class="tech-tag">And all the technologies</span>
-                            </div>
-                            <h4 style="font-weight: 600; margin-bottom: 0.75rem;">Benefits:</h4>
-                            <ul class="feature-list">
-                                <li class="feature-item">
-                                    <div class="feature-bullet"></div>
-                                    <span>Complete control over design and functionality</span>
-                                </li>
-                                <li class="feature-item">
-                                    <div class="feature-bullet"></div>
-                                    <span>Optimized performance and loading speed</span>
-                                </li>
-                                <li class="feature-item">
-                                    <div class="feature-bullet"></div>
-                                    <span>Unique user experience tailored to your brand</span>
-                                </li>
-                                <li class="feature-item">
-                                    <div class="feature-bullet"></div>
-                                    <span>Scalable architecture for future growth</span>
-                                </li>
-                            </ul>
-                            <div style="margin-top: 1.5rem;">
-                                <a href="/contact" class="btn btn-primary">Request a Custom Website</a>
-                            </div>
-                        </div>
+                    <h1 class="text-primary m-3">$1 <sub>/month</sub> </h1>
+                    <h4 style="font-weight: 600; margin-bottom: 0.75rem;">Benefits:</h4>
+                    <ul class="feature-list">
+                        <li class="feature-item">
+                            <div class="feature-bullet"></div>
+                            <span>8vCPU cores, 8GB RAM & 1TB Storage with 3TB Bandwidth</span>
+                        </li>
+                        <li class="feature-item">
+                            <div class="feature-bullet"></div>
+                            <span>100% Free Hosting And Maintenance</span>
+                        </li>
+                        <li class="feature-item">
+                            <div class="feature-bullet"></div>
+                            <span>Faster development and deployment</span>
+                        </li>
+                        <li class="feature-item">
+                            <div class="feature-bullet"></div>
+                            <span>User-friendly content management</span>
+                        </li>
+                        <li class="feature-item">
+                            <div class="feature-bullet"></div>
+                            <span>Lower development costs</span>
+                        </li>
+                        <li class="feature-item">
+                            <div class="feature-bullet"></div>
+                            <span>Extensive plugin ecosystems for added functionality</span>
+                        </li>
+                        <li class="feature-item">
+                            <div class="feature-bullet"></div>
+                            <span>We also provide you a developer as you request</span>
+                        </li>
+                    </ul>
+                    <div style="margin-top: 1.5rem;">
+                        <a href="/contact" class="btn btn-primary">Request a CMS Website</a>
                     </div>
                 </div>
             </div>
-        </section>
-
-        <!-- Services Section -->
-        <section class="section section-gray">
-            <div class="container">
-                <div class="section-title-container">
-                    <h2 class="section-title">Web Development Services</h2>
-                    <div class="section-divider"></div>
-                </div>
-
-                <div class="card-grid">
-                    <div class="card">
-                        <div class="card-header">
-                            <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect>
-                                <circle cx="8.5" cy="8.5" r="1.5"></circle>
-                                <path d="M20.4 14.5 16 10 4 20"></path>
-                            </svg>
-                            <h3 class="card-title">Responsive Web Design</h3>
-                            <p class="card-description">Creating websites that look and function perfectly on all devices and screen sizes</p>
-                        </div>
-                        <div class="card-content">
-                            <ul class="feature-list">
-                                <li class="feature-item">
-                                    <div class="feature-bullet"></div>
-                                    <span>Mobile-first approach</span>
-                                </li>
-                                <li class="feature-item">
-                                    <div class="feature-bullet"></div>
-                                    <span>Cross-browser compatibility</span>
-                                </li>
-                                <li class="feature-item">
-                                    <div class="feature-bullet"></div>
-                                    <span>Fluid layouts and flexible images</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="card-footer">
-                            <a href="#" class="btn btn-ghost">
-                                Learn more 
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 0.5rem;">
-                                    <path d="M5 12h14"></path>
-                                    <path d="m12 5 7 7-7 7"></path>
-                                </svg>
-                            </a>
-                        </div>
+            <!-- Custom Built Websites -->
+            <div class="service-type">
+                <img src="https://picsum.photos/800/400?random=2" alt="Custom Built Websites"
+                    class="service-type-image">
+                <div class="service-type-content">
+                    <h3 class="service-type-title">Custom Built Websites</h3>
+                    <p class="service-type-description">
+                        Fully customized websites built from scratch to meet your exact specifications and business
+                        requirements. Perfect for unique projects that need specialized functionality. With <b>AI</b>
+                    </p>
+                    <div class="tech-list">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Next.js</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">Express</span>
+                        <span class="tech-tag">MongoDB</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">Laravel</span>
+                        <span class="tech-tag">Django</span>
+                        <span class="tech-tag">Flask</span>
+                        <span class="tech-tag">MySQL</span>
+                        <span class="tech-tag">And all the technologies</span>
                     </div>
+                    <h1 class="text-primary m-3">$5 <sub>/month</sub> </h1>
 
-                    <div class="card">
-                        <div class="card-header">
-                            <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M20 17.58A5 5 0 0 0 18 8h-1.26A8 8 0 1 0 4 16.25"></path>
-                                <line x1="8" x2="8" y1="16" y2="16"></line>
-                                <line x1="8" x2="8" y1="20" y2="20"></line>
-                                <line x1="12" x2="12" y1="18" y2="18"></line>
-                                <line x1="12" x2="12" y1="22" y2="22"></line>
-                                <line x1="16" x2="16" y1="16" y2="16"></line>
-                                <line x1="16" x2="16" y1="20" y2="20"></line>
-                            </svg>
-                            <h3 class="card-title">E-Commerce Development</h3>
-                            <p class="card-description">Building online stores with secure payment processing and inventory management</p>
-                        </div>
-                        <div class="card-content">
-                            <ul class="feature-list">
-                                <li class="feature-item">
-                                    <div class="feature-bullet"></div>
-                                    <span>Custom shopping cart functionality</span>
-                                </li>
-                                <li class="feature-item">
-                                    <div class="feature-bullet"></div>
-                                    <span>Secure payment gateway integration</span>
-                                </li>
-                                <li class="feature-item">
-                                    <div class="feature-bullet"></div>
-                                    <span>Product catalog and inventory management</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="card-footer">
-                            <a href="#" class="btn btn-ghost">
-                                Learn more 
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 0.5rem;">
-                                    <path d="M5 12h14"></path>
-                                    <path d="m12 5 7 7-7 7"></path>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
+                    <h4 style="font-weight: 600; margin-bottom: 0.75rem;">Benefits:</h4>
+                    <ul class="feature-list">
+                        <li class="feature-item">
+                            <div class="feature-bullet"></div>
+                            <span>8vCPU cores,
 
-                    <div class="card">
-                        <div class="card-header">
-                            <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
-                                <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
-                                <path d="M2 2l7.586 7.586"></path>
-                                <circle cx="11" cy="11" r="2"></circle>
-                            </svg>
-                            <h3 class="card-title">Web Application Development</h3>
-                            <p class="card-description">Creating interactive web applications with complex functionality</p>
-                        </div>
-                        <div class="card-content">
-                            <ul class="feature-list">
-                                <li class="feature-item">
-                                    <div class="feature-bullet"></div>
-                                    <span>Single-page applications (SPAs)</span>
-                                </li>
-                                <li class="feature-item">
-                                    <div class="feature-bullet"></div>
-                                    <span>Progressive web apps (PWAs)</span>
-                                </li>
-                                <li class="feature-item">
-                                    <div class="feature-bullet"></div>
-                                    <span>Custom dashboards and admin panels</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="card-footer">
-                            <a href="#" class="btn btn-ghost">
-                                Learn more 
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 0.5rem;">
-                                    <path d="M5 12h14"></path>
-                                    <path d="m12 5 7 7-7 7"></path>
-                                </svg>
-                            </a>
-                        </div>
+                            </span>
+                        </li>
+                        <li class="feature-item">
+                            <div class="feature-bullet"></div>
+                            <span>
+                                8GB RAM & 1TB Storage with 3TB Bandwidth</span>
+                        </li>
+                        <li class="feature-item">
+                            <div class="feature-bullet"></div>
+                            <span>100% Free Hosting And Maintenance</span>
+                        </li>
+
+                        <li class="feature-item">
+                            <div class="feature-bullet"></div>
+                            <span>Complete control over design and functionality</span>
+                        </li>
+                        <li class="feature-item">
+                            <div class="feature-bullet"></div>
+                            <span>Optimized performance and loading speed</span>
+                        </li>
+                        <li class="feature-item">
+                            <div class="feature-bullet"></div>
+                            <span>Unique user experience tailored to your brand</span>
+                        </li>
+                        <li class="feature-item">
+                            <div class="feature-bullet"></div>
+                            <span>Scalable architecture for future growth</span>
+                        </li>
+                        <li class="feature-item">
+                            <div class="feature-bullet"></div>
+                            <span>We also provide you a developer as you request</span>
+                        </li>
+                    </ul>
+                    <div style="margin-top: 1.5rem;">
+                        <a href="/contact" class="btn btn-primary">Request a Custom Website</a>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </div>
+</section>
 
-        <!-- Portfolio Section -->
-        <section id="portfolio" class="section">
-            <div class="container">
-                <div class="section-title-container">
-                    <h2 class="section-title">Web Development Portfolio</h2>
-                    <div class="section-divider"></div>
-                </div>
 
-                <div class="portfolio-grid">
-                    <!-- Portfolio Item 1 -->
-                    <div class="portfolio-item">
-                        <img src="https://placehold.co/800x600/2563eb/FFFFFF/png" alt="Web Development Project 1" class="portfolio-image">
-                        <div class="portfolio-overlay">
-                            <h3 class="portfolio-title">E-Commerce Platform</h3>
-                            <p class="portfolio-category">Custom Web Development</p>
-                            <a href="#" class="btn btn-sm btn-primary">View Case Study</a>
-                        </div>
-                    </div>
-                    
-                    <!-- Portfolio Item 2 -->
-                    <div class="portfolio-item">
-                        <img src="https://placehold.co/800x600/2563eb/FFFFFF/png" alt="Web Development Project 2" class="portfolio-image">
-                        <div class="portfolio-overlay">
-                            <h3 class="portfolio-title">Corporate Website</h3>
-                            <p class="portfolio-category">WordPress Development</p>
-                            <a href="#" class="btn btn-sm btn-primary">View Case Study</a>
-                        </div>
-                    </div>
-                    
-                    <!-- Portfolio Item 3 -->
-                    <div class="portfolio-item">
-                        <img src="https://placehold.co/800x600/2563eb/FFFFFF/png" alt="Web Development Project 3" class="portfolio-image">
-                        <div class="portfolio-overlay">
-                            <h3 class="portfolio-title">SaaS Dashboard</h3>
-                            <p class="portfolio-category">Web Application</p>
-                            <a href="#" class="btn btn-sm btn-primary">View Case Study</a>
-                        </div>
-                    </div>
-                    
-                    <!-- Portfolio Item 4 -->
-                    <div class="portfolio-item">
-                        <img src="https://placehold.co/800x600/2563eb/FFFFFF/png" alt="Web Development Project 4" class="portfolio-image">
-                        <div class="portfolio-overlay">
-                            <h3 class="portfolio-title">Real Estate Platform</h3>
-                            <p class="portfolio-category">Custom CMS Development</p>
-                            <a href="#" class="btn btn-sm btn-primary">View Case Study</a>
-                        </div>
-                    </div>
-                    
-                    <!-- Portfolio Item 5 -->
-                    <div class="portfolio-item">
-                        <img src="https://placehold.co/800x600/2563eb/FFFFFF/png" alt="Web Development Project 5" class="portfolio-image">
-                        <div class="portfolio-overlay">
-                            <h3 class="portfolio-title">Educational Platform</h3>
-                            <p class="portfolio-category">LMS Development</p>
-                            <a href="#" class="btn btn-sm btn-primary">View Case Study</a>
-                        </div>
-                    </div>
-                    
-                    <!-- Portfolio Item 6 -->
-                    <div class="portfolio-item">
-                        <img src="https://placehold.co/800x600/2563eb/FFFFFF/png" alt="Web Development Project 6" class="portfolio-image">
-                        <div class="portfolio-overlay">
-                            <h3 class="portfolio-title">Restaurant Website</h3>
-                            <p class="portfolio-category">Shopify Development</p>
-                            <a href="#" class="btn btn-sm btn-primary">View Case Study</a>
-                        </div>
-                    </div>
-                </div>
+<!-- Portfolio Section -->
+<section id="portfolio" class="section">
+    <div class="container">
+        <div class="section-title-container">
+            <h2 class="section-title">Web Development Thoughts</h2>
+            <div class="section-divider m-1">Pick One Insight</div>
+        </div>
 
-                <div class="text-center mt-12">
-                    <a href="#" class="btn btn-primary">
-                        View All Projects
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 0.5rem;">
-                            <path d="M5 12h14"></path>
-                            <path d="m12 5 7 7-7 7"></path>
-                        </svg>
-                    </a>
+        <div class="portfolio-grid">
+            <!-- Portfolio Item 1 -->
+            <div class="portfolio-item">
+                <img src="https://picsum.photos/800/600?random=3" alt="Web Development Project 1"
+                    class="portfolio-image">
+                <div class="portfolio-overlay">
+                    <h3 class="portfolio-title">E-Commerce Platform</h3>
+                    <p class="portfolio-category">Custom Web Development</p>
+                    <a href="/contact" class="btn btn-sm btn-primary">View Case Study</a>
                 </div>
             </div>
-        </section>
 
-        <!-- Skills Section -->
-        <section class="section section-gray">
-            <div class="container">
-                <div class="section-title-container">
-                    <h2 class="section-title">Web Development Technologies</h2>
-                    <div class="section-divider"></div>
-                </div>
-
-                <div class="skills-container">
-                    <div class="skills-card">
-                        <div class="skills-header">
-                            <svg class="skills-header-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="m18 16 4-4-4-4"></path>
-                                <path d="m6 8-4 4 4 4"></path>
-                                <path d="m14.5 4-5 16"></path>
-                            </svg>
-                            <h3 class="skills-header-title">Web Development Expertise</h3>
-                        </div>
-                        <div class="skills-content">
-                            <p class="skills-title">Frontend Technologies:</p>
-                            <p class="skills-description">HTML5, CSS3, JavaScript (ES6+), TypeScript, React.js, Vue.js, Angular, Next.js, Tailwind CSS, Bootstrap</p>
-
-                            <p class="skills-title">Backend Technologies:</p>
-                            <p class="skills-description">Node.js, Express, PHP, Laravel, Python, Django, Ruby on Rails, ASP.NET</p>
-
-                            <p class="skills-title">Database Technologies:</p>
-                            <p class="skills-description">MySQL, PostgreSQL, MongoDB, Firebase, Redis, SQLite</p>
-
-                            <p class="skills-title">CMS Platforms:</p>
-                            <p class="skills-description">WordPress, Shopify, Webflow, Drupal, Joomla, Magento, WooCommerce</p>
-                        </div>
-                    </div>
+            <!-- Portfolio Item 2 -->
+            <div class="portfolio-item">
+                <img src="https://picsum.photos/800/600?random=4" alt="Web Development Project 2"
+                    class="portfolio-image">
+                <div class="portfolio-overlay">
+                    <h3 class="portfolio-title">Corporate Website</h3>
+                    <p class="portfolio-category">WordPress Development</p>
+                    <a href="/contact" class="btn btn-sm btn-primary">View Case Study</a>
                 </div>
             </div>
-        </section>
 
-        <!-- CTA Section -->
-        <section class="cta-section">
-            <div class="container">
-                <h2 class="cta-title">Ready to Build Your Next Web Project?</h2>
-                <p class="cta-description">Let's collaborate to create a powerful web solution that drives your business forward</p>
-                <a href="#" class="btn btn-white">Get Started</a>
+            <!-- Portfolio Item 3 -->
+            <div class="portfolio-item">
+                <img src="https://picsum.photos/800/600?random=5" alt="Web Development Project 3"
+                    class="portfolio-image">
+                <div class="portfolio-overlay">
+                    <h3 class="portfolio-title">SaaS Dashboard</h3>
+                    <p class="portfolio-category">Web Application</p>
+                    <a href="/contact" class="btn btn-sm btn-primary">View Case Study</a>
+                </div>
             </div>
-        </section>
 
-    <!-- Footer -->
+            <!-- Portfolio Item 4 -->
+            <div class="portfolio-item">
+                <img src="https://picsum.photos/800/600?random=6" alt="Web Development Project 4"
+                    class="portfolio-image">
+                <div class="portfolio-overlay">
+                    <h3 class="portfolio-title">Real Estate Platform</h3>
+                    <p class="portfolio-category">Custom CMS Development</p>
+                    <a href="/contact" class="btn btn-sm btn-primary">View Case Study</a>
+                </div>
+            </div>
+
+            <!-- Portfolio Item 5 -->
+            <div class="portfolio-item">
+                <img src="https://picsum.photos/800/600?random=7" alt="Web Development Project 5"
+                    class="portfolio-image">
+                <div class="portfolio-overlay">
+                    <h3 class="portfolio-title">Educational Platform</h3>
+                    <p class="portfolio-category">LMS Development</p>
+                    <a href="/contact" class="btn btn-sm btn-primary">View Case Study</a>
+                </div>
+            </div>
+
+            <!-- Portfolio Item 6 -->
+            <div class="portfolio-item">
+                <img src="https://picsum.photos/800/600?random=8" alt="Web Development Project 6"
+                    class="portfolio-image">
+                <div class="portfolio-overlay">
+                    <h3 class="portfolio-title">Restaurant Website</h3>
+                    <p class="portfolio-category">Shopify Development</p>
+                    <a href="/contact" class="btn btn-sm btn-primary">View Case Study</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-12">
+            <a href="/contact" class="btn btn-primary">
+                View All Projects
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    style="margin-left: 0.5rem;">
+                    <path d="M5 12h14"></path>
+                    <path d="m12 5 7 7-7 7"></path>
+                </svg>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Skills Section -->
+<section class="section section-gray">
+    <div class="container">
+        <div class="section-title-container">
+            <h2 class="section-title">Web Development Technologies</h2>
+            <div class="section-divider"></div>
+        </div>
+
+        <div class="skills-container">
+            <div class="skills-card">
+                <div class="skills-header">
+                    <svg class="skills-header-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="m18 16 4-4-4-4"></path>
+                        <path d="m6 8-4 4 4 4"></path>
+                        <path d="m14.5 4-5 16"></path>
+                    </svg>
+                    <h3 class="skills-header-title">Web Development Expertise</h3>
+                </div>
+                <div class="skills-content">
+                    <p class="skills-title fw-bold">Frontend Technologies:</p>
+                    <p class="skills-description">HTML5, CSS3, JavaScript (ES6+), TypeScript, React.js, Vue.js, Angular,
+                        Next.js, Tailwind CSS, Bootstrap</p>
+
+                    <p class="skills-title fw-bold">Backend Technologies:</p>
+                    <p class="skills-description">Node.js, Express, PHP, Laravel, Python, Django, Ruby on Rails, ASP.NET
+                    </p>
+
+                    <p class="skills-title fw-bold">Database Technologies:</p>
+                    <p class="skills-description">MySQL, PostgreSQL, MongoDB, Firebase, Redis, SQLite</p>
+
+                    <p class="skills-title fw-bold">CMS Platforms:</p>
+                    <p class="skills-description">WordPress, Shopify, Webflow, Drupal, Joomla, Magento, WooCommerce</p>
+                </div>
+                <p class="p-3">
+                    <b>Note :</b> Other Technologies are also part of our expertise.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+    <div class="container">
+        <h2 class="cta-title">Ready to Build Your Next Web Project?</h2>
+        <p class="cta-description">Let's collaborate to create a powerful web solution that drives your business forward
+        </p>
+        <a href="/contact" class="btn btn-white">Get Started</a>
+    </div>
+</section>
+<!-- Footer -->
 
 
 

@@ -1,0 +1,543 @@
+<!-- Geolocation -->
+<button onclick="getLocation()">Show My Location</button>
+<p id="location"></p>
+<script>
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition, showError);
+  } else {
+    document.getElementById("location").innerText = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+  let lat = position.coords.latitude;
+  let lon = position.coords.longitude;
+  document.getElementById("location").innerText = 
+    "Latitude: " + lat + ", Longitude: " + lon;
+
+  // Optional: send to Django backend
+  fetch("/save-location/", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "X-CSRFToken": "{{ csrf_token }}"
+    },
+    body: JSON.stringify({latitude: lat, longitude: lon})
+  });
+}
+
+function showError(error) {
+  switch(error.code) {
+    case error.PERMISSION_DENIED:
+      alert("User denied the request for Geolocation.");
+      break;
+    case error.POSITION_UNAVAILABLE:
+      alert("Location information is unavailable.");
+      break;
+    case error.TIMEOUT:
+      alert("The request to get user location timed out.");
+      break;
+    case error.UNKNOWN_ERROR:
+      alert("An unknown error occurred.");
+      break;
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ip Address -->
+
+<script>
+fetch('https://api.ipify.org?format=json')
+  .then(res => res.json())
+  .then(data => {
+      document.getElementById("ip").innerText = data.ip;
+  });
+</script>
+
+<p>Your IP Address: <span id="ip"></span></p>
+
+
+
+
+
+
+
+
+
+
+
+<!-- share button script -->
+
+<script>
+    class RoadmapManager {
+        constructor() {
+            this.shareButton = document.getElementById('shareButton');
+            this.toast = document.getElementById('toastNotification');
+            this.toastMessage = document.getElementById('toastMessage');
+            this.originalButtonContent = this.shareButton.innerHTML;
+            this.navLinks = document.querySelectorAll('.nav-link');
+
+            this.init();
+        }
+
+        init() {
+            this.shareButton.addEventListener('click', () => this.handleShare());
+            this.initSmoothScroll();
+            this.initScrollSpy();
+            document.addEventListener('scroll', () => this.handleScroll());
+        }
+
+        initSmoothScroll() {
+            this.navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+
+                    if (targetSection) {
+                        targetSection.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        }
+
+        initScrollSpy() {
+            const sections = document.querySelectorAll('section');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.3
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        this.updateActiveNavLink(id);
+                        entry.target.style.opacity = '1';
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => observer.observe(section));
+        }
+
+        updateActiveNavLink(sectionId) {
+            this.navLinks.forEach(link => {
+                const href = link.getAttribute('href').substring(1);
+                if (href === sectionId) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        }
+
+        handleScroll() {
+            const sections = document.querySelectorAll('section');
+            const cards = document.querySelectorAll('.roadmap-card');
+
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                const isVisible = rect.top < window.innerHeight && rect.bottom >= 0;
+
+                if (isVisible) {
+                    section.style.opacity = '1';
+                    section.style.transform = 'translateY(0)';
+                }
+            });
+
+            cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                const isVisible = rect.top < window.innerHeight && rect.bottom >= 0;
+
+                if (isVisible) {
+                    card.style.opacity = '1';
+                    card.style.transform = 'scale(1)';
+                }
+            });
+        }
+
+        async handleShare() {
+            const shareData = {
+                title: '{{title}}',
+                text: '{{description}}',
+                url: window.location.href
+            };
+
+            try {
+                this.setLoading(true);
+
+                if (navigator.share) {
+                    await navigator.share(shareData);
+                    this.showToast('success', 'Thanks for sharing! 🎉');
+                } else {
+                    await this.copyToClipboard(window.location.href);
+                    this.showToast('success', 'Link copied to clipboard! 📋');
+                }
+            } catch (err) {
+                console.error('Error sharing:', err);
+                this.showToast('error', 'Oops! Something went wrong 😕');
+            } finally {
+                this.setLoading(false);
+            }
+        }
+
+        async copyToClipboard(text) {
+            try {
+                if (navigator.clipboard && window.isSecureContext) {
+                    await navigator.clipboard.writeText(text);
+                } else {
+                    const textArea = document.createElement('textarea');
+                    textArea.value = text;
+                    textArea.style.position = 'fixed';
+                    textArea.style.left = '-999999px';
+                    document.body.appendChild(textArea);
+                    textArea.focus();
+                    textArea.select();
+
+                    document.execCommand('copy');
+                    textArea.remove();
+                }
+            } catch (err) {
+                console.error('Error copying text:', err);
+                throw err;
+            }
+        }
+
+        setLoading(isLoading) {
+            if (isLoading) {
+                this.shareButton.classList.add('loading');
+                this.shareButton.innerHTML = `
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                    </svg>
+                    <span>Sharing...</span>`;
+            } else {
+                setTimeout(() => {
+                    this.shareButton.classList.remove('loading');
+                    this.shareButton.innerHTML = this.originalButtonContent;
+                }, 1000);
+            }
+        }
+
+        showToast(type, message) {
+            const icon = type === 'success'
+                ? '✅'
+                : type === 'error'
+                    ? '❌'
+                    : '📢';
+
+            this.toastMessage.textContent = `${icon} ${message}`;
+            this.toast.className = `toast-notification show ${type}`;
+
+            setTimeout(() => {
+                this.toast.classList.remove('show');
+            }, 3000);
+        }
+    }
+
+    // Initialize roadmap functionality when document is ready
+    document.addEventListener('DOMContentLoaded', () => {
+        new RoadmapManager();
+
+        // Add IDs to sections for smooth scroll
+        document.querySelectorAll('section').forEach((section, index) => {
+            const title = section.querySelector('h2');
+            if (title) {
+                const id = title.textContent.toLowerCase().replace(/[^\w]+/g, '-');
+                section.setAttribute('id', id);
+            }
+        });
+
+        // Initialize Bootstrap components
+        const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+    });
+</script>
+
+<button id="shareButton" class="btn btn-primary btn-lg px-4 mt-3 mb-4" style="position: fixed; bottom: 1rem; right: 1rem; z-index: 1000;">
+    <i class="fas fa-share-alt me-2"></i>
+    Share
+</button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    class RoadmapManager {
+        constructor() {
+            this.shareButton = document.getElementById('floatingShareBtn');
+            this.toast = document.getElementById('toastNotification');
+            this.toastMessage = document.getElementById('toastMessage');
+            this.originalButtonContent = this.shareButton.innerHTML;
+            this.navLinks = document.querySelectorAll('.nav-link');
+
+            this.init();
+        }
+
+        init() {
+            this.shareButton.addEventListener('click', () => this.handleShare());
+            this.initSmoothScroll();
+            this.initScrollSpy();
+            document.addEventListener('scroll', () => this.handleScroll());
+        }
+
+        initSmoothScroll() {
+            this.navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+
+                    if (targetSection) {
+                        targetSection.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        }
+
+        initScrollSpy() {
+            const sections = document.querySelectorAll('section');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.3
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        this.updateActiveNavLink(id);
+                        entry.target.style.opacity = '1';
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => observer.observe(section));
+        }
+
+        updateActiveNavLink(sectionId) {
+            this.navLinks.forEach(link => {
+                const href = link.getAttribute('href').substring(1);
+                if (href === sectionId) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        }
+
+        handleScroll() {
+            const sections = document.querySelectorAll('section');
+            const cards = document.querySelectorAll('.roadmap-card');
+
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                const isVisible = rect.top < window.innerHeight && rect.bottom >= 0;
+
+                if (isVisible) {
+                    section.style.opacity = '1';
+                    section.style.transform = 'translateY(0)';
+                }
+            });
+
+            cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                const isVisible = rect.top < window.innerHeight && rect.bottom >= 0;
+
+                if (isVisible) {
+                    card.style.opacity = '1';
+                    card.style.transform = 'scale(1)';
+                }
+            });
+        }
+
+        async handleShare() {
+            const shareData = {
+                title: '{{title}}',
+                text: '{{description}}',
+                url: window.location.href
+            };
+
+            try {
+                this.setLoading(true);
+
+                if (navigator.share) {
+                    await navigator.share(shareData);
+                    this.showToast('success', 'Thanks for sharing! 🎉');
+                } else {
+                    await this.copyToClipboard(window.location.href);
+                    this.showToast('success', 'Link copied to clipboard! 📋');
+                }
+            } catch (err) {
+                console.error('Share failed:', err);
+                this.showToast('error', 'Oops! Something went wrong 😕');
+            } finally {
+                this.setLoading(false);
+            }
+        }
+
+        async copyToClipboard(text) {
+            try {
+                if (navigator.clipboard && window.isSecureContext) {
+                    await navigator.clipboard.writeText(text);
+                } else {
+                    const textArea = document.createElement('textarea');
+                    textArea.value = text;
+                    textArea.style.position = 'fixed';
+                    textArea.style.left = '-999999px';
+                    document.body.appendChild(textArea);
+                    textArea.focus();
+                    textArea.select();
+                    document.execCommand('copy');
+                    textArea.remove();
+                }
+            } catch (err) {
+                console.error('Copy error:', err);
+                throw err;
+            }
+        }
+
+        setLoading(isLoading) {
+            if (isLoading) {
+                this.shareButton.classList.add('loading');
+                this.shareButton.innerHTML = `
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                    </svg>
+                    <span>Sharing...</span>`;
+            } else {
+                setTimeout(() => {
+                    this.shareButton.classList.remove('loading');
+                    this.shareButton.innerHTML = this.originalButtonContent;
+                }, 1000);
+            }
+        }
+
+        showToast(type, message) {
+            const icon = type === 'success' ? '✅' : type === 'error' ? '❌' : '📢';
+            this.toastMessage.textContent = `${icon} ${message}`;
+            this.toast.className = `toast-notification show ${type}`;
+
+            setTimeout(() => {
+                this.toast.classList.remove('show');
+            }, 3000);
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        new RoadmapManager();
+    });
+</script>
+
+<style>
+    /* Desktop: normal button */
+.floating-share-btn {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    z-index: 1000;
+    padding: 0.5rem 1.2rem;
+    display: flex;
+    align-items: center;
+    border-radius: 0.25rem;
+}
+
+/* Mobile: circular button */
+@media (max-width: 768px) {
+    .floating-share-btn {
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+        padding: 0;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .floating-share-btn i {
+        font-size: 20px;
+    }
+
+    /* Hide text on mobile */
+    .floating-share-btn .btn-text {
+        display: none;
+    }
+}
+.floating-share-btn {
+    transition: all 0.3s ease;
+}
+
+</style>
+<button id="floatingShareBtn" class="btn btn-primary floating-share-btn">
+    <i class="fas fa-share-alt"></i>
+    <span class="btn-text ms-2">Share</span>
+</button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

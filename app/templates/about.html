@@ -5,32 +5,6 @@
 <head>
 
     {% block meta %}
-    <title> {{title}} </title>
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="{{description}}">
-    <meta name="keywords" content="{{keywords}}">
-    <meta name="author" content="{{author}}">
-
-
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="{{og_title}}">
-    <meta property="og:description" content="{{og_description}}">
-    <meta property="og:image" content="{{og_image}}">
-    <meta property="og:image:alt" content="{{og_image_alt}}">
-    <meta property="og:url" content="https://vortfolio.icu">
-    <meta property="og:site_name" content="{{og_site_name}}">
-    <meta property="og:type" content="{{og_type}}">
-
-
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="{{twitter_card}}">
-    <meta name="twitter:title" content="{{twitter_title}}">
-    <meta name="twitter:description" content="{{twitter_description}}">
-
-    <meta name="twitter:image:alt" content="{{twitter_image_alt}}">
-    <meta name="twitter:image" content="twitter_image">
-    <meta name="twitter:url" content="{{twitter_url}}">
-
     {% endblock %}
 
 
@@ -42,7 +16,7 @@
 <!-- Hero Section -->
 <section class="profile-header text-center py-5">
     <div class="container">
-        <h1 class="name-title mb-3">Abdullah</h1>
+        <h1 class="name-title mb-3">{{siteName}}</h1>
         <div class="contact-info mb-4">
             <a href="callto:+923258262310" class="text-decoration-none" style="color: white;"></a><span><i class="fas fa-map-marker-alt me-2"></i>Lahore, Pakistan</span>
             <a href="callto:+923258262310" class="text-decoration-none" style="color: white;"><span><i class="fas fa-phone me-2"></i>+92 325 8262-310</span></a></a>

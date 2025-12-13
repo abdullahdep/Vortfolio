@@ -10,13 +10,6 @@
             "src": "/(.*)",
             "dest": "api/wsgi.py"
         }
-    ],
-    "env": {
-        "DJANGO_SETTINGS_MODULE": "api.settings",
-        "MYSQL_DATABASE": "test",
-        "MYSQL_USER": "3TJFdzBsW6BQcdA.root",
-        "MYSQL_PASSWORD": "3xv6bY5a4oHNEUhh",
-        "MYSQL_HOST": "gateway01.ap-northeast-1.prod.aws.tidbcloud.com",
-        "MYSQL_PORT": "4000"
-    }
+    ]
+    
 }
