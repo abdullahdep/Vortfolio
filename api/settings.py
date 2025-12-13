@@ -197,15 +197,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = '/static/'  # URL to access static files
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Directory where static files are collected
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'app', 'static'),  # Additional static files directory
-]
-
-# Enable whitenoise storage backend
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
@@ -256,9 +247,22 @@ AWS_QUERYSTRING_AUTH = False
 
 
 
-# MEDIA_URL = "https://media.vortfolio.com/"
+MEDIA_URL = "https://media.vortfolio.icu/"
 # STATICFILES_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
-# STATIC_URL = MEDIA_URL
 
 
 
+
+# STATIC_URL = '/static/'  # URL to access static files
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Directory where static files are collected
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'app', 'static'),  # Additional static files directory
+]
+
+# Enable whitenoise storage backend
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+
+
+STATICFILES_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
+STATIC_URL = "https://media.vortfolio.icu/static/"
