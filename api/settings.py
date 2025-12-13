@@ -47,6 +47,7 @@ CSRF_TRUSTED_ORIGINS = [
     'http://127.0.0.1:8000',
     'http://0.0.0.0:8000',
     'https://vortfolio.icu',
+    'https://vortfolio.vercel.app',
 ]
 
 CSRF_COOKIE_SECURE = False  # Allow over HTTP in development
