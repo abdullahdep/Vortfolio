@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Cloudflare R2 Media Test</title>
+<style>
+body {
+font-family: system-ui, sans-serif;
+background: #f6f7f9;
+padding: 40px;
+}
+.grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+gap: 20px;
+}
+img {
+width: 100%;
+border-radius: 12px;
+box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+</style>
+</head>
+<body>
+
+
+<h1>Cloudflare R2 Media (View Only)</h1>
+<p>If images load, R2 + custom domain is working correctly.</p>
+
+
+<div class="grid">
+{% for img in images %}
+<img src="{{ MEDIA_URL }}{{ img }}" alt="R2 Image" />
+{% endfor %}
+</div>
+
+
+</body>
+</html>

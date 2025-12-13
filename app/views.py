@@ -533,3 +533,24 @@ def css(request):
 
 def tech(request):
     return render (request, "Pages/techonologies details/technologies.html")
+
+
+from django.shortcuts import render
+
+
+
+
+def r2_media_view(request):
+
+    images = [
+    "projects/sample.jpg",
+    "projects/banner.jpg",
+    "projects/logo.png",
+    ]
+
+
+    context = {
+    "MEDIA_URL": "https://media.vortfolio.com/",
+    "images": images,
+    }
+    return render(request, "r2_media.html", context)
