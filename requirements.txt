@@ -5,5 +5,7 @@ django-template-partials
 django-livereload-server
 PyMySQL
 requests
+django-storages
+boto3
 django-allauth[socialaccount]
 django-environ
