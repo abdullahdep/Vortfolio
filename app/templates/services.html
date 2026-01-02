@@ -2,225 +2,572 @@
 {% load static %}
 
 {% block content %}
-
-
-
-
-
-
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
-
-    /* General Body Styling */
-    .services-body {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        margin: 0;
-        background-color: #f4f4f9;
-        font-family: 'Poppins', Arial, sans-serif;
-        padding: 20px;
-    }
-
-    /* Header Section */
-    .services-header {
-        text-align: center;
-        margin-bottom: 40px;
-        animation: fadeIn 1s ease-in-out;
-    }
-
-    .services-header h1 {
-        font-size: 2.5rem;
-        font-weight: 600;
-        color: #333;
-    }
-
-    .services-header p {
-        font-size: 1.2rem;
-        color: #666;
-        margin-top: 10px;
-    }
-
-    /* Services Section */
-    .services-main {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 20px;
-    }
-
-    .services-card {
-        position: relative;
-        height: 70vh;
-        width: 370px;
-        border-radius: 10px;
-        overflow: hidden;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        transition: transform 0.5s ease, box-shadow 0.5s ease;
-        background-color: #fff;
-        margin-top: 30px;
-        animation: slideUp 0.8s ease-in-out;
-    }
-
-    .services-card:hover {
-        transform: translateY(-15px) rotate(1deg);
-        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
-    }
-
-    .services-card img {
-        width: 100%;
-        height: 100%;
-        object-fit: fill;
-        transition: transform 0.3s cubic-bezier(0.25, 1.5, 0.5, 1), filter 0.5s ease;
-    }
-
-    .services-card:hover img {
-        transform: scale(1.2);
-        filter: brightness(1.2);
-    }
-
-    .services-overlay {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 30%;
-        background-color: rgba(0, 0, 0, 0.6);
-        color: #fff;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 1.8rem;
-        font-weight: 600;
-        opacity: 0;
-        transition: opacity 0.5s ease, transform 0.5s ease;
-        transform: translateY(20px);
-    }
-
-    .services-card:hover .services-overlay {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    .services-overlay{
-        opacity: 1;
-
-    }
-
-    /* Animations */
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-        }
-        to {
-            opacity: 1;
-        }
-    }
-
-    @keyframes slideUp {
-        from {
-            transform: translateY(50px);
-            opacity: 0;
-        }
-        to {
-            transform: translateY(0);
-            opacity: 1;
-        }
-    }
-
-    /* Media query for tablets */
-    @media (max-width: 768px) {
-        .services-main {
-            gap: 10px;
-        }
-
-        .services-card {
-            width: calc(50% - 10px);
-            height: 50vh;
-        }
-    }
-
-    /* Media query for mobile devices */
-    @media (max-width: 576px) {
-        .services-card {
-            width: 100%;
-            height: 70vh;
-        }
-    }
-
-    /* Additional Text Styling */
-    .services-text {
-        margin-top: 40px;
-        text-align: center;
-        font-size: 1.2rem;
-        color: #555;
-        line-height: 1.6;
-        max-width: 800px;
-    }
-</style>
-
-
-
-<div class="services-body">
-    <!-- Header Section -->
-    <div class="services-header">
-        <h1>Our Services</h1>
-        <p>Explore the services we offer to help you achieve your goals.</p>
+<div class="services-container">
+  <!-- Hero Section -->
+  <section class="services-hero">
+    <div class="hero-content">
+      <h1>Our Services</h1>
+      <p>Comprehensive solutions tailored to your business needs</p>
     </div>
+  </section>
 
-    <!-- Services Section -->
-    <main class="services-main">
-        <div class="services-card">
-            <a href="https://vusolvedpaper.com/">
-            <img src="https://lh3.googleusercontent.com/pw/AP1GczPSx4J4T6oDrwaJ_dWPkxmdsSh01qqNxxIm18vPyGF6RrBlCDn3_Bs5yWkDSTTf8ywTDfuG6rYdlOOkWm3d4cRD3qtJl1wUW4JwE9Q0Gx2tBnp5wTDdWbM0x0mk_SvFHWruMVnBCjZE5nAwdWqqD-4=w633-h633-s-no-gm?authuser=0" alt="Web Development">
-            <div class="services-overlay">VU Past Papers  </div>
-        </a>
-        <a href="{% url 'learn' %}">
+  <!-- Services Grid -->
+  <section class="services-grid-section">
+    <div class="container">
+      <div class="services-grid">
+        
+        <!-- Service Card 1 -->
+        <div class="service-card">
+          <div class="service-icon">
+            <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+              <circle cx="30" cy="30" r="28" stroke="#0066ff" stroke-width="2"/>
+              <path d="M20 30H40M30 20V40" stroke="#0066ff" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Web Development</h3>
+          <p>Build modern, responsive websites using latest technologies like Django, React, and Vue.js. From simple landing pages to complex web applications.</p>
+          <ul class="service-features">
+            <li>Responsive Design</li>
+            <li>SEO Optimization</li>
+            <li>Fast Performance</li>
+            <li>Secure & Scalable</li>
+          </ul>
         </div>
-        <div class="services-card">
-            <img src="https://lh3.googleusercontent.com/pw/AP1GczPBz_EVlGFbAkRnH6sB5MxP8KA3l7PnT0hlAOihLfooPE-LMUXsQoK3z2SLJiS5Lmlg2r8iIZoZhC7blStsm0CBVoJcEo3QkoNj8x9FTQBaxDa2XWuGOsXydq4qc4Sn8xsTeQobME8uR52_7HgDAis=w621-h568-s-no-gm?authuser=0" alt="Mobile App Development">
-            <div class="services-overlay">For learners</div>
-        </div>
-    </a>
-    <a href="">
-        <div class="services-card">
-            <img src="https://lh3.googleusercontent.com/pw/AP1GczPBz_EVlGFbAkRnH6sB5MxP8KA3l7PnT0hlAOihLfooPE-LMUXsQoK3z2SLJiS5Lmlg2r8iIZoZhC7blStsm0CBVoJcEo3QkoNj8x9FTQBaxDa2XWuGOsXydq4qc4Sn8xsTeQobME8uR52_7HgDAis=w621-h568-s-no-gm?authuser=0" alt="UI/UX Design">
-            <div class="services-overlay">UI/UX Design</div>
-        </div>
-    </a>
-    <a href="">
-        <div class="services-card">
-            <img src="https://lh3.googleusercontent.com/pw/AP1GczPBz_EVlGFbAkRnH6sB5MxP8KA3l7PnT0hlAOihLfooPE-LMUXsQoK3z2SLJiS5Lmlg2r8iIZoZhC7blStsm0CBVoJcEo3QkoNj8x9FTQBaxDa2XWuGOsXydq4qc4Sn8xsTeQobME8uR52_7HgDAis=w621-h568-s-no-gm?authuser=0" alt="SEO Optimization">
-            <div class="services-overlay">SEO Optimization</div>
-        </div>
-    </a>
-    <a href="">
-        <div class="services-card">
-            <img src="https://lh3.googleusercontent.com/pw/AP1GczPBz_EVlGFbAkRnH6sB5MxP8KA3l7PnT0hlAOihLfooPE-LMUXsQoK3z2SLJiS5Lmlg2r8iIZoZhC7blStsm0CBVoJcEo3QkoNj8x9FTQBaxDa2XWuGOsXydq4qc4Sn8xsTeQobME8uR52_7HgDAis=w621-h568-s-no-gm?authuser=0" alt="Digital Marketing">
-            <div class="services-overlay">Digital Marketing</div>
-        </div>
-    </a>
-    <a href="">
-        <div class="services-card">
-            <img src="https://lh3.googleusercontent.com/pw/AP1GczPBz_EVlGFbAkRnH6sB5MxP8KA3l7PnT0hlAOihLfooPE-LMUXsQoK3z2SLJiS5Lmlg2r8iIZoZhC7blStsm0CBVoJcEo3QkoNj8x9FTQBaxDa2XWuGOsXydq4qc4Sn8xsTeQobME8uR52_7HgDAis=w621-h568-s-no-gm?authuser=0" alt="Cloud Services">
-            <div class="services-overlay">Cloud Services</div>
-        </div>
-    </a>
-    
-    </main>
 
-    <!-- Additional Text Section -->
-    <div class="services-text">
-        <p>
-            At our company, we are committed to delivering top-notch services tailored to your needs. 
-            Whether you're looking to build a robust web presence, design a user-friendly mobile app, 
-            or optimize your digital marketing strategies, we have the expertise to help you succeed. 
-            Contact us today to learn more about how we can help you achieve your goals.
-        </p>
+        <!-- Service Card 2 -->
+        <div class="service-card">
+          <div class="service-icon">
+            <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+              <rect x="15" y="12" width="30" height="36" rx="3" stroke="#0066ff" stroke-width="2"/>
+              <path d="M20 18H40M20 24H40M20 30H40" stroke="#0066ff" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Mobile App Development</h3>
+          <p>Create powerful mobile applications for iOS and Android using Flutter, React Native, or native development. Intuitive user experience on all devices.</p>
+          <ul class="service-features">
+            <li>Cross-Platform Apps</li>
+            <li>Native Performance</li>
+            <li>Real-time Sync</li>
+            <li>Offline Support</li>
+          </ul>
+        </div>
+
+        <!-- Service Card 3 -->
+        <div class="service-card">
+          <div class="service-icon">
+            <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+              <path d="M12 20C12 15.6 15.6 12 20 12H40C44.4 12 48 15.6 48 20V40C48 44.4 44.4 48 40 48H20C15.6 48 12 44.4 12 40V20Z" stroke="#667eea" stroke-width="2"/>
+              <path d="M30 28L36 24L42 28" stroke="#667eea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>UI/UX Design</h3>
+          <p>Create stunning user interfaces and experiences that engage your audience. User research, wireframes, prototypes, and design systems included.</p>
+          <ul class="service-features">
+            <li>User Research</li>
+            <li>Wireframing</li>
+            <li>Prototyping</li>
+            <li>Design Systems</li>
+          </ul>
+        </div>
+
+        <!-- Service Card 4 -->
+        <div class="service-card">
+          <div class="service-icon">
+            <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+              <circle cx="30" cy="30" r="18" stroke="#667eea" stroke-width="2"/>
+              <path d="M30 16V30L38 36" stroke="#667eea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>AI Solutions</h3>
+          <p>Leverage artificial intelligence and machine learning to automate processes and gain insights. Chatbots, predictive analytics, and computer vision.</p>
+          <ul class="service-features">
+            <li>Machine Learning</li>
+            <li>Natural Language Processing</li>
+            <li>Computer Vision</li>
+            <li>Data Analytics</li>
+          </ul>
+        </div>
+
+        <!-- Service Card 5 -->
+        <div class="service-card">
+          <div class="service-icon">
+            <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+              <g stroke="#667eea" stroke-width="2" fill="none">
+                <circle cx="30" cy="30" r="18"/>
+                <path d="M30 18V30L38 36" stroke-linecap="round"/>
+              </g>
+            </svg>
+          </div>
+          <h3>API Development</h3>
+          <p>Build robust and scalable REST and GraphQL APIs. Perfect for microservices, third-party integrations, and mobile backend solutions.</p>
+          <ul class="service-features">
+            <li>REST API</li>
+            <li>GraphQL</li>
+            <li>Microservices</li>
+            <li>API Security</li>
+          </ul>
+        </div>
+
+        <!-- Service Card 6 -->
+        <div class="service-card">
+          <div class="service-icon">
+            <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+              <rect x="15" y="18" width="30" height="24" rx="2" stroke="#667eea" stroke-width="2"/>
+              <path d="M20 22V38M30 22V38M40 22V38" stroke="#667eea" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <h3>Database Design</h3>
+          <p>Optimize your data architecture with expert database design. MySQL, PostgreSQL, MongoDB, and cloud database solutions tailored to your needs.</p>
+          <ul class="service-features">
+            <li>Schema Design</li>
+            <li>Performance Tuning</li>
+            <li>Cloud Databases</li>
+            <li>Data Migration</li>
+          </ul>
+        </div>
+
+      </div>
     </div>
+  </section>
+
+  <!-- Process Section -->
+  <section class="services-process">
+    <div class="container">
+      <h2>Our Development Process</h2>
+      <div class="process-steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h4>Consultation</h4>
+          <p>Understand your goals, requirements, and timeline</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h4>Planning</h4>
+          <p>Create detailed project plans and technical specifications</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h4>Development</h4>
+          <p>Build your solution with agile methodology and regular updates</p>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <h4>Testing</h4>
+          <p>Comprehensive QA and user acceptance testing</p>
+        </div>
+        <div class="step">
+          <div class="step-number">5</div>
+          <h4>Deployment</h4>
+          <p>Launch your solution with minimal downtime</p>
+        </div>
+        <div class="step">
+          <div class="step-number">6</div>
+          <h4>Support</h4>
+          <p>Ongoing maintenance and technical support</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us Section -->
+  <section class="why-choose-us">
+    <div class="container">
+      <h2>Why Choose Us</h2>
+      <div class="reasons-grid">
+        <div class="reason-card">
+          <div class="reason-icon">✓</div>
+          <h4>Expert Team</h4>
+          <p>Experienced developers and designers with proven track records</p>
+        </div>
+        <div class="reason-card">
+          <div class="reason-icon">✓</div>
+          <h4>Quality Assurance</h4>
+          <p>Rigorous testing and quality control at every stage</p>
+        </div>
+        <div class="reason-card">
+          <div class="reason-icon">✓</div>
+          <h4>On-Time Delivery</h4>
+          <p>Projects delivered on schedule without compromising quality</p>
+        </div>
+        <div class="reason-card">
+          <div class="reason-icon">✓</div>
+          <h4>Transparent Communication</h4>
+          <p>Regular updates and clear communication throughout the project</p>
+        </div>
+        <div class="reason-card">
+          <div class="reason-icon">✓</div>
+          <h4>Competitive Pricing</h4>
+          <p>Best value for money with flexible engagement models</p>
+        </div>
+        <div class="reason-card">
+          <div class="reason-icon">✓</div>
+          <h4>24/7 Support</h4>
+          <p>Dedicated support team ready to help anytime</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="services-cta">
+    <div class="container">
+      <h2>Ready to Get Started?</h2>
+      <p>Let's discuss how we can help your business grow</p>
+      <a href="contact" class="cta-button">Get In Touch Today</a>
+    </div>
+  </section>
 </div>
 
+<style>
+.services-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.services-hero {
+  background: linear-gradient(135deg, #0066ff 0%, #0052cc 100%);
+  color: white;
+  padding: 120px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.services-hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite;
+}
+
+.services-hero::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: -5%;
+  width: 400px;
+  height: 400px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  animation: float 8s ease-in-out infinite reverse;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.hero-content p {
+  font-size: 1.3rem;
+  opacity: 0.9;
+}
+
+.services-grid-section {
+  padding: 60px 20px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.service-card {
+  background: white;
+  padding: 40px 30px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  text-align: center;
+  border: 2px solid transparent;
+  animation: slideUp 0.6s ease forwards;
+}
+
+.service-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 20px 50px rgba(0, 102, 255, 0.2);
+  border-color: #0066ff;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(20px); }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.service-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(0, 102, 255, 0.1), rgba(0, 82, 204, 0.1));
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover .service-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.service-card h3 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.service-card p {
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.service-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.service-features li {
+  color: #0066ff;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 6px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.service-features li:last-child {
+  border-bottom: none;
+}
+
+.services-process {
+  background: white;
+  padding: 80px 20px;
+}
+
+.services-process h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 60px;
+}
+
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.step {
+  text-align: center;
+}
+
+.step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #0066ff 0%, #0052cc 100%);
+  color: white;
+  font-size: 1.8rem;
+  font-weight: 700;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.step h4 {
+  color: #333;
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+}
+
+.step p {
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.why-choose-us {
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.why-choose-us h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 60px;
+}
+
+.reasons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.reason-card {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.reason-card:hover {
+  transform: translateY(-5px);
+}
+
+.reason-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #0066ff 0%, #0052cc 100%);
+  color: white;
+  font-size: 1.8rem;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+.reason-card h4 {
+  color: #333;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.reason-card p {
+  color: #666;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.services-cta {
+  background: linear-gradient(135deg, #0066ff 0%, #0052cc 100%);
+  color: white;
+  padding: 100px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.services-cta::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 400px;
+  height: 400px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  animation: float 7s ease-in-out infinite;
+}
+
+.services-cta h2,
+.services-cta p {
+  position: relative;
+  z-index: 1;
+}
+
+.services-cta h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.services-cta p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  opacity: 0.9;
+}
+
+.cta-button {
+  display: inline-block;
+  background: white;
+  color: #0066ff;
+  padding: 15px 40px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .process-steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .reasons-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .services-cta h2 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .process-steps {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+
 {% endblock content %}
+
+
+
+
 

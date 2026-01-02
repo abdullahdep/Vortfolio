@@ -2,9 +2,525 @@
 {% load static %}
 
 {% block content %}
+<div class="projects-container">
+  <!-- Hero Section -->
+  <section class="projects-hero">
+    <div class="hero-content">
+      <h1>Our Projects</h1>
+      <p>Innovative solutions and creative designs that drive results</p>
+    </div>
+  </section>
 
+  <!-- Filter Section -->
+  <section class="projects-filters">
+    <div class="container">
+      <div class="filter-buttons">
+        <button class="filter-btn active" data-filter="all">All Projects</button>
+        <button class="filter-btn" data-filter="web">Web Development</button>
+        <button class="filter-btn" data-filter="app">App Development</button>
+        <button class="filter-btn" data-filter="design">UI/UX Design</button>
+        <button class="filter-btn" data-filter="ai">AI Solutions</button>
+      </div>
+    </div>
+  </section>
 
+  <!-- Projects Grid -->
+  <section class="projects-grid-section">
+    <div class="container">
+      <div class="projects-grid">
+        
+        <!-- Project Card 1 -->
+        <div class="project-card" data-category="web">
+          <div class="project-image">
+            <img src="https://picsum.photos/400/250?random=1" alt="E-Commerce Platform">
+            <div class="project-overlay">
+              <a href="contact" class="project-link">View Details</a>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3>E-Commerce Platform</h3>
+            <p class="project-category">Web Development</p>
+            <p class="project-description">A full-featured e-commerce solution with payment integration, inventory management, and analytics dashboard.</p>
+            <div class="project-tech">
+              <span class="tech-tag">Django</span>
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">PostgreSQL</span>
+            </div>
+          </div>
+        </div>
 
+        <!-- Project Card 2 -->
+        <div class="project-card" data-category="app">
+          <div class="project-image">
+            <img src="https://picsum.photos/400/250?random=2" alt="Fitness Mobile App">
+            <div class="project-overlay">
+              <a href="contact" class="project-link">View Details</a>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3>Fitness Mobile App</h3>
+            <p class="project-category">App Development</p>
+            <p class="project-description">Cross-platform fitness tracking app with workout plans, nutrition tracking, and social features.</p>
+            <div class="project-tech">
+              <span class="tech-tag">Flutter</span>
+              <span class="tech-tag">Firebase</span>
+              <span class="tech-tag">Machine Learning</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project Card 3 -->
+        <div class="project-card" data-category="design">
+          <div class="project-image">
+            <img src="https://picsum.photos/400/250?random=3" alt="Brand Identity Design">
+            <div class="project-overlay">
+              <a href="contact" class="project-link">View Details</a>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3>Brand Identity Design</h3>
+            <p class="project-category">UI/UX Design</p>
+            <p class="project-description">Complete brand identity redesign including logo, color palette, typography, and design system.</p>
+            <div class="project-tech">
+              <span class="tech-tag">Figma</span>
+              <span class="tech-tag">Adobe XD</span>
+              <span class="tech-tag">Design System</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project Card 4 -->
+        <div class="project-card" data-category="ai">
+          <div class="project-image">
+            <img src="https://picsum.photos/400/250?random=4" alt="AI Chatbot Solution">
+            <div class="project-overlay">
+              <a href="contact" class="project-link">View Details</a>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3>AI Chatbot Solution</h3>
+            <p class="project-category">AI Solutions</p>
+            <p class="project-description">Intelligent chatbot powered by NLP for customer support with 24/7 availability and natural language understanding.</p>
+            <div class="project-tech">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">TensorFlow</span>
+              <span class="tech-tag">NLP</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project Card 5 -->
+        <div class="project-card" data-category="web">
+          <div class="project-image">
+            <img src="https://picsum.photos/400/250?random=5" alt="SaaS Dashboard">
+            <div class="project-overlay">
+              <a href="contact" class="project-link">View Details</a>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3>SaaS Analytics Dashboard</h3>
+            <p class="project-category">Web Development</p>
+            <p class="project-description">Real-time analytics dashboard for business intelligence with customizable widgets and data visualizations.</p>
+            <div class="project-tech">
+              <span class="tech-tag">Vue.js</span>
+              <span class="tech-tag">Node.js</span>
+              <span class="tech-tag">MongoDB</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project Card 6 -->
+        <div class="project-card" data-category="design">
+          <div class="project-image">
+            <img src="https://picsum.photos/400/250?random=6" alt="Website Redesign">
+            <div class="project-overlay">
+              <a href="contact" class="project-link">View Details</a>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3>Corporate Website Redesign</h3>
+            <p class="project-category">UI/UX Design</p>
+            <p class="project-description">Modern website redesign focusing on user experience, accessibility, and conversion optimization.</p>
+            <div class="project-tech">
+              <span class="tech-tag">Figma</span>
+              <span class="tech-tag">User Research</span>
+              <span class="tech-tag">A/B Testing</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="projects-cta">
+    <div class="container">
+      <h2>Want to start your next project?</h2>
+      <p>Let's collaborate and bring your ideas to life</p>
+      <a href="contact" class="cta-button">Get In Touch</a>
+    </div>
+  </section>
+</div>
+
+<style>
+.projects-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.projects-hero {
+  background: linear-gradient(135deg, #0066ff 0%, #0052cc 100%);
+  color: white;
+  padding: 120px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.projects-hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite;
+}
+
+.projects-hero::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: -5%;
+  width: 400px;
+  height: 400px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  animation: float 8s ease-in-out infinite reverse;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.hero-content p {
+  font-size: 1.3rem;
+  opacity: 0.9;
+}
+
+.projects-filters {
+  padding: 40px 20px;
+  background: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  margin-bottom: 40px;
+}
+
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.filter-btn {
+  padding: 12px 28px;
+  border: 2px solid #0066ff;
+  background: transparent;
+  color: #0066ff;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.filter-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: #0066ff;
+  transition: left 0.3s ease;
+  z-index: -1;
+}
+
+.filter-btn:hover::before,
+.filter-btn.active::before {
+  left: 0;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  color: white;
+  box-shadow: 0 5px 20px rgba(0, 102, 255, 0.3);
+}
+
+.projects-grid-section {
+  padding: 60px 20px;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(20px); }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.project-card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  border: 2px solid transparent;
+  animation: slideUp 0.6s ease forwards;
+}
+
+.project-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 20px 50px rgba(0, 102, 255, 0.2);
+  border-color: #0066ff;
+}
+
+.project-image {
+  position: relative;
+  height: 250px;
+  overflow: hidden;
+  background: #f0f0f0;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-image img {
+  transform: scale(1.1);
+}
+
+.project-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 102, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.project-card:hover .project-overlay {
+  opacity: 1;
+}
+
+.project-link {
+  color: white;
+  text-decoration: none;
+  padding: 12px 30px;
+  border: 2px solid white;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.project-link:hover {
+  background: white;
+  color: #0066ff;
+}
+
+.project-info {
+  padding: 25px;
+}
+
+.project-info h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.project-category {
+  color: #667eea;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.project-description {
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tech-tag {
+  display: inline-block;
+  background: #f0f0f0;
+  color: #0066ff;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.projects-cta {
+  background: linear-gradient(135deg, #0066ff 0%, #0052cc 100%);
+  color: white;
+  padding: 100px 20px;
+  text-align: center;
+  margin-top: 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.projects-cta::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 400px;
+  height: 400px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  animation: float 7s ease-in-out infinite;
+}
+
+.projects-cta h2,
+.projects-cta p {
+  position: relative;
+  z-index: 1;
+}
+
+.projects-cta h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.projects-cta p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  opacity: 0.9;
+}
+
+.cta-button {
+  display: inline-block;
+  background: white;
+  color: #667eea;
+  padding: 16px 45px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 2;
+}
+
+.cta-button:hover {
+  transform: scale(1.08);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.cta-button {
+  color: #0066ff;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .filter-buttons {
+    gap: 10px;
+  }
+
+  .filter-btn {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+
+  .projects-cta h2 {
+    font-size: 1.8rem;
+  }
+}
+</style>
+
+<script>
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const filter = this.dataset.filter;
+    
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+    
+    document.querySelectorAll('.project-card').forEach(card => {
+      if (filter === 'all' || card.dataset.category === filter) {
+        card.style.display = 'block';
+        setTimeout(() => card.style.opacity = '1', 10);
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  });
+});
+</script>
 
 
 
