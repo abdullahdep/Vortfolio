@@ -14,3 +14,4 @@ services:
     volumes:
       - ./wordpress:/var/www/html
       - ./certs:/certs    # Mount folder containing isrgrootx1.pem
+      
