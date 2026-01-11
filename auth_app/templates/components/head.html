@@ -57,8 +57,17 @@
 
 {% include 'components/linkage.html' %}
 
-
-
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-xxxxxxxxxxxxxxxx"
+     crossorigin="anonymous"></script>
+<script>
+  // Initialize Google Ads on each click
+  window.initGoogleAds = function() {
+    if (window.adsbygoogle) {
+      window.adsbygoogle.push({});
+    }
+  };
+</script>
 
 
 

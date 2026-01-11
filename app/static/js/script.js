@@ -1,3 +1,17 @@
+// Google Ads click tracking
+var clickCount = 0;
+var adDisplayInterval = 5; // Show ads every 5 clicks
+
+document.addEventListener('click', function(e) {
+    clickCount++;
+    // Trigger ads every N clicks
+    if (clickCount % adDisplayInterval === 0) {
+        if (window.initGoogleAds) {
+            window.initGoogleAds();
+        }
+    }
+});
+
 var script = document.createElement('script');
 
 // Set the src attribute to the Bootstrap CDN
