@@ -78,3 +78,51 @@ def save_location(request):
         return JsonResponse({"status": "saved"}, status=200)
 
     return JsonResponse({"error": "invalid"}, status=400)
+
+
+
+
+# payments/views.py
+import hashlib
+import time
+from django.shortcuts import render
+from django.conf import settings
+
+def initiate_payment(request):
+    order_id = str(int(time.time()))
+    amount = "3"  # PKR
+
+    hash_string = (
+        settings.EASYPAISA_STORE_ID +
+        order_id +
+        amount +
+        settings.EASYPAISA_CALLBACK_URL +
+        settings.EASYPAISA_HASH_KEY
+    )
+
+    secure_hash = hashlib.sha256(hash_string.encode()).hexdigest()
+
+    context = {
+        "payment_url": settings.EASYPAISA_PAYMENT_URL,
+        "store_id": settings.EASYPAISA_STORE_ID,
+        "order_id": order_id,
+        "amount": amount,
+        "callback_url": settings.EASYPAISA_CALLBACK_URL,
+        "hash": secure_hash,
+    }
+
+    return render(request, "payments/easypaisa_form.html", context)
+
+
+# payments/views.py
+from django.http import HttpResponse
+
+def payment_callback(request):
+    status = request.GET.get("paymentStatus")
+    order_id = request.GET.get("orderRefNum")
+
+    if status == "SUCCESS":
+        # Mark order as paid
+        return HttpResponse("Payment Successful")
+    else:
+        return HttpResponse("Payment Failed")

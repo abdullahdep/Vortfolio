@@ -8,6 +8,8 @@ urlpatterns = [
     path('logout/',views.logout_view,name='logout'),
     path('dashboard/',views.dashboard_view,name='dashboard'),
     path("api/save-location/", views.save_location, name="save_location"),
+    path("pay/", views.initiate_payment, name="pay"),
+    path("payment/callback/", views.payment_callback, name="callback"),
 
     
 ]

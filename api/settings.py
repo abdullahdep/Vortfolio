@@ -265,3 +265,11 @@ STATICFILES_DIRS = [
 # Enable whitenoise storage backend
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+
+
+
+# settings.py
+EASYPAISA_STORE_ID = "1215671"
+EASYPAISA_HASH_KEY = "655YQ7ZDPX8KMKPE"
+EASYPAISA_PAYMENT_URL = "https://easypay.easypaisa.com.pk/easypay/Index.jsf"
+EASYPAISA_CALLBACK_URL = "https://www.vortfolio.icu/payment/callback/"
