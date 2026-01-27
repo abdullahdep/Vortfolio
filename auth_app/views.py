@@ -92,12 +92,12 @@ def initiate_payment(request):
     order_id = str(int(time.time()))
     amount = "3"  # PKR
 
-    # Correct Easypaisa hash format: storeId|orderRefNum|amount|postBackURL|hashKey
+    # Easypaisa hash format (without pipes): storeIdorderRefNumamountpostBackURLhashKey
     hash_string = (
-        settings.EASYPAISA_STORE_ID + "|" +
-        order_id + "|" +
-        amount + "|" +
-        settings.EASYPAISA_CALLBACK_URL + "|" +
+        settings.EASYPAISA_STORE_ID +
+        order_id +
+        amount +
+        settings.EASYPAISA_CALLBACK_URL +
         settings.EASYPAISA_HASH_KEY
     )
 
@@ -125,11 +125,11 @@ def payment_callback(request):
     amount = request.GET.get("amount")
     hash_received = request.GET.get("hash")
     
-    # Verify hash for security
+    # Verify hash for security (without pipes)
     hash_string = (
-        settings.EASYPAISA_STORE_ID + "|" +
-        order_id + "|" +
-        amount + "|" +
+        settings.EASYPAISA_STORE_ID +
+        order_id +
+        amount +
         settings.EASYPAISA_HASH_KEY
     )
     hash_calculated = hashlib.sha256(hash_string.encode()).hexdigest()
