@@ -92,11 +92,12 @@ def initiate_payment(request):
     order_id = str(int(time.time()))
     amount = "3"  # PKR
 
+    # Correct Easypaisa hash format: storeId|orderRefNum|amount|postBackURL|hashKey
     hash_string = (
-        settings.EASYPAISA_STORE_ID +
-        order_id +
-        amount +
-        settings.EASYPAISA_CALLBACK_URL +
+        settings.EASYPAISA_STORE_ID + "|" +
+        order_id + "|" +
+        amount + "|" +
+        settings.EASYPAISA_CALLBACK_URL + "|" +
         settings.EASYPAISA_HASH_KEY
     )
 
@@ -118,11 +119,26 @@ def initiate_payment(request):
 from django.http import HttpResponse
 
 def payment_callback(request):
+    """Handle Easypaisa payment callback"""
     status = request.GET.get("paymentStatus")
     order_id = request.GET.get("orderRefNum")
+    amount = request.GET.get("amount")
+    hash_received = request.GET.get("hash")
+    
+    # Verify hash for security
+    hash_string = (
+        settings.EASYPAISA_STORE_ID + "|" +
+        order_id + "|" +
+        amount + "|" +
+        settings.EASYPAISA_HASH_KEY
+    )
+    hash_calculated = hashlib.sha256(hash_string.encode()).hexdigest()
+    
+    if hash_received != hash_calculated:
+        return HttpResponse("Hash Verification Failed", status=400)
 
-    if status == "SUCCESS":
-        # Mark order as paid
-        return HttpResponse("Payment Successful")
+    if status == "0":  # 0 = SUCCESS in Easypaisa
+        # Mark order as paid in your database
+        return redirect(settings.EASYPAISA_SUCCESS_URL)
     else:
-        return HttpResponse("Payment Failed")
+        return redirect(settings.EASYPAISA_FAILURE_URL)

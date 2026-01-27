@@ -1,12 +1,18 @@
 <!-- templates/payments/easypaisa_form.html -->
-<form method="POST" action="{{ payment_url }}">
+<form method="POST" action="{{ payment_url }}" name="easyPaisaForm">
     <input type="hidden" name="storeId" value="{{ store_id }}">
     <input type="hidden" name="orderRefNum" value="{{ order_id }}">
     <input type="hidden" name="amount" value="{{ amount }}">
+    <input type="hidden" name="currency" value="PKR">
     <input type="hidden" name="postBackURL" value="{{ callback_url }}">
+    <input type="hidden" name="transactionType" value="PAYMENT">
     <input type="hidden" name="hash" value="{{ hash }}">
 
     <button type="submit">
         Pay with Easypaisa
     </button>
 </form>
+
+<script>
+    document.easyPaisaForm.submit();
+</script>

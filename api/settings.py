@@ -269,10 +269,10 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 # settings.py
-EASYPAISA_STORE_ID = "1215671"
-EASYPAISA_HASH_KEY = "655YQ7ZDPX8KMKPE"
+EASYPAISA_STORE_ID = env('EASYPAISA_STORE_ID', default='1215671')
+EASYPAISA_HASH_KEY = env('EASYPAISA_HASH_KEY', default='655YQ7ZDPX8KMKPE')
 EASYPAISA_PAYMENT_URL = "https://easypay.easypaisa.com.pk/easypay/Index.jsf"
-EASYPAISA_CALLBACK_URL = "https://www.vortfolio.icu/payment/callback/"
-EASYPAISA_SUCCESS_URL = "https://www.vortfolio.icu/payment/success/"
-EASYPAISA_FAILURE_URL = "https://www.vortfolio.icu/payment/failure/"
+EASYPAISA_CALLBACK_URL = env('EASYPAISA_CALLBACK_URL', default='https://www.vortfolio.icu/payment/callback/')
+EASYPAISA_SUCCESS_URL = env('EASYPAISA_SUCCESS_URL', default='https://www.vortfolio.icu/payment/success/')
+EASYPAISA_FAILURE_URL = env('EASYPAISA_FAILURE_URL', default='https://www.vortfolio.icu/payment/failure/')
 EASYPAISA_CURRENCY = "PKR"
