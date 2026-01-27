@@ -38,7 +38,7 @@ DEBUG = False
 ALLOWED_HOSTS = ['*']
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-SECURE_SSL_REDIRECT = True
+SECURE_SSL_REDIRECT = False  # Set to False for local development
 # X-Forwarded-Proto: https
 
 # CSRF Configuration for development
@@ -273,3 +273,6 @@ EASYPAISA_STORE_ID = "1215671"
 EASYPAISA_HASH_KEY = "655YQ7ZDPX8KMKPE"
 EASYPAISA_PAYMENT_URL = "https://easypay.easypaisa.com.pk/easypay/Index.jsf"
 EASYPAISA_CALLBACK_URL = "https://www.vortfolio.icu/payment/callback/"
+EASYPAISA_SUCCESS_URL = "https://www.vortfolio.icu/payment/success/"
+EASYPAISA_FAILURE_URL = "https://www.vortfolio.icu/payment/failure/"
+EASYPAISA_CURRENCY = "PKR"
