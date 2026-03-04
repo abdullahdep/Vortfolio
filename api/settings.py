@@ -276,3 +276,59 @@ EASYPAISA_CALLBACK_URL = 'https://www.vortfolio.icu/payment/callback/'
 EASYPAISA_SUCCESS_URL = 'https://www.vortfolio.icu/payment/success/'
 EASYPAISA_FAILURE_URL = 'https://www.vortfolio.icu/payment/failure/'
 EASYPAISA_CURRENCY = "PKR"
+
+# ===================== LOGGING CONFIGURATION =====================
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'standard': {
+            'format': '[{asctime}] {levelname} {name}: {message}',
+            'datefmt': '%d/%b/%Y %H:%M:%S',
+            'style': '{',
+        },
+        'django_request': {
+            'format': '[{asctime}] "{request_method} {request_path_info} HTTP/{request_http_version}" {status_code}',
+            'datefmt': '%d/%b/%Y %H:%M:%S',
+            'style': '{',
+        },
+    },
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+            'level': 'DEBUG',
+            'formatter': 'standard',
+        },
+        'memory': {
+            'class': 'auth_app.logging_handlers.LogQueueHandler',
+            'level': 'DEBUG',
+            'formatter': 'standard',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console', 'memory'],
+            'level': 'INFO',
+            'propagate': False,
+        },
+        'django.request': {
+            'handlers': ['console', 'memory'],
+            'level': 'INFO',
+            'propagate': False,
+        },
+        'django.server': {
+            'handlers': ['console', 'memory'],
+            'level': 'INFO',
+            'propagate': False,
+        },
+        'django.db.backends': {
+            'handlers': ['console', 'memory'],
+            'level': 'DEBUG',
+            'propagate': False,
+        },
+    },
+    'root': {
+        'handlers': ['console', 'memory'],
+        'level': 'INFO',
+    },
+}

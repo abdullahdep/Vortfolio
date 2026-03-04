@@ -10,6 +10,7 @@ urlpatterns = [
     path("api/save-location/", views.save_location, name="save_location"),
     path("pay/", views.initiate_payment, name="pay"),
     path("payment/callback/", views.payment_callback, name="callback"),
-
-    
+    path('logs/', views.logs_page_view, name='logs_page'),
+    path('api/logs/', views.logs_api, name='logs_api'),
+    path('api/logs/status/', views.logs_status_api, name='logs_status'),
 ]

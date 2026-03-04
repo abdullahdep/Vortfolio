@@ -3,6 +3,11 @@ from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
 from django.contrib.auth import login, logout
 from .middlewares import auth, guest
 from django.contrib.auth.decorators import login_required
+from django.http import JsonResponse
+from django.views.decorators.http import require_http_methods
+import logging
+from datetime import datetime, timedelta
+from .logging_handlers import get_logs
 
 # Create your views here.
 
@@ -39,6 +44,13 @@ def dashboard_view(request):
 def logout_view(request):
     logout(request)
     return redirect('login')
+
+@login_required(login_url='login')
+def logs_page_view(request):
+    """Display logs page"""
+    logger = logging.getLogger(__name__)
+    logger.info(f"User {request.user.username} accessed logs page")
+    return render(request, 'logs_pages/log_pages.html')
 
 # logorusr = 'login/sign'
 
@@ -142,3 +154,54 @@ def payment_callback(request):
         return redirect(settings.EASYPAISA_SUCCESS_URL)
     else:
         return redirect(settings.EASYPAISA_FAILURE_URL)
+
+
+# ===================== LOGS MANAGEMENT =====================
+
+@require_http_methods(["GET"])
+def logs_api(request):
+    """API endpoint to fetch logs"""
+    try:
+        logs_list = get_logs()
+        
+        return JsonResponse({
+            'status': 'success',
+            'logs': logs_list,
+            'count': len(logs_list),
+            'timestamp': datetime.now().isoformat()
+        })
+    except Exception as e:
+        return JsonResponse({
+            'status': 'error',
+            'message': str(e),
+            'logs': []
+        }, status=500)
+
+
+@require_http_methods(["GET"])
+def logs_status_api(request):
+    """API endpoint to get logs management status"""
+    try:
+        from .logging_handlers import get_logs, get_log_count
+        logs_list = get_logs()
+        
+        # Calculate statistics
+        level_counts = {}
+        for log in logs_list:
+            level = log.get('level', 'INFO')
+            level_counts[level] = level_counts.get(level, 0) + 1
+        
+        return JsonResponse({
+            'status': 'success',
+            'server_status': 'running',
+            'total_logs': get_log_count(),
+            'level_breakdown': level_counts,
+            'timestamp': datetime.now().isoformat(),
+            'message': f'Capturing logs successfully - {get_log_count()} entries stored'
+        })
+    except Exception as e:
+        return JsonResponse({
+            'status': 'error',
+            'message': str(e),
+            'server_status': 'error'
+        }, status=500)
