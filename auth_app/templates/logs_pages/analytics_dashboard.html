@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logs Analytics Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #eee;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .dashboard-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #0f3460;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .header h1 {
+            font-size: 32px;
+            color: #00d4ff;
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+            color: #000;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0, 212, 255, 0.4);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: rgba(15, 52, 96, 0.8);
+            border: 1px solid #0f3460;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s;
+        }
+
+        .stat-card:hover {
+            border-color: #00d4ff;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: #999;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .stat-value {
+            font-size: 36px;
+            font-weight: bold;
+            color: #00d4ff;
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+        }
+
+        .charts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .chart-card {
+            background: rgba(15, 52, 96, 0.8);
+            border: 1px solid #0f3460;
+            border-radius: 10px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .chart-card h2 {
+            color: #00d4ff;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .chart-container {
+            position: relative;
+            height: 300px;
+        }
+
+        .top-loggers {
+            background: rgba(15, 52, 96, 0.8);
+            border: 1px solid #0f3460;
+            border-radius: 10px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .top-loggers h2 {
+            color: #00d4ff;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .logger-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px;
+            border-bottom: 1px solid #0f3460;
+            align-items: center;
+        }
+
+        .logger-item:last-child {
+            border-bottom: none;
+        }
+
+        .logger-name {
+            color: #00d4ff;
+            font-family: monospace;
+            flex: 1;
+        }
+
+        .logger-count {
+            background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+            color: #000;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .recent-logs {
+            background: rgba(15, 52, 96, 0.8);
+            border: 1px solid #0f3460;
+            border-radius: 10px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+            margin-top: 20px;
+            overflow-x: auto;
+        }
+
+        .recent-logs h2 {
+            color: #00d4ff;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+        }
+
+        th {
+            background: rgba(0, 212, 255, 0.1);
+            color: #00d4ff;
+            padding: 10px;
+            text-align: left;
+            border-bottom: 2px solid #0f3460;
+        }
+
+        td {
+            padding: 10px;
+            border-bottom: 1px solid #0f3460;
+        }
+
+        tr:hover {
+            background: rgba(0, 212, 255, 0.05);
+        }
+
+        .level-debug {
+            color: #87ceeb;
+        }
+
+        .level-info {
+            color: #00ff00;
+        }
+
+        .level-warning {
+            color: #ffaa00;
+        }
+
+        .level-error {
+            color: #ff4444;
+        }
+
+        .level-critical {
+            color: #ff0099;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #00d4ff;
+            font-size: 18px;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .charts-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="header">
+            <h1>📊 Logs Analytics Dashboard</h1>
+            <div class="header-actions">
+                <button onclick="refreshData()">🔄 Refresh</button>
+                <button onclick="window.location.href='/logs/'">📝 View Logs</button>
+            </div>
+        </div>
+
+        <div class="stats-grid" id="statsGrid">
+            <div class="loading">Loading analytics...</div>
+        </div>
+
+        <div class="charts-grid">
+            <div class="chart-card">
+                <h2>Log Levels Distribution</h2>
+                <div class="chart-container">
+                    <canvas id="levelChart"></canvas>
+                </div>
+            </div>
+            <div class="chart-card">
+                <h2>Logs per Hour (Last 24h)</h2>
+                <div class="chart-container">
+                    <canvas id="hourlyChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="top-loggers" id="topLoggersContainer">
+            <h2>Top Loggers</h2>
+            <div class="loading">Loading...</div>
+        </div>
+
+        <div class="recent-logs" id="recentLogsContainer">
+            <h2>Recent Logs</h2>
+            <div class="loading">Loading...</div>
+        </div>
+    </div>
+
+    <script>
+        let levelChart = null;
+        let hourlyChart = null;
+
+        document.addEventListener('DOMContentLoaded', function() {
+            refreshData();
+        });
+
+        async function refreshData() {
+            try {
+                const response = await fetch('/api/logs/analytics/');
+                if (!response.ok) throw new Error('Failed to fetch analytics');
+
+                const data = await response.json();
+                
+                updateStats(data);
+                updateCharts(data);
+                updateTopLoggers(data);
+                updateRecentLogs(data);
+
+            } catch (error) {
+                console.error('Error loading analytics:', error);
+                document.getElementById('statsGrid').innerHTML = 
+                    `<div class="loading" style="grid-column: 1/-1;">Error loading analytics: ${error.message}</div>`;
+            }
+        }
+
+        function updateStats(data) {
+            const statsHtml = `
+                <div class="stat-card">
+                    <div class="stat-label">Total Logs</div>
+                    <div class="stat-value">${data.total_logs.toLocaleString()}</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Last 24 Hours</div>
+                    <div class="stat-value">${data.logs_24h}</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Errors (24h)</div>
+                    <div class="stat-value" style="color: #ff4444;">${data.errors_24h}</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">INFO</div>
+                    <div class="stat-value" style="color: #00ff00;">${data.level_stats.INFO}</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">WARNING</div>
+                    <div class="stat-value" style="color: #ffaa00;">${data.level_stats.WARNING}</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">ERROR</div>
+                    <div class="stat-value" style="color: #ff4444;">${data.level_stats.ERROR}</div>
+                </div>
+            `;
+            document.getElementById('statsGrid').innerHTML = statsHtml;
+        }
+
+        function updateCharts(data) {
+            // Level distribution chart
+            const levelCtx = document.getElementById('levelChart').getContext('2d');
+            if (levelChart) levelChart.destroy();
+            
+            levelChart = new Chart(levelCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: Object.keys(data.level_stats),
+                    datasets: [{
+                        data: Object.values(data.level_stats),
+                        backgroundColor: [
+                            '#87ceeb', '#00ff00', '#ffaa00', '#ff4444', '#ff0099'
+                        ],
+                        borderColor: '#1a1a2e',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: '#eee',
+                                font: { size: 12 }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Hourly chart
+            const hourlyCtx = document.getElementById('hourlyChart').getContext('2d');
+            if (hourlyChart) hourlyChart.destroy();
+            
+            hourlyChart = new Chart(hourlyCtx, {
+                type: 'line',
+                data: {
+                    labels: data.hourly_data.map(h => h.hour),
+                    datasets: [{
+                        label: 'Logs per hour',
+                        data: data.hourly_data.map(h => h.count),
+                        borderColor: '#00d4ff',
+                        backgroundColor: 'rgba(0, 212, 255, 0.1)',
+                        tension: 0.4,
+                        fill: true,
+                        borderWidth: 2,
+                        pointRadius: 3,
+                        pointBackgroundColor: '#00d4ff',
+                        pointBorderColor: '#fff',
+                        pointBorderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            labels: { color: '#eee' }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            ticks: { color: '#999' },
+                            grid: { color: 'rgba(0, 212, 255, 0.1)' }
+                        },
+                        x: {
+                            ticks: { color: '#999' },
+                            grid: { color: 'rgba(0, 212, 255, 0.1)' }
+                        }
+                    }
+                }
+            });
+        }
+
+        function updateTopLoggers(data) {
+            const html = data.top_loggers.map(logger => `
+                <div class="logger-item">
+                    <span class="logger-name">${logger.logger || 'Unknown'}</span>
+                    <span class="logger-count">${logger.count}</span>
+                </div>
+            `).join('');
+            
+            document.getElementById('topLoggersContainer').innerHTML = 
+                `<h2>Top Loggers</h2>${html || '<p style="color: #999;">No data</p>'}`;
+        }
+
+        function updateRecentLogs(data) {
+            const tableHtml = `
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Timestamp</th>
+                            <th>Level</th>
+                            <th>Logger</th>
+                            <th>Message</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${data.recent_logs.map(log => `
+                            <tr>
+                                <td>${log.timestamp}</td>
+                                <td class="level-${log.level.toLowerCase()}">${log.level}</td>
+                                <td>${log.logger}</td>
+                                <td>${log.message}</td>
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>
+            `;
+            
+            document.getElementById('recentLogsContainer').innerHTML = 
+                `<h2>Recent Logs</h2>${tableHtml}`;
+        }
+    </script>
+</body>
+</html>

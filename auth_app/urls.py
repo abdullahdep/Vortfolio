@@ -1,5 +1,6 @@
 from django.urls import path 
 from . import views
+from .analytics_handlers import logs_analytics_api
 
 
 urlpatterns = [
@@ -11,6 +12,8 @@ urlpatterns = [
     path("pay/", views.initiate_payment, name="pay"),
     path("payment/callback/", views.payment_callback, name="callback"),
     path('logs/', views.logs_page_view, name='logs_page'),
+    path('logs/analytics/', views.logs_analytics_page_view, name='logs_analytics_page'),
     path('api/logs/', views.logs_api, name='logs_api'),
+    path('api/logs/analytics/', logs_analytics_api, name='logs_analytics_api'),
     path('api/logs/status/', views.logs_status_api, name='logs_status'),
 ]

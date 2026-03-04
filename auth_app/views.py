@@ -8,6 +8,7 @@ from django.views.decorators.http import require_http_methods
 import logging
 from datetime import datetime, timedelta
 from .logging_handlers import get_logs
+from .analytics_handlers import logs_analytics_api
 
 # Create your views here.
 
@@ -51,6 +52,14 @@ def logs_page_view(request):
     logger = logging.getLogger(__name__)
     logger.info(f"User {request.user.username} accessed logs page")
     return render(request, 'logs_pages/log_pages.html')
+
+
+@login_required(login_url='login')
+def logs_analytics_page_view(request):
+    """Display logs analytics dashboard"""
+    logger = logging.getLogger(__name__)
+    logger.info(f"User {request.user.username} accessed logs analytics")
+    return render(request, 'logs_pages/analytics_dashboard.html')
 
 # logorusr = 'login/sign'
 
