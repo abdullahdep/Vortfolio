@@ -1,49 +1,64 @@
 import logging
-from collections import deque
-from datetime import datetime
+from datetime import datetime, timedelta
+from django.utils import timezone
 
 
-# In-memory log storage (max 1000 entries)
-_log_storage = deque(maxlen=1000)
-
-
-class LogQueueHandler(logging.Handler):
-    """Custom handler to store logs in memory"""
+class TiDBLogHandler(logging.Handler):
+    """Custom handler to store logs in TiDB"""
     def emit(self, record):
         try:
-            # Format the message first
-            msg = self.format(record)
+            # Avoid circular imports
+            from .models import SystemLog
             
-            log_entry = {
-                'timestamp': datetime.now().strftime('%d/%b/%Y %H:%M:%S'),
-                'level': record.levelname,
-                'logger': record.name,
-                'message': msg,
-                'exception': None
-            }
-            
+            exception_text = None
             if record.exc_info:
                 import traceback
-                log_entry['exception'] = ''.join(
+                exception_text = ''.join(
                     traceback.format_exception(*record.exc_info)
                 )
             
-            _log_storage.append(log_entry)
+            # Create log entry in database
+            SystemLog.objects.create(
+                timestamp=timezone.now(),
+                level=record.levelname,
+                logger=record.name,
+                message=self.format(record),
+                exception=exception_text
+            )
+            
+            # Clean up old logs (older than 30 days)
+            cutoff_date = timezone.now() - timedelta(days=30)
+            SystemLog.objects.filter(timestamp__lt=cutoff_date).delete()
+            
         except Exception as e:
             self.handleError(record)
 
 
-def get_logs():
-    """Get all stored logs"""
-    return list(_log_storage)
+def get_logs(limit=1000):
+    """Get logs from TiDB"""
+    from .models import SystemLog
+    logs = SystemLog.objects.all()[:limit]
+    return [
+        {
+            'timestamp': log.timestamp.strftime('%d/%b/%Y %H:%M:%S'),
+            'level': log.level,
+            'logger': log.logger,
+            'message': log.message,
+            'exception': log.exception
+        }
+        for log in logs
+    ]
 
 
 def clear_logs():
-    """Clear all stored logs"""
-    _log_storage.clear()
+    """Clear all logs from TiDB"""
+    from .models import SystemLog
+    SystemLog.objects.all().delete()
 
 
 def get_log_count():
-    """Get total number of stored logs"""
-    return len(_log_storage)
+    """Get total number of logs in TiDB"""
+    from .models import SystemLog
+    return SystemLog.objects.count()
+
 

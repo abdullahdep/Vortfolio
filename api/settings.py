@@ -287,11 +287,6 @@ LOGGING = {
             'datefmt': '%d/%b/%Y %H:%M:%S',
             'style': '{',
         },
-        'django_request': {
-            'format': '[{asctime}] "{request_method} {request_path_info} HTTP/{request_http_version}" {status_code}',
-            'datefmt': '%d/%b/%Y %H:%M:%S',
-            'style': '{',
-        },
     },
     'handlers': {
         'console': {
@@ -299,36 +294,36 @@ LOGGING = {
             'level': 'DEBUG',
             'formatter': 'standard',
         },
-        'memory': {
-            'class': 'auth_app.logging_handlers.LogQueueHandler',
+        'tidb': {
+            'class': 'auth_app.logging_handlers.TiDBLogHandler',
             'level': 'DEBUG',
             'formatter': 'standard',
         },
     },
     'loggers': {
         'django': {
-            'handlers': ['console', 'memory'],
+            'handlers': ['console', 'tidb'],
             'level': 'INFO',
             'propagate': False,
         },
         'django.request': {
-            'handlers': ['console', 'memory'],
+            'handlers': ['console', 'tidb'],
             'level': 'INFO',
             'propagate': False,
         },
         'django.server': {
-            'handlers': ['console', 'memory'],
+            'handlers': ['console', 'tidb'],
             'level': 'INFO',
             'propagate': False,
         },
         'django.db.backends': {
-            'handlers': ['console', 'memory'],
+            'handlers': ['console', 'tidb'],
             'level': 'DEBUG',
             'propagate': False,
         },
     },
     'root': {
-        'handlers': ['console', 'memory'],
+        'handlers': ['console', 'tidb'],
         'level': 'INFO',
     },
 }
