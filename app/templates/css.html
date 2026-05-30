@@ -3,320 +3,454 @@
 
 {% block content %}
 
-
-<head>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            /* Huawei-inspired color palette */
-            --primary: #0078ff;
-            --primary-light: #e0f0ff;
-            --primary-dark: #0055cc;
-            --secondary: #00c3ff;
-            --accent: #ff6b00;
-            
-            /* Neutral colors */
-            --gray-50: #f9fafb;
-            --gray-100: #f3f4f6;
-            --gray-200: #e5e7eb;
-            --gray-300: #d1d5db;
-            --gray-400: #9ca3af;
-            --gray-500: #6b7280;
-            --gray-600: #4b5563;
-            --gray-700: #374151;
-            --gray-800: #1f2937;
-            --gray-900: #111827;
-            
-            /* Base colors */
-            --white: #ffffff;
-            --black: #000000;
-            --background: #f0f5ff;
-            --background-gradient-end: #f9f9ff;
-            
-            /* Material Design elevation */
-            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-            --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-            
-            /* Border radius */
-            --radius-sm: 0.125rem;
-            --radius: 0.25rem;
-            --radius-md: 0.375rem;
-            --radius-lg: 0.5rem;
-            --radius-xl: 0.75rem;
-            --radius-2xl: 1rem;
-            --radius-3xl: 1.5rem;
-            --radius-full: 9999px;
-            
-            /* Spacing */
-            --spacing-1: 0.25rem;
-            --spacing-2: 0.5rem;
-            --spacing-3: 0.75rem;
-            --spacing-4: 1rem;
-            --spacing-5: 1.25rem;
-            --spacing-6: 1.5rem;
-            --spacing-8: 2rem;
-            --spacing-10: 2.5rem;
-            --spacing-12: 3rem;
-            --spacing-16: 4rem;
-            --spacing-20: 5rem;
-        }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+    :root {
+        /* Huawei-inspired color palette */
+        --primary: #0078ff;
+        --primary-light: #e0f0ff;
+        --primary-dark: #0055cc;
+        --secondary: #00c3ff;
+        --accent: #ff6b00;
         
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        /* Neutral colors */
+        --gray-50: #f9fafb;
+        --gray-100: #f3f4f6;
+        --gray-200: #e5e7eb;
+        --gray-300: #d1d5db;
+        --gray-400: #9ca3af;
+        --gray-500: #6b7280;
+        --gray-600: #4b5563;
+        --gray-700: #374151;
+        --gray-800: #1f2937;
+        --gray-900: #111827;
         
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.7;
-            color: var(--gray-800);
-            background: linear-gradient(135deg, var(--background), var(--background-gradient-end));
-            min-height: 100vh;
-        }
+        /* Base colors */
+        --white: #ffffff;
+        --black: #000000;
+        --background: #f0f5ff;
+        --background-gradient-end: #f9f9ff;
         
+        /* Material Design elevation */
+        --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+        --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        
+        /* Border radius */
+        --radius-sm: 0.125rem;
+        --radius: 0.25rem;
+        --radius-md: 0.375rem;
+        --radius-lg: 0.5rem;
+        --radius-xl: 0.75rem;
+        --radius-2xl: 1rem;
+        --radius-3xl: 1.5rem;
+        --radius-full: 9999px;
+        
+        /* Spacing */
+        --spacing-1: 0.25rem;
+        --spacing-2: 0.5rem;
+        --spacing-3: 0.75rem;
+        --spacing-4: 1rem;
+        --spacing-5: 1.25rem;
+        --spacing-6: 1.5rem;
+        --spacing-8: 2rem;
+        --spacing-10: 2.5rem;
+        --spacing-12: 3rem;
+        --spacing-16: 4rem;
+        --spacing-20: 5rem;
+    }
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        line-height: 1.7;
+        color: var(--gray-800);
+        background: linear-gradient(135deg, var(--background), var(--background-gradient-end));
+        min-height: 100vh;
+    }
+    
+    .css-container {
+        display: grid;
+        grid-template-columns: 1fr 280px;
+        gap: var(--spacing-8);
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: var(--spacing-8) var(--spacing-4);
+    }
+    
+    main {
+        grid-column: 1;
+    }
+    
+    @media (max-width: 1024px) {
+        .css-container {
+            grid-template-columns: 1fr;
+            gap: var(--spacing-6);
+        }
+    }
+    
+    @media (min-width: 768px) {
         main {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: var(--spacing-8) var(--spacing-4);
-        }
-        
-        @media (min-width: 768px) {
-            main {
-                padding: var(--spacing-12) var(--spacing-6);
-            }
-        }
-        
-        h1, h2, h3, h4, h5, h6 {
-            font-weight: 600;
-            line-height: 1.3;
-            color: var(--gray-800);
-        }
-        
-        h1 {
-            font-size: 2.25rem;
-            margin-bottom: var(--spacing-6);
-            color: var(--gray-900);
-            position: relative;
-            padding-bottom: var(--spacing-4);
-        }
-        
-        h1::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 80px;
-            height: 4px;
-            background: var(--primary);
-            border-radius: var(--radius-full);
-        }
-        
-        h2 {
-            font-size: 1.5rem;
-            margin-top: var(--spacing-10);
-            margin-bottom: var(--spacing-4);
-            color: var(--primary);
-            display: flex;
-            align-items: center;
-        }
-        
-        h2::before {
-            content: '';
-            display: inline-block;
-            width: 8px;
-            height: 24px;
-            background-color: var(--primary);
-            margin-right: var(--spacing-3);
-            border-radius: var(--radius);
-        }
-        
-        h3 {
-            font-size: 1.25rem;
-            margin-top: var(--spacing-8);
-            margin-bottom: var(--spacing-3);
-            color: var(--gray-700);
-        }
-        
-        p {
-            margin-bottom: var(--spacing-5);
-            color: var(--gray-700);
-        }
-        
-        ul {
-            list-style-position: outside;
-            margin-bottom: var(--spacing-5);
-            padding-left: var(--spacing-6);
-        }
-        
-        li {
-            margin-bottom: var(--spacing-2);
-            color: var(--gray-700);
-        }
-        
-        code {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.875em;
-            background-color: var(--primary-light);
-            color: var(--primary);
-            padding: 0.2em 0.4em;
-            border-radius: var(--radius);
-        }
-        
-        pre {
-            background-color: var(--gray-50);
-            border-radius: var(--radius-lg);
-            padding: var(--spacing-4);
-            overflow-x: auto;
-            margin-bottom: var(--spacing-6);
-            box-shadow: var(--shadow);
-            border: 1px solid var(--gray-200);
-        }
-        
-        pre code {
-            background-color: transparent;
             padding: 0;
-            color: var(--gray-800);
         }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: var(--spacing-6) 0;
-            overflow: hidden;
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow);
-        }
-        
-        th, td {
-            padding: var(--spacing-3) var(--spacing-4);
-            text-align: left;
-            border-bottom: 1px solid var(--gray-200);
-        }
-        
-        th {
-            background-color: var(--primary);
-            color: white;
-            font-weight: 500;
-        }
-        
-        tr:nth-child(even) {
-            background-color: var(--gray-50);
-        }
-        
-        hr {
-            border: 0;
-            height: 1px;
-            background: linear-gradient(to right, transparent, var(--primary-light), transparent);
-            margin: var(--spacing-10) 0;
-        }
-        
-        .section {
-            background-color: var(--white);
-            border-radius: var(--radius-xl);
-            padding: var(--spacing-6);
-            margin-bottom: var(--spacing-6);
-            box-shadow: var(--shadow);
-            border: 1px solid var(--gray-200);
-            transition: all 0.3s ease;
-        }
-        
-        .section:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-        }
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        font-weight: 600;
+        line-height: 1.3;
+        color: var(--gray-800);
+    }
+    
+    h1 {
+        font-size: 2.25rem;
+        margin-bottom: var(--spacing-6);
+        color: var(--gray-900);
+        position: relative;
+        padding-bottom: var(--spacing-4);
+    }
+    
+    h1::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 80px;
+        height: 4px;
+        background: var(--primary);
+        border-radius: var(--radius-full);
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+        margin-top: var(--spacing-10);
+        margin-bottom: var(--spacing-4);
+        color: var(--primary);
+        display: flex;
+        align-items: center;
+    }
+    
+    h2::before {
+        content: '';
+        display: inline-block;
+        width: 8px;
+        height: 24px;
+        background-color: var(--primary);
+        margin-right: var(--spacing-3);
+        border-radius: var(--radius);
+    }
+    
+    h3 {
+        font-size: 1.25rem;
+        margin-top: var(--spacing-8);
+        margin-bottom: var(--spacing-3);
+        color: var(--gray-700);
+    }
+    
+    p {
+        margin-bottom: var(--spacing-5);
+        color: var(--gray-700);
+    }
+    
+    ul {
+        list-style-position: outside;
+        margin-bottom: var(--spacing-5);
+        padding-left: var(--spacing-6);
+    }
+    
+    li {
+        margin-bottom: var(--spacing-2);
+        color: var(--gray-700);
+    }
+    
+    code {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.875em;
+        background-color: var(--primary-light);
+        color: var(--primary);
+        padding: 0.2em 0.4em;
+        border-radius: var(--radius);
+        transition: all 0.2s ease;
+    }
+    
+    code:hover {
+        background-color: var(--primary);
+        color: var(--white);
+    }
+    
+    pre {
+        background-color: var(--gray-50);
+        border-radius: var(--radius-lg);
+        padding: var(--spacing-4);
+        overflow-x: auto;
+        margin-bottom: var(--spacing-6);
+        box-shadow: var(--shadow);
+        border: 1px solid var(--gray-200);
+        transition: all 0.3s ease;
+    }
+    
+    pre:hover {
+        box-shadow: var(--shadow-md);
+        border-color: var(--primary-light);
+    }
+    
+    pre code {
+        background-color: transparent;
+        padding: 0;
+        color: var(--gray-800);
+    }
+    
+    pre code:hover {
+        background-color: transparent;
+        color: var(--gray-800);
+    }
+    
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: var(--spacing-6) 0;
+        overflow: hidden;
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow);
+    }
+    
+    th, td {
+        padding: var(--spacing-3) var(--spacing-4);
+        text-align: left;
+        border-bottom: 1px solid var(--gray-200);
+    }
+    
+    th {
+        background-color: var(--primary);
+        color: white;
+        font-weight: 500;
+    }
+    
+    tr:nth-child(even) {
+        background-color: var(--gray-50);
+    }
+    
+    tr:hover {
+        background-color: var(--primary-light);
+    }
+    
+    hr {
+        border: 0;
+        height: 1px;
+        background: linear-gradient(to right, transparent, var(--primary-light), transparent);
+        margin: var(--spacing-10) 0;
+    }
+    
+    .section {
+        background-color: var(--white);
+        border-radius: var(--radius-xl);
+        padding: var(--spacing-6);
+        margin-bottom: var(--spacing-6);
+        box-shadow: var(--shadow);
+        border: 1px solid var(--gray-200);
+        transition: all 0.3s ease;
+        scroll-margin-top: var(--spacing-16);
+    }
+    
+    .section:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+        border-color: var(--primary-light);
+    }
 
-        .key-difference {
-            background-color: var(--primary-light);
-            padding: var(--spacing-4);
-            border-left: 4px solid var(--primary);
-            margin: var(--spacing-6) 0;
-            border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
-        }
-        
-        .summary-table {
-            box-shadow: var(--shadow-md);
-        }
-        
-        .property-category {
-            margin-bottom: var(--spacing-8);
-        }
-        
-        .property-category h3 {
-            color: var(--primary-dark);
-            border-bottom: 1px solid var(--gray-200);
-            padding-bottom: var(--spacing-2);
-            margin-bottom: var(--spacing-4);
-        }
-        
+    .key-difference {
+        background-color: var(--primary-light);
+        padding: var(--spacing-4);
+        border-left: 4px solid var(--primary);
+        margin: var(--spacing-6) 0;
+        border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+    }
+    
+    .summary-table {
+        box-shadow: var(--shadow-md);
+    }
+    
+    .property-category {
+        margin-bottom: var(--spacing-8);
+    }
+    
+    .property-category h3 {
+        color: var(--primary-dark);
+        border-bottom: 2px solid var(--gray-200);
+        padding-bottom: var(--spacing-2);
+        margin-bottom: var(--spacing-4);
+        transition: all 0.2s ease;
+    }
+    
+    .property-category:hover h3 {
+        border-bottom-color: var(--primary);
+    }
+    
+    .property-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: var(--spacing-2);
+    }
+    
+    .property-grid div {
+        padding: var(--spacing-2) var(--spacing-3);
+        background: var(--gray-50);
+        border-radius: var(--radius-md);
+        transition: all 0.2s ease;
+        border: 1px solid var(--gray-200);
+    }
+    
+    .property-grid div:hover {
+        background: var(--primary-light);
+        border-color: var(--primary);
+        transform: translateY(-1px);
+    }
+    
+    @media (max-width: 768px) {
         .property-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            gap: var(--spacing-2);
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
         }
-        
-        @media (max-width: 768px) {
-            .property-grid {
-                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-            }
-        }
-        
-        footer {
-            text-align: center;
-            margin-top: var(--spacing-16);
-            color: var(--gray-500);
-            font-size: 0.9em;
-            padding-bottom: var(--spacing-8);
-        }
-        
-        /* Material Design inspired card hover effect */
-        .section {
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .section::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0) 70%);
-            opacity: 0;
-            transition: opacity 0.3s;
-            pointer-events: none;
-        }
-        
-        .section:hover::after {
-            opacity: 1;
-        }
-        
-        /* Huawei-inspired section numbering */
-        h2 strong {
-            color: var(--primary);
-        }
-    </style>
-</head>
+    }
+    
+    
+    
+    /* Table of Contents Sidebar */
+    .toc {
+        position: sticky;
+        top: var(--spacing-8);
+        background: var(--white);
+        border-radius: var(--radius-xl);
+        padding: var(--spacing-6);
+        box-shadow: var(--shadow);
+        border: 1px solid var(--gray-200);
+        height: fit-content;
+        max-height: calc(100vh - 100px);
+        overflow-y: auto;
+    }
+    
+    .toc h3 {
+        font-size: 0.95rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--gray-600);
+        margin-bottom: var(--spacing-4);
+        margin-top: 0;
+    }
+    
+    .toc ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .toc li {
+        margin: 0;
+        margin-bottom: var(--spacing-3);
+    }
+    
+    .toc a {
+        color: var(--gray-700);
+        text-decoration: none;
+        font-size: 0.95rem;
+        display: block;
+        padding: var(--spacing-2) var(--spacing-3);
+        border-radius: var(--radius-md);
+        transition: all 0.2s ease;
+        border-left: 3px solid transparent;
+    }
+    
+    .toc a:hover {
+        color: var(--primary);
+        background-color: var(--primary-light);
+        border-left-color: var(--primary);
+        padding-left: var(--spacing-4);
+    }
+    
+    /* Scroll to Top Button */
+    .scroll-top {
+        position: fixed;
+        bottom: var(--spacing-6);
+        right: var(--spacing-6);
+        width: 50px;
+        height: 50px;
+        background: var(--primary);
+        color: var(--white);
+        border: none;
+        border-radius: var(--radius-full);
+        font-size: 1.5rem;
+        cursor: pointer;
+        box-shadow: var(--shadow-lg);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .scroll-top.show {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .scroll-top:hover {
+        background: var(--primary-dark);
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-xl);
+    }
+    
+    /* Material Design inspired card hover effect */
+    .section {
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .section::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0) 70%);
+        opacity: 0;
+        transition: opacity 0.3s;
+        pointer-events: none;
+    }
+    
+    .section:hover::after {
+        opacity: 1;
+    }
+    
+    h2 strong {
+        color: var(--primary);
+    }
+</style>
 
+<div class="css-container">
+    <main>
         <h1>What We Learn When Learning CSS</h1>
         
-        <p>Cascading Style Sheets (CSS) is the design language of the web. While HTML builds the structure, CSS gives it style, form, and beauty. When we learn CSS, we're not just learning how to make a website look nice — we're learning how to create user-friendly, accessible, and responsive experiences. Here's a breakdown of what we typically learn while studying CSS:</p>
+        <p>Cascading Style Sheets (CSS) is the design language of the web. While HTML builds the structure, CSS gives it style, form, and beauty. When we learn CSS, we're not just learning how to make a website look nice — we're learning how to create user-friendly, accessible, and responsive experiences. Here's a comprehensive breakdown of what we typically learn while studying CSS:</p>
         
         <hr>
         
-        <div class="section">
+        <div class="section" id="selector-section">
             <h2>1. <strong>Selectors</strong></h2>
             
             <p>Selectors are used to target HTML elements that you want to style. From basic element selectors (<code>p</code>, <code>h1</code>) to class (<code>.class-name</code>), ID (<code>#id-name</code>), group, attribute, and pseudo selectors, CSS offers a wide range of options for applying styles exactly where they're needed.</p>
         </div>
         
-        <div class="section">
+        <div class="section" id="attributes-section">
             <h2>2. <strong>Attributes and Properties</strong></h2>
             
             <p>In CSS, properties (also called attributes in some contexts) define how an element should be styled. Examples include:</p>
@@ -331,7 +465,7 @@
             <p>Each property modifies a specific aspect of an element's presentation.</p>
         </div>
         
-        <div class="section">
+        <div class="section" id="box-model-section">
             <h2>3. <strong>The Box Model</strong></h2>
             
             <p>The CSS box model explains how every HTML element is a box composed of:</p>
@@ -346,7 +480,7 @@
             <p>Understanding this model is essential for layout control.</p>
         </div>
         
-        <div class="section">
+        <div class="section" id="pseudo-section">
             <h2>4. <strong>Pseudo-classes vs. Pseudo-elements</strong></h2>
             
             <ul>
@@ -384,7 +518,7 @@
             </div>
         </div>
         
-        <div class="section">
+        <div class="section" id="positioning-section">
             <h2>5. <strong>Positioning and Layouts</strong></h2>
             
             <p>We learn various layout techniques:</p>
@@ -396,7 +530,7 @@
             </ul>
         </div>
         
-        <div class="section">
+        <div class="section" id="media-queries-section">
             <h2>6. <strong>@media Queries</strong></h2>
             
             <p>Media queries allow us to create <strong>responsive designs</strong> by applying styles based on screen size, resolution, or device type.</p>
@@ -410,7 +544,7 @@
 }</code></pre>
         </div>
         
-        <div class="section">
+        <div class="section" id="animations-section">
             <h2>7. <strong>@keyframes and Animations</strong></h2>
             
             <p>CSS animations bring life to web pages. The <code>@keyframes</code> rule defines the stages of an animation sequence.</p>
@@ -431,7 +565,7 @@
 }</code></pre>
         </div>
         
-        <div class="section">
+        <div class="section" id="transitions-section">
             <h2>8. <strong>Transitions and Effects</strong></h2>
             
             <p>We learn how to smoothly change property values using <code>transition</code>.</p>
@@ -448,7 +582,7 @@ button:hover {
 }</code></pre>
         </div>
         
-        <div class="section">
+        <div class="section" id="best-practices-section">
             <h2>9. <strong>Best Practices</strong></h2>
             
             <p>While learning CSS, we also pick up techniques that make our code cleaner and more maintainable:</p>
@@ -462,7 +596,7 @@ button:hover {
             </ul>
         </div>
         
-        <div class="section">
+        <div class="section" id="frameworks-section">
             <h2>10. <strong>CSS Frameworks: Bootstrap vs. Tailwind CSS</strong></h2>
             
             <p>As we learn CSS, we often explore <strong>CSS frameworks</strong> to speed up development and follow design best practices. Two of the most popular frameworks are <strong>Bootstrap</strong> and <strong>Tailwind CSS</strong>, but they differ significantly in their approach to styling.</p>
@@ -544,7 +678,7 @@ button:hover {
             </table>
         </div>
         
-        <div class="section">
+        <div class="section" id="properties-section">
             <h2>11. <strong>Commonly Used CSS Properties (Attributes)</strong></h2>
             
             <div class="property-category">
@@ -730,11 +864,65 @@ button:hover {
             </div>
         </div>
         
-        <div class="section">
+        <div class="section" id="final-thoughts-section">
             <h2>Final Thoughts</h2>
             
             <p>Learning CSS means gaining control over the <strong>visual language of the web</strong>. It's a blend of logic and creativity — empowering you to build attractive, responsive, and interactive user experiences. Whether you're crafting a simple landing page or a complex web app, CSS is essential for making your content shine.</p>
         </div>
+    </main>
+    
+    <aside class="toc">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#selector-section">Selectors</a></li>
+            <li><a href="#attributes-section">Attributes & Properties</a></li>
+            <li><a href="#box-model-section">Box Model</a></li>
+            <li><a href="#pseudo-section">Pseudo-classes & Elements</a></li>
+            <li><a href="#positioning-section">Positioning & Layouts</a></li>
+            <li><a href="#media-queries-section">@media Queries</a></li>
+            <li><a href="#animations-section">@keyframes & Animations</a></li>
+            <li><a href="#transitions-section">Transitions & Effects</a></li>
+            <li><a href="#best-practices-section">Best Practices</a></li>
+            <li><a href="#frameworks-section">CSS Frameworks</a></li>
+            <li><a href="#properties-section">CSS Properties</a></li>
+            <li><a href="#final-thoughts-section">Final Thoughts</a></li>
+        </ul>
+    </aside>
+</div>
+
+<button class="scroll-top" id="scrollTop">↑</button>
+
+<script>
+    // Scroll to Top Button
+    const scrollTopBtn = document.getElementById('scrollTop');
+    
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            scrollTopBtn.classList.add('show');
+        } else {
+            scrollTopBtn.classList.remove('show');
+        }
+    });
+    
+    scrollTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    
+    // Smooth scrolling for TOC links
+    document.querySelectorAll('.toc a').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const target = document.querySelector(link.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+</script>
+
+
+        
+       
 
 
         {% endblock content %}

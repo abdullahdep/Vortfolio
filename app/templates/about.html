@@ -32,11 +32,93 @@
         </div>
     </div>
 </section> -->
+<style>.software-title-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
 
+.software-title-wrapper::before {
+    content: "";
+    position: absolute;
+    width: 2000px;
+    height: 250px;
+    background: radial-gradient(
+        circle,
+        rgba(255, 255, 255, 0.9) 0%,
+        rgba(0, 183, 255, 0.5) 30%,
+        rgba(0, 183, 255, 0.15) 60%,
+        transparent 100%
+    );
+    filter: blur(40px);
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.software-title-wrapper h2 {
+    position: relative;
+    color: #000000;
+    font-weight: 700;
+}
+
+
+
+
+
+
+
+
+
+
+
+.card {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    position: relative;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(0, 212, 255, 0.15),
+        rgba(255, 255, 255, 0.05),
+        rgba(138, 43, 226, 0.15)
+    );
+    opacity: 0;
+    transition: 0.4s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 212, 255, 0.25);
+}
+
+.card:hover::before {
+    opacity: 1;
+}
+
+.card-body {
+    position: relative;
+    z-index: 2;
+}
+
+</style>
 <!-- Experience Section -->
 <section class="experience-section py-5">
     <div class="container">
         <div class="row g-4">
+<div class="software-title-wrapper">
+    <h2 class="text-center mb-5">Software Expertise</h2>
+</div>
             <!-- Experience Cards -->
             <div class="col-md-4">
                 <div class="card h-100 border-0 shadow-sm">
@@ -98,7 +180,10 @@
 <!-- Add this after your existing Experience Section -->
 <section class="architecture-section py-5 bg-light">
     <div class="container">
+        <div class="software-title-wrapper">
+
         <h2 class="text-center mb-5">Architecture Expertise</h2>
+        </div>
         <div class="row g-4">
             <!-- Monolithic Architecture -->
             <div class="col-lg-4 col-md-6">

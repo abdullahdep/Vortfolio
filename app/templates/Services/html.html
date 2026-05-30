@@ -176,6 +176,206 @@
         transform: translateY(1px);
         box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
     }
+
+    /* Word-style content wrapper */
+    .WordSection1 {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 30px;
+        background-color: #ffffff;
+        border-radius: 20px;
+        box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+    }
+
+    p.MsoNormal {
+        font-size: 1rem;
+        color: #334155;
+        margin-bottom: 1rem;
+        line-height: 1.8;
+    }
+
+    table.MsoNormalTable {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 24px 0;
+        background-color: #f8fafc;
+        border-radius: 14px;
+        overflow: hidden;
+    }
+
+    table.MsoNormalTable td,
+    table.MsoNormalTable th {
+        padding: 14px 16px;
+        border: 1px solid #e2e8f0;
+        vertical-align: top;
+    }
+
+    table.MsoNormalTable thead td {
+        background-color: #0f172a;
+        color: #f8fafc;
+        font-weight: 700;
+    }
+
+    ul,
+    ol {
+        margin: 0 0 1.25rem 1.5rem;
+        color: #334155;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 1.5rem auto;
+        border-radius: 18px;
+    }
+
+    .image-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 2.5rem auto;
+        max-width: 680px;
+    }
+
+    .image-wrapper.side {
+        float: right;
+        margin: 0 0 1.5rem 2rem;
+        max-width: 320px;
+        align-items: stretch;
+    }
+
+    .image-container {
+        background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+        border: 2px solid rgba(96, 165, 250, 0.15);
+        border-radius: 24px;
+        padding: 1.5rem;
+        box-shadow: 0 20px 50px rgba(15, 23, 42, 0.1);
+        width: 100%;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .image-wrapper.side .image-container {
+        padding: 1rem;
+        max-width: 320px;
+    }
+
+    .image-container:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 24px 60px rgba(15, 23, 42, 0.15);
+    }
+
+    .image-container img {
+        width: 100%;
+        height: auto;
+        border-radius: 16px;
+        margin: 0;
+    }
+
+    .image-caption {
+        margin-top: 1.25rem;
+        text-align: center;
+        font-size: 0.95rem;
+        color: #64748b;
+        font-weight: 500;
+        line-height: 1.6;
+    }
+
+    .image-wrapper.side .image-caption {
+        font-size: 0.85rem;
+        margin-top: 0.75rem;
+    }
+
+    @media (max-width: 768px) {
+        .image-wrapper.side {
+            float: none;
+            margin: 1.5rem auto;
+            max-width: 100%;
+        }
+    }
+
+    .page-shell {
+        padding: 20px 0;
+    }
+
+    .page-top {
+        display: grid;
+        gap: 30px;
+        grid-template-columns: minmax(0, 1fr) 320px;
+        align-items: start;
+        margin-bottom: 2rem;
+    }
+
+    .page-intro {
+        max-width: 860px;
+    }
+
+    .page-title {
+        text-align: left;
+        font-size: 3rem;
+        letter-spacing: -0.04em;
+        line-height: 1.05;
+        margin-bottom: 0.75rem;
+        color: #102a43;
+    }
+
+    .lead {
+        font-size: 1.1rem;
+        color: #475569;
+        max-width: 750px;
+        margin-bottom: 1.5rem;
+    }
+
+    .toc-card {
+        background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+        border: 1px solid rgba(96, 165, 250, 0.2);
+        border-radius: 24px;
+        padding: 1.5rem;
+        box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+    }
+
+    .toc-card .toc-title {
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: #334155;
+    }
+
+    .toc-card ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .toc-card li {
+        margin-bottom: 0.85rem;
+    }
+
+    .toc-card a {
+        color: #0f172a;
+        text-decoration: none;
+        font-weight: 600;
+        transition: color 0.2s ease, transform 0.2s ease;
+    }
+
+    .toc-card a:hover {
+        color: #007dff;
+        transform: translateX(3px);
+    }
+
+    .section-heading {
+        margin-top: 2.5rem;
+        margin-bottom: 1rem;
+        font-size: 2rem;
+        color: #0f172a;
+    }
+
+    @media (max-width: 990px) {
+        .page-top {
+            grid-template-columns: 1fr;
+        }
+    }
 </style>
 
 <script>
@@ -205,19 +405,30 @@
     });
 </script>
 
-</head>
-
-<body lang=EN-US style='word-wrap:break-word'>
-
+<div class="page-shell">
 <div class=WordSection1>
 
-<p class=MsoNormal><b>Understanding Semantic vs Non-Semantic HTML</b></p>
+<div class="page-top">
+    <div class="page-intro">
+        <h1 id="semantic-vs-nonsemantic" class="page-title">Understanding Semantic vs Non-Semantic HTML</h1>
+        <p class="lead">Looking at your comprehensive content on HTML, I’ve reviewed the information and found it largely accurate and well-structured. Let’s make it easier to scan, navigate, and read.</p>
+    </div>
 
-<p class=MsoNormal>Looking at your comprehensive content on HTML, I've reviewed
-the information and found it largely accurate and well-structured. Let me
-enhance it with some additional insights and improve the organization.</p>
+    <aside class="toc-card">
+        <h2 class="toc-title">Quick links</h2>
+        <ul>
+            <li><a href="#semantic-vs-nonsemantic">Semantic vs Non-Semantic</a></li>
+            <li><a href="#why-semantic-html">Why Use Semantic HTML</a></li>
+            <li><a href="#website-indexing">Website Indexing</a></li>
+            <li><a href="#essential-html">Essential HTML</a></li>
+            <li><a href="#seo-metadata">SEO &amp; Metadata</a></li>
+            <li><a href="#html5-apis">HTML5 APIs</a></li>
+            <li><a href="#all-html-tags">All HTML Tags</a></li>
+        </ul>
+    </aside>
+</div>
 
-<p class=MsoNormal><b>Semantic vs Non-Semantic HTML</b></p>
+<h2 id="semantic-vs-nonsemantic-details" class="section-heading">Semantic vs Non-Semantic HTML</h2>
 
 <table class=MsoNormalTable border=1 cellpadding=0 style='border:solid windowtext 1.0pt'>
  <thead>
@@ -259,7 +470,7 @@ enhance it with some additional insights and improve the organization.</p>
  </tr>
 </table>
 
-<p class=MsoNormal><b>Why Do We Use Semantic HTML?</b></p>
+<h2 id="why-semantic-html" class="section-heading">Why Do We Use Semantic HTML?</h2>
 
 <p class=MsoNormal>In the early days of the web, <b>non-semantic HTML</b>
 (&lt;div&gt;, &lt;span&gt;) was sufficient for designing web pages. However, in
@@ -287,7 +498,7 @@ reasons:</p>
      technologies.</li>
 </ol>
 
-<p class=MsoNormal><b>Note on Website Indexing:</b></p>
+<h2 id="website-indexing" class="section-heading">Note on Website Indexing</h2>
 
 <p class=MsoNormal>All websites (CMS-based and custom-built) need proper
 indexing for search engines. This requires:</p>
@@ -307,7 +518,7 @@ indexing for search engines. This requires:</p>
 settings help, they don't guarantee indexing unless all basic requirements are
 met.</p>
 
-<p class=MsoNormal><b>Custom-Built vs CMS Websites</b></p>
+<h2 id="custom-built-vs-cms" class="section-heading">Custom-Built vs CMS Websites</h2>
 
 <ul style='margin-top:0in' type=disc>
  <li class=MsoNormal><b>Custom-Built Website</b>: A website built from scratch
@@ -327,7 +538,7 @@ deployment, semantic HTML is crucial for production-level websites that need to
 perform well in search engines, maintain accessibility standards, and scale
 efficiently.</p>
 
-<p class=MsoNormal><b>What Do We Need to Learn in HTML?</b></p>
+<h2 id="essential-html" class="section-heading">What Do We Need to Learn in HTML?</h2>
 
 <p class=MsoNormal>HTML (HyperText Markup Language) is the foundation of every
 webpage. It's a markup language used to create the <b>structure</b> of a web
@@ -380,7 +591,7 @@ most <b>commonly used and practical</b> elements:</p>
      &lt;nav&gt;, &lt;menu&gt;</li>
 </ul>
 
-<p class=MsoNormal><b>SEO and Metadata Tags</b></p>
+<h2 id="seo-metadata" class="section-heading">SEO and Metadata Tags</h2>
 
 <p class=MsoNormal>SEO tags help improve visibility on search engines and
 control how your content appears when shared.</p>
@@ -408,7 +619,7 @@ follow&quot;&gt;</p>
 <p class=MsoNormal>&lt;meta name=&quot;viewport&quot;
 content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</p>
 
-<p class=MsoNormal><b>Open Graph (for Facebook, LinkedIn):</b></p>
+<h2 id="open-graph" class="section-heading">Open Graph (for Facebook, LinkedIn)</h2>
 
 <p class=MsoNormal>&lt;meta property=&quot;og:title&quot;
 content=&quot;...&quot; /&gt;</p>
@@ -428,7 +639,7 @@ content=&quot;website&quot; /&gt;</p>
 <p class=MsoNormal>&lt;meta property=&quot;og:site_name&quot;
 content=&quot;...&quot; /&gt;</p>
 
-<p class=MsoNormal><b>Twitter Card Tags:</b></p>
+<h2 id="twitter-card-tags" class="section-heading">Twitter Card Tags</h2>
 
 <p class=MsoNormal>&lt;meta name=&quot;twitter:card&quot;
 content=&quot;summary_large_image&quot; /&gt;</p>
@@ -450,32 +661,26 @@ content=&quot;@creator&quot; /&gt;</p>
 
 <p class=MsoNormal>&nbsp;</p>
 
-<p class=MsoNormal align=center style='text-align:center'><b><span
-style='font-size:20.0pt;line-height:107%'>Open Graph &amp; twitter Card <br>
-<br>
-</span></b></p>
+<h3 id="open-graph-twitter-card" class="section-heading">Open Graph &amp; Twitter Card</h3>
 
-<p class=MsoNormal><span style='position:absolute;z-index:251661312;margin-left:
-10px;margin-top:722px;width:381px;height:97px'><img width=381 height=97
-src="Understanding%20Semantic%20vs%20Non_files/image001.png"></span><span
-style='position:absolute;z-index:251660288;margin-left:136px;margin-top:280px;
-width:249px;height:49px'><img width=249 height=49
-src="Understanding%20Semantic%20vs%20Non_files/image002.png"></span><span
-style='position:absolute;z-index:251659264;margin-left:32px;margin-top:30px;
-width:161px;height:51px'><img width=161 height=51
-src="Understanding%20Semantic%20vs%20Non_files/image003.png"></span><img
-width=416 height=930 id="Picture 1"
-src="Understanding%20Semantic%20vs%20Non_files/image004.jpg"></p>
+<div class="image-wrapper side">
+    <div class="image-container">
+        <img src="https://lh3.googleusercontent.com/pw/AP1GczOYpcIrjmQooloPl5eyELCpHFDytH3bxGk4wATV8pAxc8YF3qIf1ZIz46FY6UVtnnxNqi2Dth7wTgPWgHvRMcIRoFIzxyBO9wnS-I-7FxAf7H5xG4ii3r-WeJ146LPgdsG5XCoDMysbZ_LyXLLshR4x=w360-h640-s-no-gm?authuser=0" alt="Open Graph and Twitter Card Preview Guide">
+    </div>
+    <p class="image-caption">Social media preview example</p>
+</div>
 
-<p class=MsoNormal>&nbsp;</p>
+<p class=MsoNormal>Open Graph and Twitter Card tags enable rich previews when your content is shared on social platforms. When someone shares a link from your site on Facebook, LinkedIn, Twitter, or other social networks, these meta tags control what image, title, and description appear in the preview card.</p>
 
-<p class=MsoNormal>&nbsp;</p>
+<p class=MsoNormal>The metadata you provide should be:</p>
 
-<p class=MsoNormal>&nbsp;</p>
+<ul style='margin-top:0in' type=disc>
+<li class=MsoNormal><b>Accurate</b> — Match your actual page content</li>
+<li class=MsoNormal><b>Optimized</b> — Use high-quality images (1200x630px minimum for og:image)</li>
+<li class=MsoNormal><b>Consistent</b> — Follow the same format across all pages</li>
+</ul>
 
-<p class=MsoNormal>&nbsp;</p>
-
-<p class=MsoNormal><b>Other Useful Tags:</b></p>
+<h3 id="other-useful-tags" class="section-heading">Other Useful Tags</h3>
 
 <ul style='margin-top:0in' type=disc>
  <li class=MsoNormal>&lt;link rel=&quot;canonical&quot;
@@ -488,7 +693,7 @@ src="Understanding%20Semantic%20vs%20Non_files/image004.jpg"></p>
      href=&quot;...&quot;&gt; - For favicon</li>
 </ul>
 
-<p class=MsoNormal><b>Semantic Tags</b></p>
+<h2 id="semantic-tags" class="section-heading">Semantic Tags</h2>
 
 <p class=MsoNormal>Used to define meaningful content structure:</p>
 
@@ -508,7 +713,7 @@ src="Understanding%20Semantic%20vs%20Non_files/image004.jpg"></p>
      Code and technical text formatting</li>
 </ul>
 
-<p class=MsoNormal><b>HTML5 APIs (Advanced Use)</b></p>
+<h2 id="html5-apis" class="section-heading">HTML5 APIs (Advanced Use)</h2>
 
 <ul style='margin-top:0in' type=disc>
  <li class=MsoNormal>&lt;canvas&gt; - For drawing graphics via JavaScript</li>
@@ -527,7 +732,7 @@ src="Understanding%20Semantic%20vs%20Non_files/image004.jpg"></p>
 <br>
 Further it depend on your choise to get knocked by these</p>
 
-<p class=MsoNormal><b>All HTML Tags with Use Case</b></p>
+<h2 id="all-html-tags" class="section-heading">All HTML Tags with Use Case</h2>
 
 <table class=MsoNormalTable border=0 cellpadding=0>
  <thead>
@@ -2230,7 +2435,5 @@ maintainable.</p>
 <p class=MsoNormal>&nbsp;</p>
 
 </div>
-
-</body>
 
 {% endblock content %}
