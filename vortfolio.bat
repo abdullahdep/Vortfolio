@@ -1,6 +1,8 @@
 @echo off
-call .\.venv\Scripts\activate
-echo using python virtual enviroment if avalible while global
-python manage.py runserver 0.0.0.0:8000
-echo bat_done
+set envname=venv
+call pip install virtualenv
+call python -m venv %envname%
+call .\%envname%\Scripts\activate
+call pip install -r requirements.txt
+echo installation has been completed
 pause

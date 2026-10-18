@@ -183,7 +183,8 @@
     }
   </style>
 </head>
-<body style="margin-top: 10px;">
+
+  <main>
   <div class="container">
     <!-- Category Pills -->
     <div class="category-pills">
@@ -217,7 +218,26 @@
             </div>
           </div>
       </div>
-
+       <!-- Video 1 -->
+    <div class="video-card">
+        <a href="{% url 'cppp' %}" class="thumbnail-container">
+          <img src="https://lh3.googleusercontent.com/pw/AP1GczMBxAd3si_jeLnDrT_T3RUbKIJ96ALTDo1uxQWYpt31ASjk2NCYxbFOdaEM0iHtj3mMAkntddC_FZHv_ND9NBj_SpdZYZrhxAeQEVlqXEkHqlAQUP3iLDLQ7Z92WNcqoQ_7-JrzT0Xwh7Nr5yvSRsz5=w942-h495-s-no-gm?authuser=0" alt="Advanced React Patterns Every Developer Should Know" class="thumbnail">
+        </a>
+          
+          <div class="video-details m-1">
+            <a href="{% url 'cppp' %}">
+              <h3 class="video-title">C++ 🤔 Interogational🔎 Investigation 🤐</h3>
+            </a>
+            <a href="{% url 'cppp' %}">
+              <p class="channel-name">Software Development Guide by <b>Vortfolio</b></p>
+            </a>
+            <div class="channel-name">
+              <span><b>Current: 10k views </b> </span>
+              <span>•</span>
+              <span>Published on Oct 19, 2026</span>
+            </div>
+          </div>
+      </div>
 
       
 
@@ -242,6 +262,6 @@
       });
     });
   </script>
-</body>
+</main>
 </html>
 {% endblock content %}

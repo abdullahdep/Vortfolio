@@ -9,6 +9,7 @@ sitemaps = {
 
 urlpatterns = [
     path("media-test/", views.r2_media_view, name="r2_media_test"),
+    path("cppp", views.cppp, name="cppp"),
     path("", views.index, name="index"),
     path("about", views.about, name="about"),
     path("projects", views.projects, name="projects"),

@@ -6,6 +6,9 @@ from .models import ConsultationRequest
 from django.urls import get_resolver, reverse, NoReverseMatch
 
 # Create your views here.
+def cppp(request):
+    return render(request, "learn/Cppp/introduction.html" )
+
 
 #global variables 
 def global_vars(request):
